@@ -3,6 +3,7 @@
     "chrome-devtools-mcp@claude-plugins-official": true
   },
   "permissions": {
-  "allow": ["Bash(gh pr merge:*)", "Bash(gh issue close:*)"]
+  "allow": ["Bash(gh pr merge:*)", "Bash(gh issue close:*)"],
+  "deny": ["Bash(gh pr merge * --admin*)", "Bash(gh pr merge * -R*)", "Bash(gh pr merge * --repo*)"]
 }
 }
