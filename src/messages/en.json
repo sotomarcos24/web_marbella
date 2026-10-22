@@ -183,5 +183,11 @@
       "servicio-bajo-presupuesto": "Some service is quoted separately and is not included in the total.",
       "cancelacion-gratuita-vencida": "Free cancellation is no longer available: check-in is less than {dias} days away."
     }
+  },
+  "booking": {
+    "errores": {
+      "fechas-ocupadas": "Those dates are already booked: please choose others or check the calendar.",
+      "requiere-oferta": "For long winter stays we prepare a tailored offer: request one and we will get back to you."
+    }
   }
 }
