@@ -163,5 +163,25 @@
         }
       }
     }
+  },
+  "pricing": {
+    "errores": {
+      "fechas-invalidas": "The dates are not valid: check-out must be after check-in.",
+      "fecha-pasada": "The check-in date has already passed.",
+      "estancia-minima": "The minimum stay is {min} nights.",
+      "estancia-maxima": "The maximum stay is {max} nights.",
+      "capacidad": "The maximum capacity is {plazas} guests.",
+      "huespedes-invalidos": "Enter a valid number of guests.",
+      "mascotas-invalidas": "Enter a valid number of pets.",
+      "extra-invalido": "Check the extra services: one of them is not valid (e.g. the private chef requires a minimum number of diners)."
+    },
+    "avisos": {
+      "oferta-invierno": "Request a winter stay offer",
+      "limpieza-cada-2-dias-incluida": "Cleaning every 2 days included in the price.",
+      "tarifa-estimada": "Part of the price is an estimated rate, pending confirmation.",
+      "servicio-provisional": "Some service has a provisional price, pending confirmation.",
+      "servicio-bajo-presupuesto": "Some service is quoted separately and is not included in the total.",
+      "cancelacion-gratuita-vencida": "Free cancellation is no longer available: check-in is less than {dias} days away."
+    }
   }
 }

@@ -163,5 +163,25 @@
         }
       }
     }
+  },
+  "pricing": {
+    "errores": {
+      "fechas-invalidas": "Las fechas no son válidas: la salida debe ser posterior a la llegada.",
+      "fecha-pasada": "La fecha de llegada ya ha pasado.",
+      "estancia-minima": "La estancia mínima es de {min} noches.",
+      "estancia-maxima": "La estancia máxima es de {max} noches.",
+      "capacidad": "La capacidad máxima es de {plazas} huéspedes.",
+      "huespedes-invalidos": "Indica un número de huéspedes válido.",
+      "mascotas-invalidas": "Indica un número de mascotas válido.",
+      "extra-invalido": "Revisa los servicios extra: alguno no es válido (p. ej., el chef privado requiere un mínimo de comensales)."
+    },
+    "avisos": {
+      "oferta-invierno": "Solicita oferta de estancia de invierno",
+      "limpieza-cada-2-dias-incluida": "Limpieza cada 2 días incluida en el precio.",
+      "tarifa-estimada": "Parte del precio es una tarifa estimada, pendiente de confirmar.",
+      "servicio-provisional": "Algún servicio tiene un precio provisional, pendiente de confirmar.",
+      "servicio-bajo-presupuesto": "Algún servicio se presupuesta aparte y no está incluido en el total.",
+      "cancelacion-gratuita-vencida": "Ya no es posible la cancelación gratuita: la llegada es en menos de {dias} días."
+    }
   }
 }
