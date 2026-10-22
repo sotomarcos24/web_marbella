@@ -10,7 +10,7 @@ Etiquetas: `setup`, `i18n`, `design`, `data`, `content`, `pricing`, `booking`, `
 |---|---|---|
 | M1 Cimientos ✅ | Proyecto arrancable, i18n, marca, diseño | #1–#4 |
 | M2 Datos y negocio ✅ | Modelo, tarifas, servicios, calculadora, reservas mock | #5–#10 |
-| M3 Contenido y fotos | Textos ES/EN y pipeline de fotos | #11–#15 |
+| M3 Contenido y fotos ✅ | Textos ES/EN y pipeline de fotos | #11–#15 |
 | M4 Herramientas /dev | /dev/cotizador, /dev/zonas, /dev/fotos | #16–#19 |
 
 Orden recomendado: M1 → M2 → (M3 ‖ resto de M2) → M4. Paralelizables: #3 ‖ #5; #6 ‖ #7 ‖ #11 tras #5; #8 ‖ #9 tras #7; #17 ‖ #18 tras #16.
@@ -138,13 +138,14 @@ Desarrollado con fixtures sintéticos; ejecución real sobre `imgs/` (ya disponi
 - [x] Sin logo, dirección ni texto legal (recortes verificados visualmente al ejecutar con `imgs/`)
 - [x] Salida: `planta-baja.webp` y `planta-alta.webp` por villa
 
-### #15 Catálogo `fotos.ts` y resumen — `photos`, `data` · L · dep #13,#14 · **[visión]** desbloqueado (`imgs/` ya está; quitar la etiqueta `blocked`)
-- [ ] 4 subagentes en paralelo (uno por villa) clasifican cada foto; el agente principal consolida
-- [ ] `fotos.ts` con villa, archivo, zona, tipo, estanciaSugerida, confianza, alt ES y EN
-- [ ] Portadas provisionales apuntan a villa3_019, villa5_002, villa1_012, villa4_059
-- [ ] Test: todo archivo de `fotos.ts` existe en `public/`; tipos válidos
-- [ ] Tabla resumen por villa y lista de baja confianza entregadas
-- [ ] **[visión]** Señalar fotos nocturnas con el mismo encuadre que la portada (para el botón día/noche), si las hay
+### #15 Catálogo `fotos.ts` y resumen — `photos`, `data` · L · dep #13,#14 ✅ PR #34
+- [x] 4 subagentes en paralelo (uno por villa) clasifican cada foto; el agente principal consolida
+- [x] `fotos.ts` con villa, archivo, zona, tipo, estanciaSugerida, confianza, alt ES y EN
+- [x] Portadas provisionales apuntan a villa3_019, villa5_002, villa1_012, villa4_059
+- [x] Test: todo archivo de `fotos.ts` existe en `public/`; tipos válidos
+- [x] Tabla resumen por villa y lista de baja confianza entregadas
+- [x] **[visión]** Señalar fotos nocturnas con el mismo encuadre que la portada (para el botón día/noche), si las hay
+Archivos: `src/content/fotos.ts`, `docs/fotos-resumen.md`, `scripts/photos.config.ts` (exclusiones y recorte del sello). Salida del pipeline en `public/images/villas/villa-N/` (planos `plano-planta-*.webp`). Sin nocturna con el encuadre de la portada: `imagenNoche` vacío.
 
 ---
 
