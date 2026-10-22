@@ -9,7 +9,7 @@ Etiquetas: `setup`, `i18n`, `design`, `data`, `content`, `pricing`, `booking`, `
 | Milestone | Objetivo | Issues |
 |---|---|---|
 | M1 Cimientos ✅ | Proyecto arrancable, i18n, marca, diseño | #1–#4 |
-| M2 Datos y negocio | Modelo, tarifas, servicios, calculadora, reservas mock | #5–#10 |
+| M2 Datos y negocio ✅ | Modelo, tarifas, servicios, calculadora, reservas mock | #5–#10 |
 | M3 Contenido y fotos | Textos ES/EN y pipeline de fotos | #11–#15 |
 | M4 Herramientas /dev | /dev/cotizador, /dev/zonas, /dev/fotos | #16–#19 |
 
@@ -100,11 +100,12 @@ Tests primero.
 Decisiones: villa-1 sin suplemento fuera de agosto (250 € si alguna noche cae en agosto); la oferta de invierno cuenta solo las noches de dic–mar.
 Archivos: `src/lib/pricing.ts`, `src/lib/pricing.test.ts`.
 
-### #10 Reservas simuladas — `booking` · M · dep #9
-- [ ] Interfaz `BookingProvider` (`disponibilidad`, `cotizar`, `crearReserva`)
-- [ ] `MockBookingProvider` con `occupied.json` inventado (≥3 rangos por villa)
-- [ ] Tests: rango libre/ocupado, solape parcial, `cotizar` delega en `pricing`, `crearReserva` rechaza fechas ocupadas
-- [ ] Ninguna importación de `MockBookingProvider` fuera de un único punto de composición
+### #10 Reservas simuladas — `booking` · M · dep #9 · ✅ PR #29
+- [x] Interfaz `BookingProvider` (`disponibilidad`, `cotizar`, `crearReserva`)
+- [x] `MockBookingProvider` con `occupied.json` inventado (≥3 rangos por villa)
+- [x] Tests: rango libre/ocupado, solape parcial, `cotizar` delega en `pricing`, `crearReserva` rechaza fechas ocupadas
+- [x] Ninguna importación de `MockBookingProvider` fuera de un único punto de composición
+Decisiones: rangos semiabiertos (el día de salida queda libre); el punto de composición lo vigila `no-restricted-imports` en ESLint.
 Archivos: `src/lib/booking/{types,mock,occupied.json,index}.ts`.
 
 ---
