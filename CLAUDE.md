@@ -4,7 +4,7 @@
 Frontend de la web de alquiler vacacional **Soto Village Marbella**: 4 villas de lujo (villa-1, 3, 4, 5) en Calle Los Lirios, Puerto Banús. Solo frontend: sin backend, base de datos, pagos reales, cookies ni SEO. Demo en local, pero código limpio y modular, apto para producción.
 - Especificación: `docs/SPEC.md` · Plan: `docs/plan.md` · Milestones e issues: `docs/milestones.md` · Experiencia interactiva (fases 2–5): `docs/vision.md`.
 - Repo: https://github.com/sotomarcos24/web_marbella
-- Estado: Fase 1 (cimientos + herramientas internas, issues #1–#19, sin empezar: siguiente paso `/issue 1`). La visión está aprobada; se implementa al cerrar la Fase 1. Pletor (MCP) aún sin acceso: solo hace falta en la Fase 3.
+- Estado: Fase 1 (cimientos + herramientas internas, issues #1–#19; cerrados: #1; siguiente paso `/issue 2`). La visión está aprobada; se implementa al cerrar la Fase 1. Pletor (MCP) aún sin acceso: solo hace falta en la Fase 3.
 
 ## Flujo de trabajo
 - Eres el agente principal: coordinas, mantienes el contexto y lanzas subagentes; no delegues decisiones de diseño.
@@ -16,7 +16,7 @@ Frontend de la web de alquiler vacacional **Soto Village Marbella**: 4 villas de
 - El visto bueno de merge llega con `/ok`: anota el progreso (`docs/milestones.md`, línea Estado de este archivo…), hace merge del PR a main, cierra el issue y borra la rama.
 
 ## Stack y comandos
-Next.js (App Router) + TypeScript estricto + Tailwind · next-intl (es por defecto, en) · Motion + Lenis (scroll con `useScroll` + `position: sticky`; sin GSAP) · Vitest · sharp y ffmpeg para imágenes y fotogramas. Última versión estable de cada librería.
+Next.js (App Router) + TypeScript estricto + Tailwind · next-intl (es por defecto, en) · Motion + Lenis (scroll con `useScroll` + `position: sticky`; sin GSAP) · Vitest · sharp y ffmpeg para imágenes y fotogramas. Última versión estable de cada librería, salvo TypeScript 6.0 y ESLint 9 (`eslint-config-next` aún no admite TS 7 ni ESLint 10).
 Comandos previstos (se crean en el issue de scaffold): `npm run dev | build | lint | typecheck | test`. Antes de dar algo por hecho: lint, typecheck y tests en verde.
 
 ## Estructura
