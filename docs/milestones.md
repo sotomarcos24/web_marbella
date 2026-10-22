@@ -72,11 +72,11 @@ Archivos: `src/types/*`, `src/lib/validation/villa.ts`.
 - [x] Hero con portadas provisionales (rutas placeholder) y zonas `jardin`, `planta-baja`, `planta-alta` con polígonos de ejemplo
 - [x] Todas las villas pasan `validarVilla()`
 
-### #7 Tarifas (`tarifas.ts`) — `pricing`, `data` · S · dep #5
-- [ ] Tabla de 12 meses × villa-1 / villa-3 / villa-4-5 exacta (test comparando con SPEC §8)
-- [ ] villa-3 julio con `estimado: true`
-- [ ] Constantes: estancia 3–59, invierno >28 noches dic–mar, entrada 16:00/salida 10:00, limpieza 450 €, fianza 1.000 €, pagos 25/75 a 30 días, cancelación 60 días y 2 %, mascotas 200 €, suplementos por villa
-- [ ] Importes en céntimos enteros
+### #7 Tarifas (`tarifas.ts`) — `pricing`, `data` · S · dep #5 · ✅ PR #25
+- [x] Tabla de 12 meses × villa-1 / villa-3 / villa-4-5 exacta (test comparando con SPEC §8)
+- [x] villa-3 julio con `estimado: true`
+- [x] Constantes: estancia 3–59, invierno >28 noches dic–mar, entrada 16:00/salida 10:00, limpieza 450 €, fianza 1.000 €, pagos 25/75 a 30 días, cancelación 60 días y 2 %, mascotas 200 €, suplementos por villa
+- [x] Importes en céntimos enteros
 
 ### #8 Servicios (`servicios.ts`) — `data` · S · dep #6,#7
 - [ ] Solo los 7 servicios de SPEC §9; sin traslados, despedidas, fotos ni spa (test de ids permitidos)
