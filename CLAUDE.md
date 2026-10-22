@@ -4,7 +4,7 @@
 Frontend de la web de alquiler vacacional **Soto Village Marbella**: 4 villas de lujo (villa-1, 3, 4, 5) en Calle Los Lirios, Puerto Banús. Solo frontend: sin backend, base de datos, pagos reales, cookies ni SEO. Demo en local, pero código limpio y modular, apto para producción.
 - Especificación: `docs/SPEC.md` · Plan: `docs/plan.md` · Milestones e issues: `docs/milestones.md` · Experiencia interactiva (fases 2–5): `docs/vision.md`.
 - Repo: https://github.com/sotomarcos24/web_marbella
-- Estado: Fase 1 (cimientos + herramientas internas, issues #1–#19; cerrados: #1; siguiente paso `/issue 2`). La visión está aprobada; se implementa al cerrar la Fase 1. Pletor (MCP) aún sin acceso: solo hace falta en la Fase 3.
+- Estado: Fase 1 (cimientos + herramientas internas, issues #1–#19; cerrados: #1, #2; siguiente paso `/issue 3`). La visión está aprobada; se implementa al cerrar la Fase 1. Pletor (MCP) aún sin acceso: solo hace falta en la Fase 3.
 
 ## Flujo de trabajo
 - Eres el agente principal: coordinas, mantienes el contexto y lanzas subagentes; no delegues decisiones de diseño.
@@ -27,7 +27,7 @@ Comandos previstos (se crean en el issue de scaffold): `npm run dev | build | li
 - `/dev/*` y `/api/dev/*`: herramientas internas, solo en desarrollo (404 en producción).
 
 ## Convenciones
-- Ningún texto visible en componentes: todo en `messages/es.json` y `en.json` (mismas claves). Nada de "Lirios Village", ni nombres de personas de las fichas antiguas.
+- Ningún texto visible en componentes: todo en `src/messages/es.json` y `en.json` (mismas claves; lo vigila la regla de lint `react/jsx-no-literals`). Nada de "Lirios Village", ni nombres de personas de las fichas antiguas.
 - Zonas y estancias: polígonos en coordenadas normalizadas 0–1 sobre su imagen.
 - Capacidad máxima siempre 15 (tope legal andaluz). Importes en céntimos enteros; formato solo en UI. Fechas en UTC; `pricing.ts` recibe `hoy` como parámetro.
 - Datos pendientes siempre marcados, nunca inventados: inscripción turística, coordenadas, dormitorios de villa-1 (plano muestra 6), tarifa de julio de villa-3 (estimada), limpieza diaria (provisional).
