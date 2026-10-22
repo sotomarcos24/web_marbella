@@ -11,5 +11,16 @@ export default defineConfig([
     ignores: ["**/*.test.tsx"],
     rules: { "react/jsx-no-literals": "error" },
   },
+  {
+    // El mock de reservas solo se instancia en el punto de composición (src/lib/booking/index.ts).
+    files: ["src/**/*.{ts,tsx}"],
+    ignores: ["src/lib/booking/index.ts", "**/*.test.{ts,tsx}"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        { patterns: [{ group: ["**/booking/mock", "./mock"], message: "Usa bookingProvider de @/lib/booking." }] },
+      ],
+    },
+  },
   globalIgnores(["coverage/**", "imgs/**", "public/**"]),
 ]);

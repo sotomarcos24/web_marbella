@@ -19,7 +19,7 @@ import type { Mes } from "@/types/tarifa";
 const MS_DIA = 86_400_000;
 
 /** Días UTC de una fecha `YYYY-MM-DD` válida; `null` si no lo es (p. ej. 30 de febrero). */
-function aDia(fecha: FechaISO): number | null {
+export function aDia(fecha: FechaISO): number | null {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(fecha);
   if (!m) return null;
   const [a, me, d] = [Number(m[1]), Number(m[2]), Number(m[3])];

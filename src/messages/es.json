@@ -183,5 +183,11 @@
       "servicio-bajo-presupuesto": "Algún servicio se presupuesta aparte y no está incluido en el total.",
       "cancelacion-gratuita-vencida": "Ya no es posible la cancelación gratuita: la llegada es en menos de {dias} días."
     }
+  },
+  "booking": {
+    "errores": {
+      "fechas-ocupadas": "Esas fechas ya están reservadas: elige otras o consulta el calendario.",
+      "requiere-oferta": "Para estancias largas de invierno preparamos una oferta a medida: solicítala y te responderemos."
+    }
   }
 }
