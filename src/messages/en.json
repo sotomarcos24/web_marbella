@@ -11,5 +11,87 @@
       "es": "Español",
       "en": "English"
     }
+  },
+  "DevEstilos": {
+    "title": "Design system",
+    "intro": "Palette, typefaces and base components of the warm Mediterranean style. Provisional.",
+    "sections": {
+      "palette": "Palette",
+      "typography": "Typefaces",
+      "scale": "Type scale",
+      "buttons": "Buttons",
+      "cards": "Cards",
+      "inputs": "Fields",
+      "motion": "Animation",
+      "dark": "Dark scene"
+    },
+    "colors": {
+      "cal": "Lime wash · background",
+      "arena": "Sand",
+      "terracota": "Terracotta · accent",
+      "oliva": "Olive",
+      "mar": "Sea",
+      "tinta": "Ink · text",
+      "noche": "Night · dark scenes"
+    },
+    "contrast": "{ratio}:1 on lime wash",
+    "contrastNote": "Terracotta and olive do not reach AA for normal text on lime wash: large text or non-text elements only.",
+    "fonts": {
+      "display": "Cormorant Garamond · display",
+      "sans": "DM Sans · text",
+      "sample": "White houses facing the Mediterranean",
+      "sampleItalic": "a light that stays",
+      "body": "Four villas with pools a few minutes from Puerto Banús, designed for large groups and long stays."
+    },
+    "scale": {
+      "display": "Display",
+      "xl": "Heading XL",
+      "lg": "Heading L",
+      "md": "Heading M",
+      "body": "Body text: clear, easy to read and with plenty of space.",
+      "small": "Small text for notes and secondary details."
+    },
+    "buttons": {
+      "primary": "Book",
+      "secondary": "See villas",
+      "ghost": "More information",
+      "disabled": "Unavailable"
+    },
+    "cards": {
+      "title": "Porch with pool",
+      "body": "Afternoon shade, sun loungers and garden views.",
+      "darkTitle": "Upper floor",
+      "darkBody": "Four bedrooms with en-suite bathrooms."
+    },
+    "inputs": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "hint": "We will send the confirmation here."
+      },
+      "guests": {
+        "label": "Guests",
+        "hint": "Maximum 15 per villa.",
+        "error": "Exceeds the villa's maximum capacity."
+      }
+    },
+    "motion": {
+      "title": "Inside the villa",
+      "replay": "Replay animation",
+      "rooms": {
+        "salon": "Living room",
+        "cocina": "Kitchen",
+        "dormitorio": "Bedroom"
+      }
+    },
+    "dark": {
+      "eyebrow": "Explore the villa",
+      "title": "Welcome <em>home</em>",
+      "body": "Transitions and explorers are dark; editorial sections use lime wash.",
+      "cta": "Enter"
+    }
   }
 }
