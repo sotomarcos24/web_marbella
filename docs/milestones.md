@@ -39,13 +39,13 @@ Archivos: `package.json`, `tsconfig.json`, `next.config.ts`, `vitest.config.mts`
 - [x] Selector de idioma básico funcionando
 Archivos: `src/i18n/*`, `src/proxy.ts` (Next 16 renombra `middleware.ts`), `src/messages/*.json`, `src/config/site.ts`, `src/components/providers/LenisProvider.tsx`.
 
-### #3 Sistema de diseño y /dev/estilos — `design` · M · dep #1,#2
-- [ ] Tokens Tailwind: cal, arena, terracota, oliva, mar, tinta y **[visión]** noche (#14110F) con los hex exactos
-- [ ] **[visión]** Cormorant Garamond (display, con cursiva) y DM Sans (texto) con `next/font`
-- [ ] Componentes base: Button, Card, Input, Heading, Container
-- [ ] `/dev/estilos` muestra paleta, tipografías, escala de texto, botones, tarjetas, inputs, una animación Motion y **[visión]** una muestra de escena oscura
-- [ ] Contraste del texto sobre fondo cal ≥ AA (comprobado)
-Archivos: `tailwind` config/CSS, `src/components/ui/*`, `src/app/[locale]/dev/estilos/page.tsx`.
+### #3 Sistema de diseño y /dev/estilos — `design` · M · dep #1,#2 · ✅ PR #22
+- [x] Tokens Tailwind: cal, arena, terracota, oliva, mar, tinta y **[visión]** noche (#14110F) con los hex exactos
+- [x] **[visión]** Cormorant Garamond (display, con cursiva) y DM Sans (texto) con `next/font`
+- [x] Componentes base: Button, Card, Input, Heading, Container
+- [x] `/dev/estilos` muestra paleta, tipografías, escala de texto, botones, tarjetas, inputs, una animación Motion y **[visión]** una muestra de escena oscura
+- [x] Contraste del texto sobre fondo cal ≥ AA (comprobado)
+Archivos: `src/app/globals.css` (`@theme`), `src/config/{theme,fonts}.ts`, `src/lib/contrast.ts`, `src/components/ui/*`, `src/app/[locale]/dev/estilos/page.tsx`. Terracota (3,74:1) y oliva (4,49:1) no llegan a AA para texto normal sobre cal: solo texto grande y elementos no textuales; botón principal en mar.
 
 ### #4 Protección de /dev y utilidades de escritura dev — `dev-tools`, `setup` · S · dep #1
 - [ ] Layout de `/dev/*` devuelve `notFound()` si `NODE_ENV !== 'development'` (test)
