@@ -1,6 +1,6 @@
 # SPEC — Soto Village Marbella (frontend)
 
-Web de alquiler vacacional de 4 villas de lujo en Calle Los Lirios, Puerto Banús (Marbella). **Solo frontend**: sin backend, base de datos, pagos reales, cookies ni SEO. Se ejecuta en local para una demo; el código debe servir para producción (limpio y modular). Trabajo por fases; esta especificación cubre la **Fase 1** (cimientos + herramientas internas). No se construyen aún las páginas finales ni el explorador visual.
+Web de alquiler vacacional de 4 villas de lujo en Calle Los Lirios, Puerto Banús (Marbella). **Solo frontend**: sin backend, base de datos, pagos reales, cookies ni SEO. Se ejecuta en local para una demo; el código debe servir para producción (limpio y modular). Trabajo por fases; esta especificación cubre la **Fase 1** (cimientos + herramientas internas). No se construyen aún las páginas finales ni el explorador visual: la experiencia interactiva (fases 2–5) está en `docs/vision.md`, y el modelo de datos de esta fase debe dejarla prevista.
 
 ## 1. Stack
 Next.js (App Router) + TypeScript estricto + Tailwind CSS · next-intl (es por defecto, en; todos los textos en archivos de traducción) · Motion y Lenis instalados y configurados · Vitest · última versión estable de cada librería.
@@ -9,7 +9,7 @@ Next.js (App Router) + TypeScript estricto + Tailwind CSS · next-intl (es por d
 `src/config/site.ts`: nombre "Soto Village Marbella", email y teléfono de ejemplo. El nombre solo se escribe ahí.
 
 ## 3. Sistema de diseño (mediterráneo cálido, provisional)
-Colores: cal #F7F2EA (fondo), arena #E6D3B3, terracota #C2603E (acento), oliva #6B7350, mar #1F3A4D, tinta #2B2420. Serif con carácter para títulos (Fraunces o Cormorant Garamond) y sans limpia para texto (DM Sans o Inter). Página `/dev/estilos` que lo muestra todo.
+Colores: cal #F7F2EA (fondo), arena #E6D3B3, terracota #C2603E (acento), oliva #6B7350, mar #1F3A4D, tinta #2B2420, noche #14110F (fondo de escenas oscuras y transiciones). Serif de display alta y condensada para títulos grandes (Cormorant Garamond, con cursiva) y sans limpia para texto (DM Sans). Estética de `docs/vision.md`: oscuro en transiciones y exploradores, claro (cal) en secciones editoriales, mucho espacio, movimientos lentos. Página `/dev/estilos` que lo muestra todo.
 
 ## 4. Estructura de la web (solo para diseñar el modelo de datos)
 - **Inicio**: cabecera (marca, Villas, Ubicación, Servicios, Contacto, selector de idioma). Centro: mapa aéreo del conjunto con cada villa pinchable → página de la villa.
@@ -21,6 +21,7 @@ Zonas y estancias como POLÍGONOS en coordenadas normalizadas (0–1) sobre su i
 - `villa.hero`: `{ imagenDia, imagenNoche?, video?, zonas: [{ id, nombre, poligono, accion: 'galeria' | 'planta', destino }] }`
 - `villa.plantas`: `[{ id, nombre, imagenPlano, estancias: [{ id, nombre, tipo, poligono, fotos[], camas?, banoEnSuite?, medidas? }] }]`
 - `villa.exteriores`: `[{ id: jardin | piscina | porche | barbacoa | terraza…, fotos[] }]`
+- Previstos para la Fase 2 (solo tipos y validación, sin contenido real): `conjunto` (`{ imagen, parcelas: [{ villaId, poligono }] }`), `villa.recorrido` (`[{ id, transicion, imagenFinal }]`), `villa.destacadas` (ids de estancias). Ver `docs/vision.md` §3.7.
 - Portadas provisionales: villa-3 → villa3_019 (dron); villa-5 → villa5_002; villa-1 → villa1_012; villa-4 → villa4_059.
 
 ## 6. Villas (`villas.ts`)
@@ -87,15 +88,16 @@ Tests mínimos:
 Interfaz `BookingProvider` (disponibilidad, cotización, crear reserva) e implementación `MockBookingProvider` con fechas ocupadas inventadas en un JSON. El frontend solo usa la interfaz (futuro: Hostaway + Stripe).
 
 ## 12. Fotos
-- **Origen**: carpeta `imgs/` que aportará el usuario (subcarpetas villa1, villa3, villa4, villa5; imágenes limpias, sin marca de agua). No mover ni modificar originales. Ignorar "fotos con personas" y cualquier carpeta "movimiento". *(Hasta que llegue, el pipeline se desarrolla con fixtures sintéticos.)*
-- Apartar y NO usar: rótulo 5G, cartel "Guest services", mapa de ubicación con distancias, MAPA AÉREO DEL CONJUNTO (se edita aparte; llegará más tarde), cartas de bienvenida, placa con logo.
+- **Origen**: carpeta `imgs/` (fuera de git, en `.gitignore`): `imgs/<villa>/statics/*.jpg` (villa1, villa3, villa4, villa5; imágenes limpias, sin marca de agua, 1920 px de ancho). El pipeline lee solo `statics/`; ignora `movement/` (vídeos e imágenes con movimiento de cada villa, siempre separados de las fotos; ver `docs/vision.md` §4), "fotos con personas" e `imgs/idea_para_web.mp4` (vídeo de referencia). No mover ni modificar originales.
+- Apartar y NO usar: rótulo 5G, cartel "Guest services", mapa de ubicación con distancias, cartas de bienvenida, placa con logo.
+- Mapa aéreo del conjunto (`mapa_villas_1_3_4_5_1.jpg`, una copia en cada carpeta): no se publica tal cual (marcadores, líneas de parcela y logo). Se usará como base de la aérea limpia (Fase 3, `docs/vision.md` §4); hasta entonces se apunta en el informe como "pendiente de edición".
 - Portadas con sello "Heated Pool" (`_001` de cada villa): recortar el sello si es posible sin estropear la foto; si no, marcar como descartada.
-- Planos (villa1_027, villa3_029, villa4_025, villa5_024): separar en una imagen por planta (baja con jardín / alta), sin logo, dirección ni texto legal.
+- Planos (villa1_027_1, villa3_029_1, villa4_025_1, villa5_024_1): separar en una imagen por planta (baja con jardín / alta), sin logo, dirección ni texto legal.
 - Convertir a WebP optimizado en `public/images/villas/<villa>/` y generar `fotos.ts` con: villa, archivo, zona (interior/exterior), tipo (salon, cocina, comedor, dormitorio, bano, piscina, jardin, porche, barbacoa, terraza, fachada, vistas, detalle), estanciaSugerida (p. ej. "dormitorio-2"), confianza (alta/baja), alt ES y EN.
 - Al final: tabla resumen por villa y lista de fotos de baja confianza.
 
 ## 13. Herramientas internas (solo en /dev, no se publican)
-- `/dev/zonas`: elegir imagen (portada o plano), clic para dibujar vértices de un polígono, id y nombre, editar y borrar, exportar/guardar JSON en `src/content`.
+- `/dev/zonas`: elegir imagen (portada, plano, aérea del conjunto o imagen final de una transición), clic para dibujar vértices de un polígono, id y nombre, editar y borrar, exportar/guardar JSON en `src/content`.
 - `/dev/fotos`: por villa, a la izquierda estancias y exteriores; a la derecha miniaturas. Arrastrar fotos a cada estancia (se guarda en `src/content`) y marcar la foto principal de cada estancia.
 - `/dev/cotizador`: villa, fechas, huéspedes y extras → desglose de la calculadora.
 

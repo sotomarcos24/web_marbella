@@ -1,6 +1,6 @@
 # Milestones y issues — Fase 1
 
-Diseño de trabajo (aún **no creado en GitHub**: se creará con `/milestone` tras tu aprobación). Tamaños: S < 0,5 día · M ≈ 1 día · L > 1 día (partir si es posible). Un PR por issue. Cada issue: tests primero, `qa-reviewer`, aprobación antes de merge.
+Creados en GitHub (milestones 1–4, issues #1–#19). Los cambios marcados con **[visión]** salen de `docs/vision.md` (aprobada) y ya están en los issues de GitHub. Fases 2–5 (experiencia interactiva): `docs/vision.md` §5; sus milestones (M5, M6…) se crearán con `/milestone` al terminar la Fase 1. Tamaños: S < 0,5 día · M ≈ 1 día · L > 1 día (partir si es posible). Un PR por issue. Cada issue: tests primero, `qa-reviewer`, aprobación antes de merge.
 
 Etiquetas: `setup`, `i18n`, `design`, `data`, `content`, `pricing`, `booking`, `photos`, `dev-tools`, `blocked`.
 
@@ -15,7 +15,7 @@ Etiquetas: `setup`, `i18n`, `design`, `data`, `content`, `pricing`, `booking`, `
 
 Orden recomendado: M1 → M2 → (M3 ‖ resto de M2) → M4. Paralelizables: #3 ‖ #5; #6 ‖ #7 ‖ #11 tras #5; #8 ‖ #9 tras #7; #17 ‖ #18 tras #16.
 
-Dependencias: #2←#1 · #3←#1,#2 · #4←#1 · #5←#1 · #6←#5 · #7←#5 · #8←#6,#7 · #9←#8 · #10←#9 · #11←#5,#2 · #12←#1 · #13←#12 · #14←#12 (ejecución real bloqueada por carpeta `imgs/`) · #15←#13,#14,#5 · #16←#9,#10 · #17←#5,#14 · #18←#15,#17 · #19←#5.
+Dependencias: #2←#1 · #3←#1,#2 · #4←#1 · #5←#1 · #6←#5 · #7←#5 · #8←#6,#7 · #9←#8 · #10←#9 · #11←#5,#2 · #12←#1 · #13←#12 · #14←#12 · #15←#13,#14,#5 · #16←#9,#10 · #17←#5,#14 · #18←#15,#17 · #19←#5.
 
 ---
 
@@ -27,7 +27,7 @@ Next.js (App Router, última estable) + TypeScript estricto + Tailwind + ESLint 
 - [ ] `tsconfig` con `strict` y `noUncheckedIndexedAccess`
 - [ ] Un test de ejemplo de Vitest pasa
 - [ ] Estructura `src/{app,components,config,content,i18n,lib,messages,types}` y alias `@/*`
-- [ ] `.gitignore`, remoto `origin` configurado y README mínimo con comandos
+- [ ] `.gitignore` (ampliar el existente, que ya excluye `imgs/`), remoto `origin` configurado y README mínimo con comandos
 Archivos: `package.json`, `tsconfig.json`, `next.config.ts`, `vitest.config.ts`, `eslint.config.mjs`.
 
 ### #2 i18n (es/en), marca, Motion y Lenis — `i18n`, `setup` · M · dep #1
@@ -40,10 +40,10 @@ Archivos: `package.json`, `tsconfig.json`, `next.config.ts`, `vitest.config.ts`,
 Archivos: `src/i18n/*`, `src/middleware.ts`, `src/config/site.ts`, `src/components/providers/LenisProvider.tsx`.
 
 ### #3 Sistema de diseño y /dev/estilos — `design` · M · dep #1,#2
-- [ ] Tokens Tailwind: cal, arena, terracota, oliva, mar, tinta con los hex exactos
-- [ ] Fraunces (títulos) y DM Sans (texto) con `next/font`
+- [ ] Tokens Tailwind: cal, arena, terracota, oliva, mar, tinta y **[visión]** noche (#14110F) con los hex exactos
+- [ ] **[visión]** Cormorant Garamond (display, con cursiva) y DM Sans (texto) con `next/font`
 - [ ] Componentes base: Button, Card, Input, Heading, Container
-- [ ] `/dev/estilos` muestra paleta, tipografías, escala de texto, botones, tarjetas, inputs y una animación Motion
+- [ ] `/dev/estilos` muestra paleta, tipografías, escala de texto, botones, tarjetas, inputs, una animación Motion y **[visión]** una muestra de escena oscura
 - [ ] Contraste del texto sobre fondo cal ≥ AA (comprobado)
 Archivos: `tailwind` config/CSS, `src/components/ui/*`, `src/app/[locale]/dev/estilos/page.tsx`.
 
@@ -61,6 +61,7 @@ Archivos: `src/app/[locale]/dev/layout.tsx`, `src/lib/dev/*`, `src/app/api/dev/*
 - [ ] `src/types/villa.ts`: `Poligono` (`[x,y][]` normalizado), `Zona`, `Estancia`, `Planta`, `Exterior`, `Hero`, `Villa`
 - [ ] Validador `validarVilla()` con tests: polígonos ≥3 vértices, coordenadas en [0,1], ids únicos, destinos de zonas existentes
 - [ ] Tipos de `Tarifa`, `Servicio`, `Foto` definidos
+- [ ] **[visión]** Tipos previstos para la Fase 2: `Conjunto` (`imagen`, `parcelas: { villaId, poligono }[]`), `Recorrido` (`id`, `transicion`, `imagenFinal`) y `destacadas` (ids de estancias existentes), cubiertos por `validarVilla()`
 Archivos: `src/types/*`, `src/lib/validation/villa.ts`.
 
 ### #6 Datos de las villas (`villas.ts`) — `data` · M · dep #5
@@ -121,24 +122,26 @@ Archivos: `src/lib/booking/{types,mock,occupied.json,index}.ts`.
 - [ ] Test: términos prohibidos ausentes, claves es/en idénticas
 
 ### #13 Pipeline de fotos: conversión y filtrado — `photos` · L · dep #1
-Desarrollado con fixtures sintéticos; ejecución real cuando llegue `imgs/`.
-- [ ] `scripts/process-photos.ts` con `sharp`: JPG → WebP en `public/images/villas/<villa>/`
+Desarrollado con fixtures sintéticos; ejecución real sobre `imgs/` (ya disponible).
+- [ ] `scripts/process-photos.ts` con `sharp`: **[visión]** lee `imgs/<villa>/statics/*.jpg` → WebP en `public/images/villas/<villa>/`
 - [ ] No modifica los originales (test de checksum)
-- [ ] Ignora "fotos con personas" y carpetas "movimiento"; lista de exclusión configurable (rótulo 5G, Guest services, mapa de distancias, mapa aéreo del conjunto, cartas de bienvenida, placa con logo)
+- [ ] **[visión]** Ignora `movement/`, "fotos con personas" y `imgs/idea_para_web.mp4`; lista de exclusión configurable (rótulo 5G, Guest services, mapa de distancias, cartas de bienvenida, placa con logo)
+- [ ] **[visión]** `mapa_villas_1_3_4_5_1.jpg` apartado como "pendiente de edición" (no se publica; base de la aérea limpia de la Fase 3)
 - [ ] Recorte configurable del sello "Heated Pool" por coordenadas; si no es viable, marca "descartada"
 - [ ] Informe de salida (procesadas, apartadas, descartadas)
 
 ### #14 Pipeline de fotos: planos por planta — `photos` · M · dep #13
-- [ ] Recorte configurable por planta (baja con jardín / alta) para villa1_027, villa3_029, villa4_025, villa5_024
+- [ ] Recorte configurable por planta (baja con jardín / alta) para **[visión]** villa1_027_1, villa3_029_1, villa4_025_1, villa5_024_1
 - [ ] Sin logo, dirección ni texto legal (recortes verificados visualmente al ejecutar con `imgs/`)
 - [ ] Salida: `planta-baja.webp` y `planta-alta.webp` por villa
 
-### #15 Catálogo `fotos.ts` y resumen — `photos`, `data` · L · dep #13,#14 · bloqueado hasta recibir `imgs/`
+### #15 Catálogo `fotos.ts` y resumen — `photos`, `data` · L · dep #13,#14 · **[visión]** desbloqueado (`imgs/` ya está; quitar la etiqueta `blocked`)
 - [ ] 4 subagentes en paralelo (uno por villa) clasifican cada foto; el agente principal consolida
 - [ ] `fotos.ts` con villa, archivo, zona, tipo, estanciaSugerida, confianza, alt ES y EN
 - [ ] Portadas provisionales apuntan a villa3_019, villa5_002, villa1_012, villa4_059
 - [ ] Test: todo archivo de `fotos.ts` existe en `public/`; tipos válidos
 - [ ] Tabla resumen por villa y lista de baja confianza entregadas
+- [ ] **[visión]** Señalar fotos nocturnas con el mismo encuadre que la portada (para el botón día/noche), si las hay
 
 ---
 
@@ -151,7 +154,7 @@ Desarrollado con fixtures sintéticos; ejecución real cuando llegue `imgs/`.
 - [ ] Resultado coincide con los tests de #9 para los casos de ejemplo
 
 ### #17 /dev/zonas — `dev-tools` · L · dep #5,#4 (mejor con #14)
-- [ ] Selector de imagen (portadas y planos de `public/images/villas`)
+- [ ] Selector de imagen (portadas y planos de `public/images/villas`; **[visión]** también la aérea del conjunto y las imágenes finales de transiciones, para parcelas y zonas)
 - [ ] Clic añade vértices; cerrar polígono; coordenadas normalizadas 0–1 (lógica pura testeada)
 - [ ] Id y nombre; editar (mover vértices) y borrar
 - [ ] Exportar JSON y guardar en `src/content` vía `/api/dev` (solo en desarrollo)
@@ -167,5 +170,5 @@ Desarrollado con fixtures sintéticos; ejecución real cuando llegue `imgs/`.
 ### #19 Revisión final de Fase 1 — `setup` · S · dep todo lo anterior
 - [ ] `typecheck`, `lint`, `test` y `build` en verde
 - [ ] `/dev/*` da 404 con build de producción
-- [ ] Tabla de pendientes (inscripción turística, coordenadas, dormitorios villa-1, mapa aéreo, vídeos, tarifas estimadas, limpieza diaria provisional)
+- [ ] Tabla de pendientes (inscripción turística, coordenadas, dormitorios villa-1, aérea limpia del conjunto, vídeos, tarifas estimadas, limpieza diaria provisional, y los de `docs/vision.md` §7)
 - [ ] README actualizado con cómo usar las herramientas /dev
