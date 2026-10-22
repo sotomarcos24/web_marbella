@@ -100,9 +100,12 @@
     "planta-alta": "Planta alta"
   },
   "servicios": {
+    "titulo": "Servicios",
+    "intro": "Haz tu estancia aún más cómoda con servicios opcionales que organizamos para ti.",
     "chef-privado": {
       "nombre": "Chef privado",
-      "descripcion": "Un chef cocina en la villa para tu grupo (mínimo 10 comensales)."
+      "descripcion": "Un chef cocina en la villa para tu grupo (mínimo 10 comensales).",
+      "presentacion": "Un chef profesional se encarga de la compra, de preparar la mesa, de cocinar con ingredientes frescos, de servir y de dejarlo todo recogido, para que solo tengas que disfrutar. Los menús pueden adaptarse a necesidades dietéticas."
     },
     "limpieza-diaria": {
       "nombre": "Limpieza diaria",
@@ -262,6 +265,55 @@
     },
     "villa-5": {
       "descripcion": "Villa de 6 dormitorios y 4 baños para hasta 15 huéspedes, a unos 7 minutos a pie del puerto deportivo de Puerto Banús. Tiene un jardín llano ideal para los niños, piscina privada climatizada, zona de barbacoa junto a la piscina y un rincón exterior con columpio. Su distribución es la misma que la de la villa 4, contigua, y juntas acogen a grupos de hasta 30."
+    }
+  },
+  "condiciones": {
+    "titulo": "Condiciones de reserva",
+    "intro": "Estas son las condiciones que se aplican a todas las reservas de la villa.",
+    "secciones": {
+      "reserva": {
+        "titulo": "Reserva",
+        "texto": "La reserva queda confirmada cuando la administración aprueba la solicitud. Hasta entonces no se realiza ningún cargo."
+      },
+      "pago": {
+        "titulo": "Forma de pago",
+        "texto": "Se abona el 25 % del importe total para confirmar la reserva y el 75 % restante 30 días antes de la llegada, con la misma tarjeta. Si el segundo pago falla, la reserva se cancela y el primero no se reembolsa."
+      },
+      "fianza": {
+        "titulo": "Fianza",
+        "texto": "Se bloquea una fianza en la tarjeta justo antes de la llegada y se libera en los días siguientes a la salida, una vez revisada la villa. Pueden descontarse daños, limpieza excesiva u otros costes causados por los huéspedes.",
+        "pendiente": "Importe de la fianza pendiente de confirmar."
+      },
+      "cancelacion": {
+        "titulo": "Cancelación",
+        "texto": "La cancelación es gratuita hasta 60 días antes de la llegada. Pasado ese plazo no hay reembolso, salvo acuerdo por escrito con la administración."
+      },
+      "horarios": {
+        "titulo": "Entrada y salida",
+        "texto": "La entrada es a partir de las 16:00 y la salida antes de las 10:00. Las salidas tardías dependen de la disponibilidad y tienen coste."
+      },
+      "capacidad": {
+        "titulo": "Capacidad",
+        "texto": "La capacidad máxima de cada villa es de 15 personas, el límite legal en Andalucía. No se admiten más huéspedes de los indicados en la reserva."
+      }
+    }
+  },
+  "normas": {
+    "titulo": "Normas de la casa",
+    "intro": "Pedimos a todos los huéspedes que respeten estas normas para que la estancia sea agradable para todos.",
+    "items": {
+      "tabaco": "Solo se puede fumar al aire libre y con cenicero. Fumar dentro de la villa o dejar colillas en el jardín o la piscina conlleva un cargo de limpieza de 200 €.",
+      "mascotas": "Se admiten mascotas con un suplemento de 200 € por mascota.",
+      "piscina": "No se permiten vasos ni objetos cortantes en la zona de la piscina.",
+      "fiestas": "No se permiten fiestas ni eventos sin acuerdo previo por escrito. Las fiestas no autorizadas y el ruido nocturno conllevan una multa de 1.000 €.",
+      "llaves": "Se entregan dos juegos de llaves con mando. Perder una llave o llevársela del país cuesta 250 €, y perder la llave de la caja fuerte, 80 €.",
+      "danos": "Cualquier daño o desperfecto debe comunicarse en las primeras 24 horas. Los demás daños pueden descontarse de la fianza.",
+      "basura": "La basura debe dejarse en bolsas cerradas en los contenedores indicados. Dejarla en otro lugar conlleva un cargo de 50 €.",
+      "seguridad": "Al salir y por la noche, cierra puertas y rejas y conecta la alarma si es posible. La administración no se responsabiliza de objetos perdidos o robados.",
+      "climatizacion": "Apaga el aire acondicionado al salir. Se incluyen 40 kWh diarios; el consumo adicional se cobra a 0,50 € por kWh.",
+      "limpieza": "Si la villa queda muy sucia puede cobrarse un cargo adicional de 200 €. Manchar sábanas o toallas con maquillaje o autobronceador cuesta 10 € por pieza.",
+      "jardinero": "El jardinero accede a la villa entre las 8:00 y las 10:00 y no llama al timbre ni a la puerta.",
+      "capacidad": "La ocupación máxima es de 15 personas, incluidos niños. No se permite pernoctar a más huéspedes."
     }
   }
 }
