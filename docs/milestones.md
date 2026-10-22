@@ -78,11 +78,11 @@ Archivos: `src/types/*`, `src/lib/validation/villa.ts`.
 - [x] Constantes: estancia 3–59, invierno >28 noches dic–mar, entrada 16:00/salida 10:00, limpieza 450 €, fianza 1.000 €, pagos 25/75 a 30 días, cancelación 60 días y 2 %, mascotas 200 €, suplementos por villa
 - [x] Importes en céntimos enteros
 
-### #8 Servicios (`servicios.ts`) — `data` · S · dep #6,#7
-- [ ] Solo los 7 servicios de SPEC §9; sin traslados, despedidas, fotos ni spa (test de ids permitidos)
-- [ ] Limpieza diaria marcada `provisional`; catamarán `bajoPresupuesto`
-- [ ] Fórmula de compra previa (80 € hasta 200 € + 40 € por cada 100 € adicionales) con tests
-- [ ] Menús del chef (paella, barbacoa) y lista del pack desayuno como datos
+### #8 Servicios (`servicios.ts`) — `data` · S · dep #6,#7 · ✅ PR #27
+- [x] Solo los 7 servicios de SPEC §9; sin traslados, despedidas, fotos ni spa (test de ids permitidos)
+- [x] Limpieza diaria marcada `provisional`; catamarán `bajoPresupuesto`
+- [x] Fórmula de compra previa (80 € hasta 200 € + 40 € por cada 100 € adicionales) con tests
+- [x] Menús del chef (paella, barbacoa) y lista del pack desayuno como datos (lista del pack **pendiente de confirmar**: `packDesayuno.pendiente`)
 
 ### #9 Calculadora `pricing.ts` — `pricing` · L · dep #8
 Tests primero.
