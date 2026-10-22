@@ -98,5 +98,70 @@
     "jardin": "Garden",
     "planta-baja": "Ground floor",
     "planta-alta": "Upper floor"
+  },
+  "servicios": {
+    "chef-privado": {
+      "nombre": "Private chef",
+      "descripcion": "A chef cooks at the villa for your group (minimum 10 diners)."
+    },
+    "limpieza-diaria": {
+      "nombre": "Daily cleaning",
+      "descripcion": "An upgrade on the included cleaning every 2 days. Provisional price.",
+      "opciones": {
+        "diaria": "Daily cleaning",
+        "cambio-ropa": "Extra change of bed linen and towels"
+      }
+    },
+    "compra-previa": {
+      "nombre": "Shopping before arrival",
+      "descripcion": "Find the fridge stocked. €80 handling fee up to €200 of shopping, +€40 for every additional €100; the receipt is paid separately."
+    },
+    "pack-desayuno": {
+      "nombre": "Arrival breakfast pack",
+      "descripcion": "Breakfast for about 8 people on arrival day."
+    },
+    "decoracion-bienvenida": {
+      "nombre": "Welcome decoration",
+      "descripcion": "The villa decorated to welcome you."
+    },
+    "catamaran": {
+      "nombre": "Private catamaran",
+      "descripcion": "4-hour private catamaran trip. On request."
+    },
+    "calefaccion-piscina": {
+      "nombre": "Pool heating",
+      "descripcion": "Heated pool, per day."
+    },
+    "menus": {
+      "incluye": {
+        "agua": "Water",
+        "pan": "Bread",
+        "sangria": "4 jars of sangría"
+      },
+      "paella": {
+        "nombre": "Paella menu",
+        "platos": {
+          "salmorejo": "Salmorejo Cordobés: traditional cold tomato soup with bread, garlic and olive oil, garnished with a hard-boiled egg and Serrano ham",
+          "tortilla": "Potato omelette with and without onion",
+          "queso": "Manchego cheese",
+          "tostas": "Bread toasts with tomato and Serrano ham",
+          "aceitunas": "Olives",
+          "paella": "Paella: choose from vegetarian, chicken, seafood or mixed",
+          "crema-catalana": "Crema catalana"
+        }
+      },
+      "barbacoa": {
+        "nombre": "BBQ menu",
+        "platos": {
+          "queso": "Manchego cheese",
+          "salmorejo": "Salmorejo Cordobés",
+          "aceitunas": "Olives",
+          "parrilla": "Grill selection: chorizo, marinated bacon, chicken churrasco, Iberian pork secreto, baked potatoes and grilled vegetables",
+          "salsas": "Home-made dips: alioli, honey & mustard, chimichurri, sriracha mayonnaise",
+          "ensalada": "Mediterranean lettuce salad: tomato, tuna, asparagus, hard-boiled egg",
+          "crema-catalana": "Crema catalana"
+        }
+      }
+    }
   }
 }

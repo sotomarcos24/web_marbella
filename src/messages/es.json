@@ -98,5 +98,70 @@
     "jardin": "Jardín",
     "planta-baja": "Planta baja",
     "planta-alta": "Planta alta"
+  },
+  "servicios": {
+    "chef-privado": {
+      "nombre": "Chef privado",
+      "descripcion": "Un chef cocina en la villa para tu grupo (mínimo 10 comensales)."
+    },
+    "limpieza-diaria": {
+      "nombre": "Limpieza diaria",
+      "descripcion": "Mejora sobre la limpieza cada 2 días incluida. Precio provisional.",
+      "opciones": {
+        "diaria": "Limpieza diaria",
+        "cambio-ropa": "Cambio extra de ropa de cama y toallas"
+      }
+    },
+    "compra-previa": {
+      "nombre": "Compra antes de llegar",
+      "descripcion": "Encontrarás la nevera llena. 80 € de gestión hasta 200 € de compra, +40 € por cada 100 € adicionales; el ticket se paga aparte."
+    },
+    "pack-desayuno": {
+      "nombre": "Pack desayuno de llegada",
+      "descripcion": "Desayuno para unas 8 personas el día de llegada."
+    },
+    "decoracion-bienvenida": {
+      "nombre": "Decoración de bienvenida",
+      "descripcion": "La villa decorada para recibiros."
+    },
+    "catamaran": {
+      "nombre": "Catamarán privado",
+      "descripcion": "Salida de 4 horas en catamarán privado. Bajo presupuesto."
+    },
+    "calefaccion-piscina": {
+      "nombre": "Calefacción de piscina",
+      "descripcion": "Piscina climatizada, por día."
+    },
+    "menus": {
+      "incluye": {
+        "agua": "Agua",
+        "pan": "Pan",
+        "sangria": "4 jarras de sangría"
+      },
+      "paella": {
+        "nombre": "Menú paella",
+        "platos": {
+          "salmorejo": "Salmorejo cordobés: sopa fría de tomate con pan, ajo y aceite de oliva, con huevo duro y jamón serrano",
+          "tortilla": "Tortilla de patata con y sin cebolla",
+          "queso": "Queso manchego",
+          "tostas": "Tostas de pan con tomate y jamón serrano",
+          "aceitunas": "Aceitunas",
+          "paella": "Paella a elegir: vegetariana, de pollo, de marisco o mixta",
+          "crema-catalana": "Crema catalana"
+        }
+      },
+      "barbacoa": {
+        "nombre": "Menú barbacoa",
+        "platos": {
+          "queso": "Queso manchego",
+          "salmorejo": "Salmorejo cordobés",
+          "aceitunas": "Aceitunas",
+          "parrilla": "Parrilla: chorizo, panceta marinada, churrasco de pollo, secreto ibérico, patatas al horno y verduras a la parrilla",
+          "salsas": "Salsas caseras: alioli, miel y mostaza, chimichurri y mayonesa sriracha",
+          "ensalada": "Ensalada de lechuga mediterránea: tomate, atún, espárragos y huevo duro",
+          "crema-catalana": "Crema catalana"
+        }
+      }
+    }
   }
 }
