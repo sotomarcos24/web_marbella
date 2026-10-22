@@ -1,0 +1,171 @@
+# Milestones y issues — Fase 1
+
+Diseño de trabajo (aún **no creado en GitHub**: se creará con `/milestone` tras tu aprobación). Tamaños: S < 0,5 día · M ≈ 1 día · L > 1 día (partir si es posible). Un PR por issue. Cada issue: tests primero, `qa-reviewer`, aprobación antes de merge.
+
+Etiquetas: `setup`, `i18n`, `design`, `data`, `content`, `pricing`, `booking`, `photos`, `dev-tools`, `blocked`.
+
+## Resumen y orden
+
+| Milestone | Objetivo | Issues |
+|---|---|---|
+| M1 Cimientos | Proyecto arrancable, i18n, marca, diseño | #1–#4 |
+| M2 Datos y negocio | Modelo, tarifas, servicios, calculadora, reservas mock | #5–#10 |
+| M3 Contenido y fotos | Textos ES/EN y pipeline de fotos | #11–#15 |
+| M4 Herramientas /dev | /dev/cotizador, /dev/zonas, /dev/fotos | #16–#19 |
+
+Orden recomendado: M1 → M2 → (M3 ‖ resto de M2) → M4. Paralelizables: #3 ‖ #5; #6 ‖ #7 ‖ #11 tras #5; #8 ‖ #9 tras #7; #17 ‖ #18 tras #16.
+
+Dependencias: #2←#1 · #3←#1,#2 · #4←#1 · #5←#1 · #6←#5 · #7←#5 · #8←#6,#7 · #9←#8 · #10←#9 · #11←#5,#2 · #12←#1 · #13←#12 · #14←#12 (ejecución real bloqueada por carpeta `img/`) · #15←#13,#14,#5 · #16←#9,#10 · #17←#5,#14 · #18←#15,#17 · #19←#5.
+
+---
+
+# M1 — Cimientos
+
+### #1 Scaffold del proyecto — `setup` · S
+Next.js (App Router, última estable) + TypeScript estricto + Tailwind + ESLint + Vitest.
+- [ ] `npm run dev|build|lint|typecheck|test` funcionan en limpio
+- [ ] `tsconfig` con `strict` y `noUncheckedIndexedAccess`
+- [ ] Un test de ejemplo de Vitest pasa
+- [ ] Estructura `src/{app,components,config,content,i18n,lib,messages,types}` y alias `@/*`
+- [ ] `.gitignore`, remoto `origin` configurado y README mínimo con comandos
+Archivos: `package.json`, `tsconfig.json`, `next.config.ts`, `vitest.config.ts`, `eslint.config.mjs`.
+
+### #2 i18n (es/en), marca, Motion y Lenis — `i18n`, `setup` · M · dep #1
+- [ ] Rutas `/[locale]`; `es` por defecto, `en` disponible; middleware de next-intl
+- [ ] `messages/es.json` y `messages/en.json`; ningún texto visible escrito en componentes (regla de lint o test que lo verifique)
+- [ ] `src/config/site.ts` con nombre "Soto Villas Marbella", email y teléfono de ejemplo; el nombre no aparece escrito en ningún otro archivo (test de búsqueda)
+- [ ] Test: claves de es.json y en.json idénticas
+- [ ] Motion instalado; `LenisProvider` cliente configurado y desactivado con `prefers-reduced-motion`
+- [ ] Selector de idioma básico funcionando
+Archivos: `src/i18n/*`, `src/middleware.ts`, `src/config/site.ts`, `src/components/providers/LenisProvider.tsx`.
+
+### #3 Sistema de diseño y /dev/estilos — `design` · M · dep #1,#2
+- [ ] Tokens Tailwind: cal, arena, terracota, oliva, mar, tinta con los hex exactos
+- [ ] Fraunces (títulos) y DM Sans (texto) con `next/font`
+- [ ] Componentes base: Button, Card, Input, Heading, Container
+- [ ] `/dev/estilos` muestra paleta, tipografías, escala de texto, botones, tarjetas, inputs y una animación Motion
+- [ ] Contraste del texto sobre fondo cal ≥ AA (comprobado)
+Archivos: `tailwind` config/CSS, `src/components/ui/*`, `src/app/[locale]/dev/estilos/page.tsx`.
+
+### #4 Protección de /dev y utilidades de escritura dev — `dev-tools`, `setup` · S · dep #1
+- [ ] Layout de `/dev/*` devuelve `notFound()` si `NODE_ENV !== 'development'` (test)
+- [ ] Helper `src/lib/dev/writeContent.ts`: escribe solo dentro de `src/content/`, rechaza rutas con `..` o absolutas (tests)
+- [ ] Route handler `/api/dev/*` responde 404 fuera de desarrollo (test)
+Archivos: `src/app/[locale]/dev/layout.tsx`, `src/lib/dev/*`, `src/app/api/dev/*`.
+
+---
+
+# M2 — Datos y negocio
+
+### #5 Tipos y modelo de datos — `data` · M · dep #1
+- [ ] `src/types/villa.ts`: `Poligono` (`[x,y][]` normalizado), `Zona`, `Estancia`, `Planta`, `Exterior`, `Hero`, `Villa`
+- [ ] Validador `validarVilla()` con tests: polígonos ≥3 vértices, coordenadas en [0,1], ids únicos, destinos de zonas existentes
+- [ ] Tipos de `Tarifa`, `Servicio`, `Foto` definidos
+Archivos: `src/types/*`, `src/lib/validation/villa.ts`.
+
+### #6 Datos de las villas (`villas.ts`) — `data` · M · dep #5
+- [ ] 4 villas con datos de SPEC §6; plazas máximas 15 en todas
+- [ ] `combinableCon` en villa-4 y villa-5 (mutuo); test de reciprocidad
+- [ ] Campos pendientes (inscripción turística, coordenadas) vacíos y marcados en `pendientes`
+- [ ] villa-1: dormitorios 7 con marca "pendiente de confirmar (plano muestra 6)"
+- [ ] Hero con portadas provisionales (rutas placeholder) y zonas `jardin`, `planta-baja`, `planta-alta` con polígonos de ejemplo
+- [ ] Todas las villas pasan `validarVilla()`
+
+### #7 Tarifas (`tarifas.ts`) — `pricing`, `data` · S · dep #5
+- [ ] Tabla de 12 meses × villa-1 / villa-3 / villa-4-5 exacta (test comparando con SPEC §8)
+- [ ] villa-3 julio con `estimado: true`
+- [ ] Constantes: estancia 3–59, invierno >28 noches dic–mar, entrada 16:00/salida 10:00, limpieza 450 €, fianza 1.000 €, pagos 25/75 a 30 días, cancelación 60 días y 2 %, mascotas 200 €, suplementos por villa
+- [ ] Importes en céntimos enteros
+
+### #8 Servicios (`servicios.ts`) — `data` · S · dep #6,#7
+- [ ] Solo los 7 servicios de SPEC §9; sin traslados, despedidas, fotos ni spa (test de ids permitidos)
+- [ ] Limpieza diaria marcada `provisional`; catamarán `bajoPresupuesto`
+- [ ] Fórmula de compra previa (80 € hasta 200 € + 40 € por cada 100 € adicionales) con tests
+- [ ] Menús del chef (paella, barbacoa) y lista del pack desayuno como datos
+
+### #9 Calculadora `pricing.ts` — `pricing` · L · dep #8
+Tests primero.
+- [ ] villa-4, 3 noches agosto, 10 huéspedes → 5.490 €; 25 % = 1.372,50 €
+- [ ] villa-1, 30 jun–3 jul → 5.826 €
+- [ ] villa-4, 14 huéspedes, 3 noches agosto → +300 €
+- [ ] 2 noches → error estancia mínima; 60 noches → error estancia máxima
+- [ ] 16 huéspedes → error de capacidad
+- [ ] Llegada en 20 días → 100 % al reservar; ≥30 días → 25 %/75 % con fechas
+- [ ] Precio por noche según el mes de cada noche (cruce de mes y de año)
+- [ ] >28 noches en dic–mar → aviso "Solicita oferta de estancia de invierno" sin precio
+- [ ] Suplemento villa-1 250 € solo si agosto; resto según SPEC; mascotas y extras suman al total
+- [ ] Devuelve fianza aparte, fecha límite de cancelación gratuita (llegada − 60 días) y avisos (tarifa estimada, limpieza cada 2 días incluida)
+- [ ] Función pura (sin `Date.now()` interno: recibe `hoy`); fechas en UTC
+Archivos: `src/lib/pricing.ts`, `src/lib/pricing.test.ts`.
+
+### #10 Reservas simuladas — `booking` · M · dep #9
+- [ ] Interfaz `BookingProvider` (`disponibilidad`, `cotizar`, `crearReserva`)
+- [ ] `MockBookingProvider` con `occupied.json` inventado (≥3 rangos por villa)
+- [ ] Tests: rango libre/ocupado, solape parcial, `cotizar` delega en `pricing`, `crearReserva` rechaza fechas ocupadas
+- [ ] Ninguna importación de `MockBookingProvider` fuera de un único punto de composición
+Archivos: `src/lib/booking/{types,mock,occupied.json,index}.ts`.
+
+---
+
+# M3 — Contenido y fotos
+
+### #11 Textos de las villas (ES/EN) — `content`, `i18n` · M · dep #6,#2
+- [ ] Descripciones y comodidades de las 4 fichas copiadas y adaptadas a `messages/{es,en}.json`
+- [ ] Sin "Lirios Village", sin nombres de personas (Eva, Laura, Iván), capacidad 15 (test de búsqueda de términos prohibidos)
+- [ ] ES y EN revisados; sin "mucama"
+- [ ] Distribución de camas por villa
+
+### #12 Textos generales y servicios (ES/EN) — `content`, `i18n` · M · dep #8,#2
+- [ ] Condiciones de reserva y normas de la casa adaptadas, sin normas de apartamentos
+- [ ] Descripción de servicios y menús del chef; presentación genérica del chef (sin la biografía actual)
+- [ ] Test: términos prohibidos ausentes, claves es/en idénticas
+
+### #13 Pipeline de fotos: conversión y filtrado — `photos` · L · dep #1
+Desarrollado con fixtures sintéticos; ejecución real cuando llegue `img/`.
+- [ ] `scripts/process-photos.ts` con `sharp`: JPG → WebP en `public/images/villas/<villa>/`
+- [ ] No modifica los originales (test de checksum)
+- [ ] Ignora "fotos con personas" y carpetas "movimiento"; lista de exclusión configurable (rótulo 5G, Guest services, mapa de distancias, mapa aéreo del conjunto, cartas de bienvenida, placa con logo)
+- [ ] Recorte configurable del sello "Heated Pool" por coordenadas; si no es viable, marca "descartada"
+- [ ] Informe de salida (procesadas, apartadas, descartadas)
+
+### #14 Pipeline de fotos: planos por planta — `photos` · M · dep #13
+- [ ] Recorte configurable por planta (baja con jardín / alta) para villa1_027, villa3_029, villa4_025, villa5_024
+- [ ] Sin logo, dirección ni texto legal (recortes verificados visualmente al ejecutar con `img/`)
+- [ ] Salida: `planta-baja.webp` y `planta-alta.webp` por villa
+
+### #15 Catálogo `fotos.ts` y resumen — `photos`, `data` · L · dep #13,#14 · bloqueado hasta recibir `img/`
+- [ ] 4 subagentes en paralelo (uno por villa) clasifican cada foto; el agente principal consolida
+- [ ] `fotos.ts` con villa, archivo, zona, tipo, estanciaSugerida, confianza, alt ES y EN
+- [ ] Portadas provisionales apuntan a villa3_019, villa5_002, villa1_012, villa4_059
+- [ ] Test: todo archivo de `fotos.ts` existe en `public/`; tipos válidos
+- [ ] Tabla resumen por villa y lista de baja confianza entregadas
+
+---
+
+# M4 — Herramientas /dev
+
+### #16 /dev/cotizador — `dev-tools`, `pricing` · S · dep #9,#10,#4
+- [ ] Formulario: villa, fechas, huéspedes, mascotas, extras
+- [ ] Muestra desglose completo: noches, alojamiento, limpieza, suplementos, extras, total, fianza aparte, pagos con fechas, límite de cancelación, avisos y errores
+- [ ] Usa `BookingProvider` (no el mock directo); muestra disponibilidad
+- [ ] Resultado coincide con los tests de #9 para los casos de ejemplo
+
+### #17 /dev/zonas — `dev-tools` · L · dep #5,#4 (mejor con #14)
+- [ ] Selector de imagen (portadas y planos de `public/images/villas`)
+- [ ] Clic añade vértices; cerrar polígono; coordenadas normalizadas 0–1 (lógica pura testeada)
+- [ ] Id y nombre; editar (mover vértices) y borrar
+- [ ] Exportar JSON y guardar en `src/content` vía `/api/dev` (solo en desarrollo)
+- [ ] Salida valida contra `validarVilla()`
+
+### #18 /dev/fotos — `dev-tools` · L · dep #15,#17
+- [ ] Por villa: izquierda estancias y exteriores, derecha miniaturas
+- [ ] Arrastrar foto a estancia/exterior; persiste en `src/content`
+- [ ] Marcar foto principal por estancia
+- [ ] Muestra confianza baja y estanciaSugerida del catálogo
+- [ ] Lógica de asignación pura con tests
+
+### #19 Revisión final de Fase 1 — `setup` · S · dep todo lo anterior
+- [ ] `typecheck`, `lint`, `test` y `build` en verde
+- [ ] `/dev/*` da 404 con build de producción
+- [ ] Tabla de pendientes (inscripción turística, coordenadas, dormitorios villa-1, mapa aéreo, vídeos, tarifas estimadas, limpieza diaria provisional)
+- [ ] README actualizado con cómo usar las herramientas /dev
