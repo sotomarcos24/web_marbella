@@ -1,4 +1,4 @@
-# SPEC — Soto Villas Marbella (frontend)
+# SPEC — Soto Village Marbella (frontend)
 
 Web de alquiler vacacional de 4 villas de lujo en Calle Los Lirios, Puerto Banús (Marbella). **Solo frontend**: sin backend, base de datos, pagos reales, cookies ni SEO. Se ejecuta en local para una demo; el código debe servir para producción (limpio y modular). Trabajo por fases; esta especificación cubre la **Fase 1** (cimientos + herramientas internas). No se construyen aún las páginas finales ni el explorador visual.
 
@@ -6,7 +6,7 @@ Web de alquiler vacacional de 4 villas de lujo en Calle Los Lirios, Puerto Banú
 Next.js (App Router) + TypeScript estricto + Tailwind CSS · next-intl (es por defecto, en; todos los textos en archivos de traducción) · Motion y Lenis instalados y configurados · Vitest · última versión estable de cada librería.
 
 ## 2. Marca
-`src/config/site.ts`: nombre "Soto Villas Marbella", email y teléfono de ejemplo. El nombre solo se escribe ahí.
+`src/config/site.ts`: nombre "Soto Village Marbella", email y teléfono de ejemplo. El nombre solo se escribe ahí.
 
 ## 3. Sistema de diseño (mediterráneo cálido, provisional)
 Colores: cal #F7F2EA (fondo), arena #E6D3B3, terracota #C2603E (acento), oliva #6B7350, mar #1F3A4D, tinta #2B2420. Serif con carácter para títulos (Fraunces o Cormorant Garamond) y sans limpia para texto (DM Sans o Inter). Página `/dev/estilos` que lo muestra todo.
@@ -87,7 +87,7 @@ Tests mínimos:
 Interfaz `BookingProvider` (disponibilidad, cotización, crear reserva) e implementación `MockBookingProvider` con fechas ocupadas inventadas en un JSON. El frontend solo usa la interfaz (futuro: Hostaway + Stripe).
 
 ## 12. Fotos
-- **Origen**: carpeta `img/` que aportará el usuario (subcarpetas Villa 1, 3, 4, 5; imágenes limpias, sin marca de agua). No mover ni modificar originales. Ignorar "fotos con personas" y cualquier carpeta "movimiento". *(Hasta que llegue, el pipeline se desarrolla con fixtures sintéticos.)*
+- **Origen**: carpeta `imgs/` que aportará el usuario (subcarpetas villa1, villa3, villa4, villa5; imágenes limpias, sin marca de agua). No mover ni modificar originales. Ignorar "fotos con personas" y cualquier carpeta "movimiento". *(Hasta que llegue, el pipeline se desarrolla con fixtures sintéticos.)*
 - Apartar y NO usar: rótulo 5G, cartel "Guest services", mapa de ubicación con distancias, MAPA AÉREO DEL CONJUNTO (se edita aparte; llegará más tarde), cartas de bienvenida, placa con logo.
 - Portadas con sello "Heated Pool" (`_001` de cada villa): recortar el sello si es posible sin estropear la foto; si no, marcar como descartada.
 - Planos (villa1_027, villa3_029, villa4_025, villa5_024): separar en una imagen por planta (baja con jardín / alta), sin logo, dirección ni texto legal.

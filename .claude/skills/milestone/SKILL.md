@@ -9,7 +9,7 @@ Objetivo del milestone: $ARGUMENTS
 
 ## Pasos
 
-1. **Contexto.** Lee `SPEC.md`, `CLAUDE.md` y el código relevante. Ejecuta `gh issue list --state open --limit 100` para no duplicar trabajo existente.
+1. **Contexto.** Lee `docs/SPEC.md`, `CLAUDE.md` y el código relevante. Ejecuta `gh issue list --state open --limit 100` para no duplicar trabajo existente.
 2. **Investigación.** Lanza subagentes `Explore` en paralelo (una sola respuesta, varias llamadas) para las partes del código que haga falta entender. Pídeles conclusiones concisas con rutas de archivo.
 3. **Propuesta.** Diseña issues pequeños: un PR cada uno. Para cada uno indica:
    - título y descripción;

@@ -15,7 +15,7 @@ Etiquetas: `setup`, `i18n`, `design`, `data`, `content`, `pricing`, `booking`, `
 
 Orden recomendado: M1 → M2 → (M3 ‖ resto de M2) → M4. Paralelizables: #3 ‖ #5; #6 ‖ #7 ‖ #11 tras #5; #8 ‖ #9 tras #7; #17 ‖ #18 tras #16.
 
-Dependencias: #2←#1 · #3←#1,#2 · #4←#1 · #5←#1 · #6←#5 · #7←#5 · #8←#6,#7 · #9←#8 · #10←#9 · #11←#5,#2 · #12←#1 · #13←#12 · #14←#12 (ejecución real bloqueada por carpeta `img/`) · #15←#13,#14,#5 · #16←#9,#10 · #17←#5,#14 · #18←#15,#17 · #19←#5.
+Dependencias: #2←#1 · #3←#1,#2 · #4←#1 · #5←#1 · #6←#5 · #7←#5 · #8←#6,#7 · #9←#8 · #10←#9 · #11←#5,#2 · #12←#1 · #13←#12 · #14←#12 (ejecución real bloqueada por carpeta `imgs/`) · #15←#13,#14,#5 · #16←#9,#10 · #17←#5,#14 · #18←#15,#17 · #19←#5.
 
 ---
 
@@ -33,7 +33,7 @@ Archivos: `package.json`, `tsconfig.json`, `next.config.ts`, `vitest.config.ts`,
 ### #2 i18n (es/en), marca, Motion y Lenis — `i18n`, `setup` · M · dep #1
 - [ ] Rutas `/[locale]`; `es` por defecto, `en` disponible; middleware de next-intl
 - [ ] `messages/es.json` y `messages/en.json`; ningún texto visible escrito en componentes (regla de lint o test que lo verifique)
-- [ ] `src/config/site.ts` con nombre "Soto Villas Marbella", email y teléfono de ejemplo; el nombre no aparece escrito en ningún otro archivo (test de búsqueda)
+- [ ] `src/config/site.ts` con nombre "Soto Village Marbella", email y teléfono de ejemplo; el nombre no aparece escrito en ningún otro archivo (test de búsqueda)
 - [ ] Test: claves de es.json y en.json idénticas
 - [ ] Motion instalado; `LenisProvider` cliente configurado y desactivado con `prefers-reduced-motion`
 - [ ] Selector de idioma básico funcionando
@@ -121,7 +121,7 @@ Archivos: `src/lib/booking/{types,mock,occupied.json,index}.ts`.
 - [ ] Test: términos prohibidos ausentes, claves es/en idénticas
 
 ### #13 Pipeline de fotos: conversión y filtrado — `photos` · L · dep #1
-Desarrollado con fixtures sintéticos; ejecución real cuando llegue `img/`.
+Desarrollado con fixtures sintéticos; ejecución real cuando llegue `imgs/`.
 - [ ] `scripts/process-photos.ts` con `sharp`: JPG → WebP en `public/images/villas/<villa>/`
 - [ ] No modifica los originales (test de checksum)
 - [ ] Ignora "fotos con personas" y carpetas "movimiento"; lista de exclusión configurable (rótulo 5G, Guest services, mapa de distancias, mapa aéreo del conjunto, cartas de bienvenida, placa con logo)
@@ -130,10 +130,10 @@ Desarrollado con fixtures sintéticos; ejecución real cuando llegue `img/`.
 
 ### #14 Pipeline de fotos: planos por planta — `photos` · M · dep #13
 - [ ] Recorte configurable por planta (baja con jardín / alta) para villa1_027, villa3_029, villa4_025, villa5_024
-- [ ] Sin logo, dirección ni texto legal (recortes verificados visualmente al ejecutar con `img/`)
+- [ ] Sin logo, dirección ni texto legal (recortes verificados visualmente al ejecutar con `imgs/`)
 - [ ] Salida: `planta-baja.webp` y `planta-alta.webp` por villa
 
-### #15 Catálogo `fotos.ts` y resumen — `photos`, `data` · L · dep #13,#14 · bloqueado hasta recibir `img/`
+### #15 Catálogo `fotos.ts` y resumen — `photos`, `data` · L · dep #13,#14 · bloqueado hasta recibir `imgs/`
 - [ ] 4 subagentes en paralelo (uno por villa) clasifican cada foto; el agente principal consolida
 - [ ] `fotos.ts` con villa, archivo, zona, tipo, estanciaSugerida, confianza, alt ES y EN
 - [ ] Portadas provisionales apuntan a villa3_019, villa5_002, villa1_012, villa4_059

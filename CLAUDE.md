@@ -1,8 +1,8 @@
 # CLAUDE.md
 
 ## Proyecto
-Frontend de la web de alquiler vacacional **Soto Villas Marbella**: 4 villas de lujo (villa-1, 3, 4, 5) en Calle Los Lirios, Puerto Banús. Solo frontend: sin backend, base de datos, pagos reales, cookies ni SEO. Demo en local, pero código limpio y modular, apto para producción.
-- Especificación: `SPEC.md` · Plan: `plan.md` · Milestones e issues: `milestones.md`.
+Frontend de la web de alquiler vacacional **Soto Village Marbella**: 4 villas de lujo (villa-1, 3, 4, 5) en Calle Los Lirios, Puerto Banús. Solo frontend: sin backend, base de datos, pagos reales, cookies ni SEO. Demo en local, pero código limpio y modular, apto para producción.
+- Especificación: `docs/SPEC.md` · Plan: `docs/plan.md` · Milestones e issues: `docs/milestones.md`.
 - Repo: https://github.com/sotomarcos24/web_marbella
 - Estado: Fase 1 (cimientos + herramientas internas). Las páginas finales y el explorador visual vienen en fases posteriores.
 
@@ -30,5 +30,5 @@ Comandos previstos (se crean en el issue de scaffold): `npm run dev | build | li
 - Zonas y estancias: polígonos en coordenadas normalizadas 0–1 sobre su imagen.
 - Capacidad máxima siempre 15 (tope legal andaluz). Importes en céntimos enteros; formato solo en UI. Fechas en UTC; `pricing.ts` recibe `hoy` como parámetro.
 - Datos pendientes siempre marcados, nunca inventados: inscripción turística, coordenadas, dormitorios de villa-1 (plano muestra 6), tarifa de julio de villa-3 (estimada), limpieza diaria (provisional).
-- Fotos: nunca modificar los originales (carpeta `img/` que aportará el usuario); no usar rótulo 5G, Guest services, mapa de distancias, mapa aéreo del conjunto, cartas de bienvenida ni placa con logo.
-- Servicios: solo los de `SPEC.md` §9 (sin traslados, despedidas, fotos ni spa).
+- Fotos: nunca modificar los originales (carpeta `imgs/` que aportará el usuario); no usar rótulo 5G, Guest services, mapa de distancias, mapa aéreo del conjunto, cartas de bienvenida ni placa con logo.
+- Servicios: solo los de `docs/SPEC.md` §9 (sin traslados, despedidas, fotos ni spa).
