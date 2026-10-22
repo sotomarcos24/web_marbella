@@ -1,2 +1,24 @@
 # Fotos originales y vídeo de referencia (no se suben a GitHub)
 /imgs/
+
+# Dependencias
+/node_modules
+
+# Next.js y build
+/.next/
+/out/
+/build/
+next-env.d.ts
+*.tsbuildinfo
+
+# Tests
+/coverage
+
+# Entorno
+.env*
+!.env.example
+
+# Logs y sistema
+*.log
+.DS_Store
+.vercel
