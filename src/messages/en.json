@@ -1,0 +1,15 @@
+{
+  "Metadata": {
+    "description": "Four luxury villas in Puerto Banús, Marbella."
+  },
+  "Home": {
+    "tagline": "Four luxury villas in Puerto Banús"
+  },
+  "LocaleSwitcher": {
+    "label": "Language",
+    "locales": {
+      "es": "Español",
+      "en": "English"
+    }
+  }
+}

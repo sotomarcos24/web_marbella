@@ -30,14 +30,14 @@ Next.js (App Router, última estable) + TypeScript estricto + Tailwind + ESLint 
 - [x] `.gitignore` (ampliar el existente, que ya excluye `imgs/`), remoto `origin` configurado y README mínimo con comandos
 Archivos: `package.json`, `tsconfig.json`, `next.config.ts`, `vitest.config.mts`, `eslint.config.mjs`.
 
-### #2 i18n (es/en), marca, Motion y Lenis — `i18n`, `setup` · M · dep #1
-- [ ] Rutas `/[locale]`; `es` por defecto, `en` disponible; middleware de next-intl
-- [ ] `messages/es.json` y `messages/en.json`; ningún texto visible escrito en componentes (regla de lint o test que lo verifique)
-- [ ] `src/config/site.ts` con nombre "Soto Village Marbella", email y teléfono de ejemplo; el nombre no aparece escrito en ningún otro archivo (test de búsqueda)
-- [ ] Test: claves de es.json y en.json idénticas
-- [ ] Motion instalado; `LenisProvider` cliente configurado y desactivado con `prefers-reduced-motion`
-- [ ] Selector de idioma básico funcionando
-Archivos: `src/i18n/*`, `src/middleware.ts`, `src/config/site.ts`, `src/components/providers/LenisProvider.tsx`.
+### #2 i18n (es/en), marca, Motion y Lenis — `i18n`, `setup` · M · dep #1 · ✅ PR #21
+- [x] Rutas `/[locale]`; `es` por defecto, `en` disponible; middleware de next-intl
+- [x] `messages/es.json` y `messages/en.json`; ningún texto visible escrito en componentes (regla de lint o test que lo verifique)
+- [x] `src/config/site.ts` con nombre "Soto Village Marbella", email y teléfono de ejemplo; el nombre no aparece escrito en ningún otro archivo (test de búsqueda)
+- [x] Test: claves de es.json y en.json idénticas
+- [x] Motion instalado; `LenisProvider` cliente configurado y desactivado con `prefers-reduced-motion`
+- [x] Selector de idioma básico funcionando
+Archivos: `src/i18n/*`, `src/proxy.ts` (Next 16 renombra `middleware.ts`), `src/messages/*.json`, `src/config/site.ts`, `src/components/providers/LenisProvider.tsx`.
 
 ### #3 Sistema de diseño y /dev/estilos — `design` · M · dep #1,#2
 - [ ] Tokens Tailwind: cal, arena, terracota, oliva, mar, tinta y **[visión]** noche (#14110F) con los hex exactos
