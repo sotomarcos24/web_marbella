@@ -124,14 +124,14 @@ Archivos: `src/content/{comodidades,dormitorios}.ts`, `docs/fuentes/`, `tests/vi
 - [x] Descripción de servicios y menús del chef; presentación genérica del chef (sin la biografía actual)
 - [x] Test: términos prohibidos ausentes, claves es/en idénticas
 
-### #13 Pipeline de fotos: conversión y filtrado — `photos` · L · dep #1
+### #13 Pipeline de fotos: conversión y filtrado — `photos` · L · dep #1 ✅ PR #32
 Desarrollado con fixtures sintéticos; ejecución real sobre `imgs/` (ya disponible).
-- [ ] `scripts/process-photos.ts` con `sharp`: **[visión]** lee `imgs/<villa>/statics/*.jpg` → WebP en `public/images/villas/<villa>/`
-- [ ] No modifica los originales (test de checksum)
-- [ ] **[visión]** Ignora `movement/`, "fotos con personas" y `imgs/idea_para_web.mp4`; lista de exclusión configurable (rótulo 5G, Guest services, mapa de distancias, cartas de bienvenida, placa con logo)
-- [ ] **[visión]** `mapa_villas_1_3_4_5_1.jpg` apartado como "pendiente de edición" (no se publica; base de la aérea limpia de la Fase 3)
-- [ ] Recorte configurable del sello "Heated Pool" por coordenadas; si no es viable, marca "descartada"
-- [ ] Informe de salida (procesadas, apartadas, descartadas)
+- [x] `scripts/process-photos.ts` con `sharp`: **[visión]** lee `imgs/<villa>/statics/*.jpg` → WebP en `public/images/villas/<villa>/`
+- [x] No modifica los originales (test de checksum)
+- [x] **[visión]** Ignora `movement/`, "fotos con personas" y `imgs/idea_para_web.mp4`; lista de exclusión configurable (rótulo 5G, Guest services, mapa de distancias, cartas de bienvenida, placa con logo)
+- [x] **[visión]** `mapa_villas_1_3_4_5_1.jpg` apartado como "pendiente de edición" (no se publica; base de la aérea limpia de la Fase 3)
+- [x] Recorte configurable del sello "Heated Pool" por coordenadas; si no es viable, marca "descartada"
+- [x] Informe de salida (procesadas, apartadas, descartadas)
 
 ### #14 Pipeline de fotos: planos por planta — `photos` · M · dep #13
 - [ ] Recorte configurable por planta (baja con jardín / alta) para **[visión]** villa1_027_1, villa3_029_1, villa4_025_1, villa5_024_1

@@ -4,7 +4,7 @@
 Frontend de la web de alquiler vacacional **Soto Village Marbella**: 4 villas de lujo (villa-1, 3, 4, 5) en Calle Los Lirios, Puerto Banús. Solo frontend: sin backend, base de datos, pagos reales, cookies ni SEO. Demo en local, pero código limpio y modular, apto para producción.
 - Especificación: `docs/SPEC.md` · Plan: `docs/plan.md` · Milestones e issues: `docs/milestones.md` · Experiencia interactiva (fases 2–5): `docs/vision.md`.
 - Repo: https://github.com/sotomarcos24/web_marbella
-- Estado: Fase 1 (cimientos + herramientas internas, issues #1–#19; cerrados: #1–#12 (M1 y M2 completos); siguiente paso `/issue 13`). La visión está aprobada; se implementa al cerrar la Fase 1. Pletor (MCP) aún sin acceso: solo hace falta en la Fase 3.
+- Estado: Fase 1 (cimientos + herramientas internas, issues #1–#19; cerrados: #1–#13 (M1 y M2 completos); siguiente paso `/issue 14`). La visión está aprobada; se implementa al cerrar la Fase 1. Pletor (MCP) aún sin acceso: solo hace falta en la Fase 3.
 
 ## Flujo de trabajo
 - Eres el agente principal: coordinas, mantienes el contexto y lanzas subagentes; no delegues decisiones de diseño.
