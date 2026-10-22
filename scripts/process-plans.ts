@@ -2,7 +2,7 @@ import { existsSync, mkdirSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import sharp from "sharp";
-import { PLANTAS, photosConfig, type PhotosConfig, type PlantaId } from "./photos.config.ts";
+import { carpetaPublica, PLANTAS, photosConfig, type PhotosConfig, type PlantaId } from "./photos.config.ts";
 import { aPixeles, recorteValido } from "./process-photos.ts";
 import type { Poligono } from "../src/types/villa.ts";
 
@@ -34,7 +34,8 @@ export async function processPlans(opts: {
     // Se decodifica una sola vez por villa; cada planta parte de los píxeles en bruto.
     const original = await sharp(ruta).raw().toBuffer({ resolveWithObject: true });
     const { width, height } = original.info;
-    mkdirSync(path.join(destino, villa), { recursive: true });
+    const salida = path.join(destino, carpetaPublica(villa));
+    mkdirSync(salida, { recursive: true });
 
     for (const planta of PLANTAS) {
       const entrada = { villa, archivo, planta };
@@ -55,7 +56,7 @@ export async function processPlans(opts: {
         .extract(aPixeles(recorte, width, height))
         .resize({ width: config.webp.maxWidth, withoutEnlargement: true })
         .webp({ quality: config.webp.quality })
-        .toFile(path.join(destino, villa, `${planta}.webp`));
+        .toFile(path.join(salida, `plano-${planta}.webp`));
       informe.generadas.push(entrada);
     }
   }
