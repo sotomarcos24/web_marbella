@@ -23,4 +23,4 @@ Issue: `$ARGUMENTS`. Si viene vacío, sácalo de la rama actual (`issue-N` → N
 3. **Merge.** `gh pr merge <pr> --merge --delete-branch` (borra la rama remota y la local y vuelve a `main`).
 4. **Cerrar el issue.** Con `Closes #N` en el PR se cierra solo; compruébalo con `gh issue view N --json state`. Si sigue abierto, `gh issue close N --comment "Resuelto en #<pr>"`.
 5. **Limpiar.** `git switch main && git pull --ff-only && git fetch --prune`. Si la rama local `issue-N` sigue existiendo, `git branch -d issue-N`.
-6. **Informar** en pocas líneas: PR mergeado, issue cerrado, rama borrada, archivos de progreso actualizados y siguiente issue recomendado.
+6. **Informar** en máx. 3 líneas: PR mergeado, issue cerrado, rama borrada, archivos de progreso actualizados y siguiente issue recomendado.
