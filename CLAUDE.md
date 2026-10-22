@@ -4,7 +4,7 @@
 Frontend de la web de alquiler vacacional **Soto Village Marbella**: 4 villas de lujo (villa-1, 3, 4, 5) en Calle Los Lirios, Puerto Banús. Solo frontend: sin backend, base de datos, pagos reales, cookies ni SEO. Demo en local, pero código limpio y modular, apto para producción.
 - Especificación: `docs/SPEC.md` · Plan: `docs/plan.md` · Milestones e issues: `docs/milestones.md` · Experiencia interactiva (fases 2–5): `docs/vision.md`.
 - Repo: https://github.com/sotomarcos24/web_marbella
-- Estado: Fase 1 (cimientos + herramientas internas, issues #1–#19; cerrados: #1–#7 (M1 completo); siguiente paso `/issue 8`). La visión está aprobada; se implementa al cerrar la Fase 1. Pletor (MCP) aún sin acceso: solo hace falta en la Fase 3.
+- Estado: Fase 1 (cimientos + herramientas internas, issues #1–#19; cerrados: #1–#8 (M1 completo); siguiente paso `/issue 9`). La visión está aprobada; se implementa al cerrar la Fase 1. Pletor (MCP) aún sin acceso: solo hace falta en la Fase 3.
 
 ## Flujo de trabajo
 - Eres el agente principal: coordinas, mantienes el contexto y lanzas subagentes; no delegues decisiones de diseño.
@@ -30,7 +30,7 @@ Comandos previstos (se crean en el issue de scaffold): `npm run dev | build | li
 - Ningún texto visible en componentes: todo en `src/messages/es.json` y `en.json` (mismas claves; lo vigila la regla de lint `react/jsx-no-literals`). Nada de "Lirios Village", ni nombres de personas de las fichas antiguas.
 - Zonas y estancias: polígonos en coordenadas normalizadas 0–1 sobre su imagen.
 - Capacidad máxima siempre 15 (tope legal andaluz). Importes en céntimos enteros; formato solo en UI. Fechas en UTC; `pricing.ts` recibe `hoy` como parámetro.
-- Datos pendientes siempre marcados, nunca inventados: inscripción turística, coordenadas, dormitorios de villa-1 (plano muestra 6), tarifa de julio de villa-3 (estimada), limpieza diaria (provisional).
+- Datos pendientes siempre marcados, nunca inventados: inscripción turística, coordenadas, dormitorios de villa-1 (plano muestra 6), tarifa de julio de villa-3 (estimada), limpieza diaria (provisional), lista del pack desayuno.
 - Fotos: originales en `imgs/<villa>/statics/` y vídeos/imágenes con movimiento en `imgs/<villa>/movement/` (lo del conjunto, en `imgs/conjunto/`); siempre separados, fuera de git y sin modificar. No usar rótulo 5G, Guest services, mapa de distancias, cartas de bienvenida ni placa con logo. El mapa aéreo del conjunto no se publica tal cual: solo como base de la aérea limpia.
 - Transiciones: cada una termina en una imagen fija real; las zonas clicables aparecen solo al llegar. La web funciona sin vídeos (sustituto: fundido/zoom) y respeta `prefers-reduced-motion`.
 - Pletor (IA de vídeo): antes de cada generación, anunciar qué y cuánto cuesta, esperar el OK y comprobar el saldo antes y después. Presupuesto del prototipo: 700 créditos. Registrar todo en `src/content/transiciones.json`.

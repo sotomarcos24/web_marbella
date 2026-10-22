@@ -1,9 +1,6 @@
-import type { Centimos } from "@/types/dinero";
+import { eur } from "@/lib/dinero";
 import type { Mes, SuplementoHuesped, Tarifa } from "@/types/tarifa";
 import type { VillaId } from "@/types/villa";
-
-/** Euros a céntimos enteros. */
-const eur = (euros: number): Centimos => Math.round(euros * 100);
 
 /** Tabla de 12 meses a partir de 12 importes en euros, de enero a diciembre. */
 const meses = (
