@@ -1,0 +1,8 @@
+{
+  "enabledPlugins": {
+    "chrome-devtools-mcp@claude-plugins-official": true
+  },
+  "permissions": {
+  "allow": ["Bash(gh pr merge:*)", "Bash(gh issue close:*)"]
+}
+}

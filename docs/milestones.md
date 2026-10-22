@@ -21,14 +21,14 @@ Dependencias: #2←#1 · #3←#1,#2 · #4←#1 · #5←#1 · #6←#5 · #7←#5 
 
 # M1 — Cimientos
 
-### #1 Scaffold del proyecto — `setup` · S
+### #1 Scaffold del proyecto — `setup` · S · ✅ PR #20
 Next.js (App Router, última estable) + TypeScript estricto + Tailwind + ESLint + Vitest.
-- [ ] `npm run dev|build|lint|typecheck|test` funcionan en limpio
-- [ ] `tsconfig` con `strict` y `noUncheckedIndexedAccess`
-- [ ] Un test de ejemplo de Vitest pasa
-- [ ] Estructura `src/{app,components,config,content,i18n,lib,messages,types}` y alias `@/*`
-- [ ] `.gitignore` (ampliar el existente, que ya excluye `imgs/`), remoto `origin` configurado y README mínimo con comandos
-Archivos: `package.json`, `tsconfig.json`, `next.config.ts`, `vitest.config.ts`, `eslint.config.mjs`.
+- [x] `npm run dev|build|lint|typecheck|test` funcionan en limpio
+- [x] `tsconfig` con `strict` y `noUncheckedIndexedAccess`
+- [x] Un test de ejemplo de Vitest pasa
+- [x] Estructura `src/{app,components,config,content,i18n,lib,messages,types}` y alias `@/*`
+- [x] `.gitignore` (ampliar el existente, que ya excluye `imgs/`), remoto `origin` configurado y README mínimo con comandos
+Archivos: `package.json`, `tsconfig.json`, `next.config.ts`, `vitest.config.mts`, `eslint.config.mjs`.
 
 ### #2 i18n (es/en), marca, Motion y Lenis — `i18n`, `setup` · M · dep #1
 - [ ] Rutas `/[locale]`; `es` por defecto, `en` disponible; middleware de next-intl
