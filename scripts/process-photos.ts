@@ -8,9 +8,20 @@ export type Entrada = { villa: string; archivo: string; motivo?: string };
 export type Informe = { procesadas: Entrada[]; apartadas: Entrada[]; descartadas: Entrada[] };
 
 const PENDIENTE = "pendiente de edición";
+const PLANO = "plano: ver process-plans";
 
-function recorteValido({ left, top, width, height }: Recorte) {
+export function recorteValido({ left, top, width, height }: Recorte) {
   return left >= 0 && top >= 0 && width > 0 && height > 0 && left + width <= 1 && top + height <= 1;
+}
+
+/** Píxeles de un recorte normalizado sobre una imagen de `width`×`height`. */
+export function aPixeles({ left, top, width: w, height: h }: Recorte, width: number, height: number) {
+  return {
+    left: Math.round(left * width),
+    top: Math.round(top * height),
+    width: Math.round(w * width),
+    height: Math.round(h * height),
+  };
 }
 
 export async function processPhotos(opts: {
@@ -35,6 +46,10 @@ export async function processPhotos(opts: {
         informe.apartadas.push({ ...entrada, motivo: PENDIENTE });
         continue;
       }
+      if (config.planos[villa]?.archivo === archivo) {
+        informe.apartadas.push({ ...entrada, motivo: PLANO });
+        continue;
+      }
       const exclusion = config.exclusiones.find((e) => e.archivo === archivo);
       if (exclusion) {
         informe.descartadas.push({ ...entrada, motivo: exclusion.motivo });
@@ -49,12 +64,7 @@ export async function processPhotos(opts: {
           continue;
         }
         const { width = 0, height = 0 } = await imagen.metadata();
-        imagen = imagen.extract({
-          left: Math.round(recorte.left * width),
-          top: Math.round(recorte.top * height),
-          width: Math.round(recorte.width * width),
-          height: Math.round(recorte.height * height),
-        });
+        imagen = imagen.extract(aPixeles(recorte, width, height));
       }
 
       mkdirSync(path.join(destino, villa), { recursive: true });

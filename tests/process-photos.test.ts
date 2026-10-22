@@ -18,6 +18,7 @@ const baseConfig: PhotosConfig = {
   exclusiones: [],
   pendientesEdicion: ["mapa_villas_1_3_4_5_1.jpg"],
   recortes: {},
+  planos: {},
 };
 
 async function jpg(ruta: string, width = 400, height = 200) {
@@ -100,6 +101,23 @@ describe("process-photos", () => {
     expect(informe.apartadas).toHaveLength(2);
     expect(informe.apartadas[0]?.motivo).toBe("pendiente de edición");
     expect(informe.procesadas).toHaveLength(0);
+  });
+
+  it("aparta los planos configurados y no los publica enteros", async () => {
+    await jpg(path.join(origen, "villa1/statics/villa1_001.jpg"));
+    await jpg(path.join(origen, "villa1/statics/villa1_027_1.jpg"));
+    const recorte = { recorte: { left: 0, top: 0, width: 1, height: 1 } };
+    const config: PhotosConfig = {
+      ...baseConfig,
+      planos: {
+        villa1: { archivo: "villa1_027_1.jpg", plantas: { "planta-baja": recorte, "planta-alta": recorte } },
+      },
+    };
+    const informe = await processPhotos({ origen, destino, config });
+    expect(salida("villa1")).toEqual(["villa1_001.webp"]);
+    expect(informe.apartadas).toEqual([
+      expect.objectContaining({ villa: "villa1", archivo: "villa1_027_1.jpg", motivo: expect.stringMatching(/plano/i) }),
+    ]);
   });
 
   it("recorta por coordenadas normalizadas", async () => {
