@@ -64,13 +64,13 @@ Archivos: `src/app/[locale]/dev/layout.tsx`, `src/lib/dev/*`, `src/app/api/dev/*
 - [x] **[visión]** Tipos previstos para la Fase 2: `Conjunto` (`imagen`, `parcelas: { villaId, poligono }[]`), `Recorrido` (`id`, `transicion`, `imagenFinal`) y `destacadas` (ids de estancias existentes), cubiertos por `validarVilla()`
 Archivos: `src/types/*`, `src/lib/validation/villa.ts`.
 
-### #6 Datos de las villas (`villas.ts`) — `data` · M · dep #5
-- [ ] 4 villas con datos de SPEC §6; plazas máximas 15 en todas
-- [ ] `combinableCon` en villa-4 y villa-5 (mutuo); test de reciprocidad
-- [ ] Campos pendientes (inscripción turística, coordenadas) vacíos y marcados en `pendientes`
-- [ ] villa-1: dormitorios 7 con marca "pendiente de confirmar (plano muestra 6)"
-- [ ] Hero con portadas provisionales (rutas placeholder) y zonas `jardin`, `planta-baja`, `planta-alta` con polígonos de ejemplo
-- [ ] Todas las villas pasan `validarVilla()`
+### #6 Datos de las villas (`villas.ts`) — `data` · M · dep #5 · ✅ PR #26
+- [x] 4 villas con datos de SPEC §6; plazas máximas 15 en todas
+- [x] `combinableCon` en villa-4 y villa-5 (mutuo); test de reciprocidad
+- [x] Campos pendientes (inscripción turística, coordenadas) vacíos y marcados en `pendientes`
+- [x] villa-1: dormitorios 7 con marca "pendiente de confirmar (plano muestra 6)"
+- [x] Hero con portadas provisionales (rutas placeholder) y zonas `jardin`, `planta-baja`, `planta-alta` con polígonos de ejemplo
+- [x] Todas las villas pasan `validarVilla()`
 
 ### #7 Tarifas (`tarifas.ts`) — `pricing`, `data` · S · dep #5
 - [ ] Tabla de 12 meses × villa-1 / villa-3 / villa-4-5 exacta (test comparando con SPEC §8)
