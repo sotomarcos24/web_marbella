@@ -133,10 +133,10 @@ Desarrollado con fixtures sintéticos; ejecución real sobre `imgs/` (ya disponi
 - [x] Recorte configurable del sello "Heated Pool" por coordenadas; si no es viable, marca "descartada"
 - [x] Informe de salida (procesadas, apartadas, descartadas)
 
-### #14 Pipeline de fotos: planos por planta — `photos` · M · dep #13
-- [ ] Recorte configurable por planta (baja con jardín / alta) para **[visión]** villa1_027_1, villa3_029_1, villa4_025_1, villa5_024_1
-- [ ] Sin logo, dirección ni texto legal (recortes verificados visualmente al ejecutar con `imgs/`)
-- [ ] Salida: `planta-baja.webp` y `planta-alta.webp` por villa
+### #14 Pipeline de fotos: planos por planta — `photos` · M · dep #13 ✅ PR #33
+- [x] Recorte configurable por planta (baja con jardín / alta) para **[visión]** villa1_027_1, villa3_029_1, villa4_025_1, villa5_024_1
+- [x] Sin logo, dirección ni texto legal (recortes verificados visualmente al ejecutar con `imgs/`)
+- [x] Salida: `planta-baja.webp` y `planta-alta.webp` por villa
 
 ### #15 Catálogo `fotos.ts` y resumen — `photos`, `data` · L · dep #13,#14 · **[visión]** desbloqueado (`imgs/` ya está; quitar la etiqueta `blocked`)
 - [ ] 4 subagentes en paralelo (uno por villa) clasifican cada foto; el agente principal consolida

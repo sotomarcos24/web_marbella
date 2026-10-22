@@ -10,7 +10,8 @@
     "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "photos": "node scripts/process-photos.ts"
+    "photos": "node scripts/process-photos.ts",
+    "plans": "node scripts/process-plans.ts"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
