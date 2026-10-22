@@ -93,5 +93,10 @@
       "body": "Las transiciones y los exploradores van en oscuro; las secciones editoriales, en cal.",
       "cta": "Entrar"
     }
+  },
+  "zonas": {
+    "jardin": "Jardín",
+    "planta-baja": "Planta baja",
+    "planta-alta": "Planta alta"
   }
 }

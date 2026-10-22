@@ -93,5 +93,10 @@
       "body": "Transitions and explorers are dark; editorial sections use lime wash.",
       "cta": "Enter"
     }
+  },
+  "zonas": {
+    "jardin": "Garden",
+    "planta-baja": "Ground floor",
+    "planta-alta": "Upper floor"
   }
 }
