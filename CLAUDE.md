@@ -13,6 +13,7 @@ Frontend de la web de alquiler vacacional **Soto Village Marbella**: 4 villas de
 - Quien escribe el código no lo revisa: la revisión la hace el subagente `qa-reviewer` en contexto limpio.
 - Máximo 3 rondas de corrección por issue; si no pasa, para y explica el bloqueo.
 - Necesitas aprobación del usuario en dos momentos: el desglose en issues y antes de hacer merge.
+- El visto bueno de merge llega con `/ok`: anota el progreso (`docs/milestones.md`, línea Estado de este archivo…), hace merge del PR a main, cierra el issue y borra la rama.
 
 ## Stack y comandos
 Next.js (App Router) + TypeScript estricto + Tailwind · next-intl (es por defecto, en) · Motion + Lenis (scroll con `useScroll` + `position: sticky`; sin GSAP) · Vitest · sharp y ffmpeg para imágenes y fotogramas. Última versión estable de cada librería.

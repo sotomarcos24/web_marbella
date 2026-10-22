@@ -20,4 +20,4 @@ Issue a implementar: #$ARGUMENTS
    - Ejecuta `/simplify` y vuelve a pasar lint, typecheck y tests.
    - Haz commit con un mensaje que referencie el issue.
    - Sube la rama y abre el PR con `gh pr create`. El cuerpo debe incluir: `Closes #$ARGUMENTS`, un resumen del diff en 5 puntos y una sección "Qué debería revisar" con lo más delicado o dudoso.
-7. **Merge.** No hagas merge: espera la aprobación del usuario.
+7. **Merge.** No hagas merge: espera a que el usuario dé el visto bueno con `/ok`, que anota el progreso, hace merge, cierra el issue y borra la rama.
