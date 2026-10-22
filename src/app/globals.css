@@ -1,1 +1,35 @@
 @import "tailwindcss";
+
+/* Estilo mediterráneo cálido (provisional). Los hex se repiten en src/config/theme.ts
+   para /dev/estilos y los tests de contraste; tests/design-tokens.test.ts vigila que coincidan.
+   Terracota y oliva no llegan a AA para texto normal sobre cal: solo texto grande o no textual. */
+@theme {
+  --color-cal: #F7F2EA;
+  --color-arena: #E6D3B3;
+  --color-terracota: #C2603E;
+  --color-oliva: #6B7350;
+  --color-mar: #1F3A4D;
+  --color-tinta: #2B2420;
+  --color-noche: #14110F;
+
+  /* Variables que crea next/font en src/config/fonts.ts. */
+  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Escala de títulos en serif display: fluida entre móvil y escritorio. */
+  --text-display: clamp(3.5rem, 2rem + 6vw, 7.5rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.02em;
+  --text-heading-xl: clamp(2.5rem, 1.75rem + 3vw, 4.5rem);
+  --text-heading-xl--line-height: 1;
+  --text-heading-lg: clamp(2rem, 1.5rem + 2vw, 3rem);
+  --text-heading-lg--line-height: 1.1;
+  --text-heading-md: 1.75rem;
+  --text-heading-md--line-height: 1.2;
+}
+
+@layer base {
+  body {
+    @apply bg-cal font-sans text-tinta antialiased;
+  }
+}

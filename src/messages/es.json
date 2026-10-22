@@ -11,5 +11,87 @@
       "es": "Español",
       "en": "English"
     }
+  },
+  "DevEstilos": {
+    "title": "Sistema de diseño",
+    "intro": "Paleta, tipografías y componentes base del estilo mediterráneo cálido. Provisional.",
+    "sections": {
+      "palette": "Paleta",
+      "typography": "Tipografías",
+      "scale": "Escala de texto",
+      "buttons": "Botones",
+      "cards": "Tarjetas",
+      "inputs": "Campos",
+      "motion": "Animación",
+      "dark": "Escena oscura"
+    },
+    "colors": {
+      "cal": "Cal · fondo",
+      "arena": "Arena",
+      "terracota": "Terracota · acento",
+      "oliva": "Oliva",
+      "mar": "Mar",
+      "tinta": "Tinta · texto",
+      "noche": "Noche · escenas oscuras"
+    },
+    "contrast": "{ratio}:1 sobre cal",
+    "contrastNote": "Terracota y oliva no llegan a AA para texto normal sobre cal: solo texto grande o elementos no textuales.",
+    "fonts": {
+      "display": "Cormorant Garamond · display",
+      "sans": "DM Sans · texto",
+      "sample": "Casas blancas frente al Mediterráneo",
+      "sampleItalic": "una luz que se queda",
+      "body": "Cuatro villas con piscina a pocos minutos de Puerto Banús, pensadas para grupos grandes y estancias largas."
+    },
+    "scale": {
+      "display": "Display",
+      "xl": "Titular XL",
+      "lg": "Titular L",
+      "md": "Titular M",
+      "body": "Texto de cuerpo: claro, cómodo de leer y con mucho aire.",
+      "small": "Texto pequeño para notas y datos secundarios."
+    },
+    "buttons": {
+      "primary": "Reservar",
+      "secondary": "Ver villas",
+      "ghost": "Más información",
+      "disabled": "No disponible"
+    },
+    "cards": {
+      "title": "Porche con piscina",
+      "body": "Sombra por la tarde, tumbonas y vistas al jardín.",
+      "darkTitle": "Planta alta",
+      "darkBody": "Cuatro dormitorios con baño en suite."
+    },
+    "inputs": {
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Tu nombre"
+      },
+      "email": {
+        "label": "Email",
+        "hint": "Te enviaremos la confirmación aquí."
+      },
+      "guests": {
+        "label": "Huéspedes",
+        "hint": "Máximo 15 por villa.",
+        "error": "Supera la capacidad máxima de la villa."
+      }
+    },
+    "motion": {
+      "title": "Dentro de la villa",
+      "replay": "Repetir animación",
+      "rooms": {
+        "salon": "Salón",
+        "cocina": "Cocina",
+        "dormitorio": "Dormitorio"
+      }
+    },
+    "dark": {
+      "eyebrow": "Explorar la villa",
+      "title": "Bienvenido <em>a casa</em>",
+      "body": "Las transiciones y los exploradores van en oscuro; las secciones editoriales, en cal.",
+      "cta": "Entrar"
+    }
   }
 }
