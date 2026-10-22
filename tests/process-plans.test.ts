@@ -65,12 +65,12 @@ beforeEach(() => {
 afterEach(() => rmSync(raiz, { recursive: true, force: true }));
 
 describe("process-plans", () => {
-  it("genera planta-baja.webp y planta-alta.webp en destino/<villa>/", async () => {
+  it("genera plano-planta-baja.webp y plano-planta-alta.webp en destino/villa-N/", async () => {
     await jpg(plano());
     const informe = await processPlans({ origen, destino, config: baseConfig });
-    expect(salida("villa1")).toEqual(["planta-alta.webp", "planta-baja.webp"]);
+    expect(salida("villa-1")).toEqual(["plano-planta-alta.webp", "plano-planta-baja.webp"]);
     expect(informe.generadas).toHaveLength(2);
-    const meta = await sharp(path.join(destino, "villa1/planta-baja.webp")).metadata();
+    const meta = await sharp(path.join(destino, "villa-1/plano-planta-baja.webp")).metadata();
     expect(meta.format).toBe("webp");
   });
 
@@ -81,8 +81,8 @@ describe("process-plans", () => {
       "planta-alta": { recorte: { left: 0, top: 0.5, width: 0.25, height: 0.5 } },
     });
     await processPlans({ origen, destino, config });
-    const baja = await sharp(path.join(destino, "villa1/planta-baja.webp")).metadata();
-    const alta = await sharp(path.join(destino, "villa1/planta-alta.webp")).metadata();
+    const baja = await sharp(path.join(destino, "villa-1/plano-planta-baja.webp")).metadata();
+    const alta = await sharp(path.join(destino, "villa-1/plano-planta-alta.webp")).metadata();
     expect([baja.width, baja.height]).toEqual([300, 100]);
     expect([alta.width, alta.height]).toEqual([100, 100]);
   });
@@ -98,7 +98,7 @@ describe("process-plans", () => {
       "planta-alta": { recorte: mitadDer },
     });
     await processPlans({ origen, destino, config });
-    const ruta = path.join(destino, "villa1/planta-baja.webp");
+    const ruta = path.join(destino, "villa-1/plano-planta-baja.webp");
     const [r, g, b] = await pixel(ruta, 50, 50);
     expect(Math.min(r!, g!, b!)).toBeGreaterThan(240);
     const [r2, , b2] = await pixel(ruta, 350, 150);
@@ -113,7 +113,7 @@ describe("process-plans", () => {
       "planta-alta": { recorte: mitadIzq },
     });
     const informe = await processPlans({ origen, destino, config });
-    expect(salida("villa1")).toEqual(["planta-alta.webp"]);
+    expect(salida("villa-1")).toEqual(["plano-planta-alta.webp"]);
     expect(informe.descartadas).toEqual([
       expect.objectContaining({ villa: "villa1", planta: "planta-baja", motivo: expect.stringMatching(/recorte/i) }),
     ]);
@@ -121,7 +121,7 @@ describe("process-plans", () => {
 
   it("una villa sin plano en origen se omite sin error", async () => {
     const informe = await processPlans({ origen, destino, config: baseConfig });
-    expect(salida("villa1")).toEqual([]);
+    expect(salida("villa-1")).toEqual([]);
     expect(informe.omitidas).toEqual([expect.objectContaining({ villa: "villa1", archivo: "villa1_027_1.jpg" })]);
     expect(informe.generadas).toHaveLength(0);
   });
@@ -137,7 +137,7 @@ describe("process-plans", () => {
   it("no supera maxWidth", async () => {
     await jpg(plano(), 6000, 1000);
     await processPlans({ origen, destino, config: baseConfig });
-    const meta = await sharp(path.join(destino, "villa1/planta-baja.webp")).metadata();
+    const meta = await sharp(path.join(destino, "villa-1/plano-planta-baja.webp")).metadata();
     expect(meta.width).toBe(1920);
   });
 });

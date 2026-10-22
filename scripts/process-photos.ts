@@ -2,7 +2,7 @@ import { mkdirSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import sharp from "sharp";
-import { photosConfig, type PhotosConfig, type Recorte } from "./photos.config.ts";
+import { aWebp, carpetaPublica, photosConfig, type PhotosConfig, type Recorte } from "./photos.config.ts";
 
 export type Entrada = { villa: string; archivo: string; motivo?: string };
 export type Informe = { procesadas: Entrada[]; apartadas: Entrada[]; descartadas: Entrada[] };
@@ -39,6 +39,7 @@ export async function processPhotos(opts: {
     } catch {
       continue;
     }
+    const salida = path.join(destino, carpetaPublica(villa));
 
     for (const archivo of archivos) {
       const entrada = { villa, archivo };
@@ -67,11 +68,11 @@ export async function processPhotos(opts: {
         imagen = imagen.extract(aPixeles(recorte, width, height));
       }
 
-      mkdirSync(path.join(destino, villa), { recursive: true });
+      mkdirSync(salida, { recursive: true });
       await imagen
         .resize({ width: config.webp.maxWidth, withoutEnlargement: true })
         .webp({ quality: config.webp.quality })
-        .toFile(path.join(destino, villa, archivo.replace(/\.jpe?g$/i, ".webp")));
+        .toFile(path.join(salida, aWebp(archivo)));
       informe.procesadas.push(entrada);
     }
   }

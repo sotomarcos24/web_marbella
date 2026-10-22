@@ -43,12 +43,12 @@ beforeEach(() => {
 afterEach(() => rmSync(raiz, { recursive: true, force: true }));
 
 describe("process-photos", () => {
-  it("convierte solo statics/*.jpg a WebP en destino/<villa>/", async () => {
+  it("convierte solo statics/*.jpg a WebP en destino/villa-N/ (id de VillaId)", async () => {
     await jpg(path.join(origen, "villa1/statics/villa1_001.jpg"));
     await jpg(path.join(origen, "villa3/statics/villa3_002.jpg"));
     await processPhotos({ origen, destino, config: baseConfig });
-    expect(salida("villa1")).toEqual(["villa1_001.webp"]);
-    expect(salida("villa3")).toEqual(["villa3_002.webp"]);
+    expect(salida("villa-1")).toEqual(["villa1_001.webp"]);
+    expect(salida("villa-3")).toEqual(["villa3_002.webp"]);
   });
 
   it("ignora movement/ y ficheros que no son jpg en statics/", async () => {
@@ -57,7 +57,7 @@ describe("process-photos", () => {
     writeFileSync(path.join(origen, "villa1/statics/notas.txt"), "x");
     writeFileSync(path.join(origen, "villa1/statics/clip.mp4"), "x");
     const informe = await processPhotos({ origen, destino, config: baseConfig });
-    expect(salida("villa1")).toEqual(["villa1_001.webp"]);
+    expect(salida("villa-1")).toEqual(["villa1_001.webp"]);
     expect(informe.procesadas).toHaveLength(1);
   });
 
@@ -66,7 +66,7 @@ describe("process-photos", () => {
     await jpg(path.join(origen, "conjunto/suelta.jpg"));
     writeFileSync(path.join(origen, "idea_para_web.mp4"), "x");
     await processPhotos({ origen, destino, config: baseConfig });
-    expect(readdirSync(destino)).toEqual(["villa1"]);
+    expect(readdirSync(destino)).toEqual(["villa-1"]);
   });
 
   it("no modifica los originales (checksum)", async () => {
@@ -88,7 +88,7 @@ describe("process-photos", () => {
     await jpg(path.join(origen, "villa1/statics/villa1_010.jpg"));
     const config = { ...baseConfig, exclusiones: [{ archivo: "villa1_010.jpg", motivo: "rótulo 5G" }] };
     const informe = await processPhotos({ origen, destino, config });
-    expect(salida("villa1")).toEqual(["villa1_001.webp"]);
+    expect(salida("villa-1")).toEqual(["villa1_001.webp"]);
     expect(informe.descartadas).toEqual([{ villa: "villa1", archivo: "villa1_010.jpg", motivo: "rótulo 5G" }]);
   });
 
@@ -96,8 +96,8 @@ describe("process-photos", () => {
     await jpg(path.join(origen, "villa1/statics/mapa_villas_1_3_4_5_1.jpg"));
     await jpg(path.join(origen, "villa3/statics/mapa_villas_1_3_4_5_1.jpg"));
     const informe = await processPhotos({ origen, destino, config: baseConfig });
-    expect(salida("villa1")).toEqual([]);
-    expect(salida("villa3")).toEqual([]);
+    expect(salida("villa-1")).toEqual([]);
+    expect(salida("villa-3")).toEqual([]);
     expect(informe.apartadas).toHaveLength(2);
     expect(informe.apartadas[0]?.motivo).toBe("pendiente de edición");
     expect(informe.procesadas).toHaveLength(0);
@@ -114,7 +114,7 @@ describe("process-photos", () => {
       },
     };
     const informe = await processPhotos({ origen, destino, config });
-    expect(salida("villa1")).toEqual(["villa1_001.webp"]);
+    expect(salida("villa-1")).toEqual(["villa1_001.webp"]);
     expect(informe.apartadas).toEqual([
       expect.objectContaining({ villa: "villa1", archivo: "villa1_027_1.jpg", motivo: expect.stringMatching(/plano/i) }),
     ]);
@@ -127,7 +127,7 @@ describe("process-photos", () => {
       recortes: { "villa1/villa1_001.jpg": { left: 0, top: 0, width: 0.5, height: 0.5 } },
     };
     await processPhotos({ origen, destino, config });
-    const meta = await sharp(path.join(destino, "villa1/villa1_001.webp")).metadata();
+    const meta = await sharp(path.join(destino, "villa-1/villa1_001.webp")).metadata();
     expect([meta.width, meta.height]).toEqual([200, 100]);
   });
 
@@ -138,7 +138,7 @@ describe("process-photos", () => {
       recortes: { "villa1/villa1_001.jpg": { left: 0.8, top: 0, width: 0.5, height: 1 } },
     };
     const informe = await processPhotos({ origen, destino, config });
-    expect(salida("villa1")).toEqual([]);
+    expect(salida("villa-1")).toEqual([]);
     expect(informe.descartadas).toHaveLength(1);
     expect(informe.descartadas[0]?.motivo).toMatch(/recorte/i);
   });
@@ -158,7 +158,7 @@ describe("process-photos", () => {
   it("genera WebP válido y no supera maxWidth", async () => {
     await jpg(path.join(origen, "villa1/statics/villa1_001.jpg"), 3000, 1000);
     await processPhotos({ origen, destino, config: baseConfig });
-    const meta = await sharp(path.join(destino, "villa1/villa1_001.webp")).metadata();
+    const meta = await sharp(path.join(destino, "villa-1/villa1_001.webp")).metadata();
     expect(meta.format).toBe("webp");
     expect(meta.width).toBe(1920);
   });

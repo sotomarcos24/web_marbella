@@ -9,6 +9,11 @@ export type RecortePlanta = { recorte: Recorte; tapar?: Poligono[] };
 /** `fondo`: color de relleno de `tapar` (blanco por defecto). */
 export type Plano = { archivo: string; fondo?: string; plantas: Record<PlantaId, RecortePlanta> };
 
+/** Carpeta de `imgs/` (`villa1`) → carpeta pública con el id de `VillaId` (`villa-1`). */
+export const carpetaPublica = (villa: string) => villa.replace(/^villa(\d+)$/, "villa-$1");
+/** Nombre del WebP publicado a partir del JPG original. */
+export const aWebp = (archivo: string) => archivo.replace(/\.jpe?g$/i, ".webp");
+
 export type PhotosConfig = {
   villas: string[];
   webp: { quality: number; maxWidth: number };
@@ -25,11 +30,49 @@ export type PhotosConfig = {
 export const photosConfig: PhotosConfig = {
   villas: ["villa1", "villa3", "villa4", "villa5"],
   webp: { quality: 80, maxWidth: 1920 },
-  // Pendiente: añadir los archivos reales al revisar imgs/ (ver docs/SPEC.md §12).
-  exclusiones: [],
+  // Revisadas en #15 (ver docs/fotos-resumen.md). "retocable": se podría recuperar borrando la tarjeta.
+  exclusiones: [
+    { archivo: "villa1_005.jpg", motivo: "tarjeta de bienvenida con texto/logo sobre la cama (pequeña; retocable)" },
+    { archivo: "villa1_007.jpg", motivo: "tarjeta de bienvenida con texto/logo sobre la cama (pequeña; retocable)" },
+    { archivo: "villa1_009_1.jpg", motivo: "mapa de ubicación con distancias y rótulo de marca" },
+    { archivo: "villa1_018_1.jpg", motivo: "rótulo 5G y logo de marca" },
+    { archivo: "villa1_021_1.jpg", motivo: "cartel Guest services y logo de marca" },
+    { archivo: "villa1_022.jpg", motivo: "tarjeta de bienvenida con texto/logo sobre la cama (pequeña; retocable)" },
+    { archivo: "villa1_024.jpg", motivo: "tarjeta de bienvenida con texto/logo sobre la cama" },
+    { archivo: "villa1_039.jpg", motivo: "duplicado exacto de villa1_012" },
+    { archivo: "villa1_046.jpg", motivo: "tarjeta de bienvenida con texto/logo sobre la cama (pequeña; retocable)" },
+    { archivo: "villa1_047.jpg", motivo: "carta de bienvenida con logo de marca" },
+    { archivo: "villa1_048.jpg", motivo: "tarjeta de bienvenida con texto/logo sobre la cama (pequeña; retocable)" },
+    { archivo: "villa1_056.jpg", motivo: "tarjeta de bienvenida con texto/logo sobre la cama (pequeña; retocable)" },
+    { archivo: "villa1_065.jpg", motivo: "carta de bienvenida con logo de marca" },
+    { archivo: "villa3_007_1.jpg", motivo: "mapa de ubicación con distancias y nombre de marca" },
+    { archivo: "villa3_017_1.jpg", motivo: "cartel Guest services con logo de marca" },
+    { archivo: "villa3_023_1.jpg", motivo: "rótulo 5G con logo de marca" },
+    { archivo: "villa4_005_1.jpg", motivo: "mapa de ubicación con distancias y nombre de marca" },
+    { archivo: "villa4_013_1.jpg", motivo: "rótulo 5G con logo de marca" },
+    { archivo: "villa4_020_1.jpg", motivo: "cartel Guest services con logo de marca" },
+    { archivo: "villa4_041.jpg", motivo: "carta de bienvenida con logo de marca" },
+    { archivo: "villa4_061.jpg", motivo: "carta de bienvenida con marca y datos de contacto" },
+    { archivo: "villa4_067.jpg", motivo: "carta de bienvenida con logo sobre la consola" },
+    { archivo: "villa4_078.jpg", motivo: "placa con logo y número de villa en la puerta" },
+    { archivo: "villa5_007.jpg", motivo: "tarjeta de bienvenida con logo sobre las toallas (retocable)" },
+    { archivo: "villa5_010_1.jpg", motivo: "mapa de ubicación con distancias y nombre de marca" },
+    { archivo: "villa5_013_1.jpg", motivo: "cartel Guest services con logo de marca" },
+    { archivo: "villa5_014.jpg", motivo: "tarjeta de bienvenida con logo sobre las toallas (retocable)" },
+    { archivo: "villa5_016.jpg", motivo: "tarjeta de bienvenida con logo sobre las toallas (retocable)" },
+    { archivo: "villa5_020_1.jpg", motivo: "rótulo 5G con logo de marca" },
+    { archivo: "villa5_038.jpg", motivo: "tarjeta de bienvenida con logo sobre las toallas (retocable)" },
+    { archivo: "villa5_051.jpg", motivo: "tarjeta de bienvenida con logo sobre las toallas (retocable)" },
+    { archivo: "villa5_054.jpg", motivo: "tarjeta de bienvenida con logo sobre las toallas (retocable)" },
+  ],
   pendientesEdicion: ["mapa_villas_1_3_4_5_1.jpg"],
-  // Pendiente: coordenadas del sello "Heated Pool" de cada `_001`.
-  recortes: {},
+  // Sello "Heated Pool" abajo a la derecha de cada `_001`: se recorta la franja inferior entera.
+  recortes: {
+    "villa1/villa1_001.jpg": { left: 0, top: 0, width: 1, height: 0.835 },
+    "villa3/villa3_001.jpg": { left: 0, top: 0, width: 1, height: 0.8 },
+    "villa4/villa4_001.jpg": { left: 0, top: 0, width: 1, height: 0.8 },
+    "villa5/villa5_001.jpg": { left: 0, top: 0, width: 1, height: 0.79 },
+  },
   // Coordenadas verificadas visualmente sobre los originales de imgs/ (sin logo, dirección ni texto legal).
   planos: {
     villa1: {
