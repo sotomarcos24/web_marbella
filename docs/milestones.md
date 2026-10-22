@@ -8,7 +8,7 @@ Etiquetas: `setup`, `i18n`, `design`, `data`, `content`, `pricing`, `booking`, `
 
 | Milestone | Objetivo | Issues |
 |---|---|---|
-| M1 Cimientos | Proyecto arrancable, i18n, marca, diseño | #1–#4 |
+| M1 Cimientos ✅ | Proyecto arrancable, i18n, marca, diseño | #1–#4 |
 | M2 Datos y negocio | Modelo, tarifas, servicios, calculadora, reservas mock | #5–#10 |
 | M3 Contenido y fotos | Textos ES/EN y pipeline de fotos | #11–#15 |
 | M4 Herramientas /dev | /dev/cotizador, /dev/zonas, /dev/fotos | #16–#19 |
@@ -47,10 +47,10 @@ Archivos: `src/i18n/*`, `src/proxy.ts` (Next 16 renombra `middleware.ts`), `src/
 - [x] Contraste del texto sobre fondo cal ≥ AA (comprobado)
 Archivos: `src/app/globals.css` (`@theme`), `src/config/{theme,fonts}.ts`, `src/lib/contrast.ts`, `src/components/ui/*`, `src/app/[locale]/dev/estilos/page.tsx`. Terracota (3,74:1) y oliva (4,49:1) no llegan a AA para texto normal sobre cal: solo texto grande y elementos no textuales; botón principal en mar.
 
-### #4 Protección de /dev y utilidades de escritura dev — `dev-tools`, `setup` · S · dep #1
-- [ ] Layout de `/dev/*` devuelve `notFound()` si `NODE_ENV !== 'development'` (test)
-- [ ] Helper `src/lib/dev/writeContent.ts`: escribe solo dentro de `src/content/`, rechaza rutas con `..` o absolutas (tests)
-- [ ] Route handler `/api/dev/*` responde 404 fuera de desarrollo (test)
+### #4 Protección de /dev y utilidades de escritura dev — `dev-tools`, `setup` · S · dep #1 · ✅ PR #23
+- [x] Layout de `/dev/*` devuelve `notFound()` si `NODE_ENV !== 'development'` (test)
+- [x] Helper `src/lib/dev/writeContent.ts`: escribe solo dentro de `src/content/`, rechaza rutas con `..` o absolutas (tests)
+- [x] Route handler `/api/dev/*` responde 404 fuera de desarrollo (test)
 Archivos: `src/app/[locale]/dev/layout.tsx`, `src/lib/dev/*`, `src/app/api/dev/*`.
 
 ---
