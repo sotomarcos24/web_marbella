@@ -84,19 +84,20 @@ Archivos: `src/types/*`, `src/lib/validation/villa.ts`.
 - [x] Fórmula de compra previa (80 € hasta 200 € + 40 € por cada 100 € adicionales) con tests
 - [x] Menús del chef (paella, barbacoa) y lista del pack desayuno como datos (lista del pack **pendiente de confirmar**: `packDesayuno.pendiente`)
 
-### #9 Calculadora `pricing.ts` — `pricing` · L · dep #8
+### #9 Calculadora `pricing.ts` — `pricing` · L · dep #8 · ✅ PR #28
 Tests primero.
-- [ ] villa-4, 3 noches agosto, 10 huéspedes → 5.490 €; 25 % = 1.372,50 €
-- [ ] villa-1, 30 jun–3 jul → 5.826 €
-- [ ] villa-4, 14 huéspedes, 3 noches agosto → +300 €
-- [ ] 2 noches → error estancia mínima; 60 noches → error estancia máxima
-- [ ] 16 huéspedes → error de capacidad
-- [ ] Llegada en 20 días → 100 % al reservar; ≥30 días → 25 %/75 % con fechas
-- [ ] Precio por noche según el mes de cada noche (cruce de mes y de año)
-- [ ] >28 noches en dic–mar → aviso "Solicita oferta de estancia de invierno" sin precio
-- [ ] Suplemento villa-1 250 € solo si agosto; resto según SPEC; mascotas y extras suman al total
-- [ ] Devuelve fianza aparte, fecha límite de cancelación gratuita (llegada − 60 días) y avisos (tarifa estimada, limpieza cada 2 días incluida)
-- [ ] Función pura (sin `Date.now()` interno: recibe `hoy`); fechas en UTC
+- [x] villa-4, 3 noches agosto, 10 huéspedes → 5.490 €; 25 % = 1.372,50 €
+- [x] villa-1, 30 jun–3 jul → 5.826 €
+- [x] villa-4, 14 huéspedes, 3 noches agosto → +300 €
+- [x] 2 noches → error estancia mínima; 60 noches → error estancia máxima
+- [x] 16 huéspedes → error de capacidad
+- [x] Llegada en 20 días → 100 % al reservar; ≥30 días → 25 %/75 % con fechas
+- [x] Precio por noche según el mes de cada noche (cruce de mes y de año)
+- [x] >28 noches en dic–mar → aviso "Solicita oferta de estancia de invierno" sin precio
+- [x] Suplemento villa-1 250 € solo si agosto; resto según SPEC; mascotas y extras suman al total
+- [x] Devuelve fianza aparte, fecha límite de cancelación gratuita (llegada − 60 días) y avisos (tarifa estimada, limpieza cada 2 días incluida)
+- [x] Función pura (sin `Date.now()` interno: recibe `hoy`); fechas en UTC
+Decisiones: villa-1 sin suplemento fuera de agosto (250 € si alguna noche cae en agosto); la oferta de invierno cuenta solo las noches de dic–mar.
 Archivos: `src/lib/pricing.ts`, `src/lib/pricing.test.ts`.
 
 ### #10 Reservas simuladas — `booking` · M · dep #9

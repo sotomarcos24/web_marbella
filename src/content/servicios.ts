@@ -12,13 +12,16 @@ const compraPrevia: Escalonado = {
   incremento: eur(40),
 };
 
-/** Gestión de la compra previa (SPEC §9): el ticket de la compra se paga aparte. Cada 100 € más, o fracción, suma 40 €. */
-export function calcularCompraPrevia(compra: Centimos): Centimos {
+/** Importe de un precio escalonado para una compra: `base` hasta `hasta`; cada `tramo` más, o fracción, suma `incremento`. */
+export function importeEscalonado(precio: Escalonado, compra: Centimos): Centimos {
   if (!Number.isInteger(compra) || compra <= 0) throw new Error(`Importe de compra inválido: ${compra}`);
-  const { base, hasta, tramo, incremento } = compraPrevia;
+  const { base, hasta, tramo, incremento } = precio;
   if (compra <= hasta) return base;
   return base + Math.ceil((compra - hasta) / tramo) * incremento;
 }
+
+/** Gestión de la compra previa (SPEC §9): el ticket de la compra se paga aparte. Cada 100 € más, o fracción, suma 40 €. */
+export const calcularCompraPrevia = (compra: Centimos): Centimos => importeEscalonado(compraPrevia, compra);
 
 const T = "servicios";
 
