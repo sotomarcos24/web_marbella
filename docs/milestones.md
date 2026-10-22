@@ -119,10 +119,10 @@ Archivos: `src/lib/booking/{types,mock,occupied.json,index}.ts`.
 - [x] Distribución de camas por villa (fuente: ficha, pendiente de confirmar; sin contrastar con planos)
 Archivos: `src/content/{comodidades,dormitorios}.ts`, `docs/fuentes/`, `tests/villas-textos.test.ts`.
 
-### #12 Textos generales y servicios (ES/EN) — `content`, `i18n` · M · dep #8,#2
-- [ ] Condiciones de reserva y normas de la casa adaptadas, sin normas de apartamentos
-- [ ] Descripción de servicios y menús del chef; presentación genérica del chef (sin la biografía actual)
-- [ ] Test: términos prohibidos ausentes, claves es/en idénticas
+### #12 Textos generales y servicios (ES/EN) — `content`, `i18n` · M · dep #8,#2 ✅ PR #31
+- [x] Condiciones de reserva y normas de la casa adaptadas, sin normas de apartamentos
+- [x] Descripción de servicios y menús del chef; presentación genérica del chef (sin la biografía actual)
+- [x] Test: términos prohibidos ausentes, claves es/en idénticas
 
 ### #13 Pipeline de fotos: conversión y filtrado — `photos` · L · dep #1
 Desarrollado con fixtures sintéticos; ejecución real sobre `imgs/` (ya disponible).
