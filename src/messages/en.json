@@ -100,9 +100,12 @@
     "planta-alta": "Upper floor"
   },
   "servicios": {
+    "titulo": "Services",
+    "intro": "Make your stay even more comfortable with optional services we arrange for you.",
     "chef-privado": {
       "nombre": "Private chef",
-      "descripcion": "A chef cooks at the villa for your group (minimum 10 diners)."
+      "descripcion": "A chef cooks at the villa for your group (minimum 10 diners).",
+      "presentacion": "A professional chef takes care of the shopping, sets the table, cooks with fresh ingredients, serves and tidies up afterwards, so all you have to do is enjoy. Menus can be adapted to dietary needs."
     },
     "limpieza-diaria": {
       "nombre": "Daily cleaning",
@@ -262,6 +265,55 @@
     },
     "villa-5": {
       "descripcion": "Villa with 6 bedrooms and 4 bathrooms for up to 15 guests, about a 7-minute walk from the Puerto Banús marina. It has a flat garden ideal for children, a private heated pool, a poolside barbecue area and an outdoor seating corner with a swing. Its layout mirrors Villa 4, next door, and together they welcome groups of up to 30."
+    }
+  },
+  "condiciones": {
+    "titulo": "Booking conditions",
+    "intro": "These conditions apply to every booking of the villa.",
+    "secciones": {
+      "reserva": {
+        "titulo": "Booking",
+        "texto": "Your booking is confirmed once the administration approves the request. No charge is made until then."
+      },
+      "pago": {
+        "titulo": "Payment",
+        "texto": "25% of the total is paid to confirm the booking and the remaining 75% is due 30 days before arrival, charged to the same card. If the second payment fails, the booking is cancelled and the first payment is not refunded."
+      },
+      "fianza": {
+        "titulo": "Damage deposit",
+        "texto": "A deposit is pre-authorised on your card just before arrival and released in the days after check-out, once the villa has been inspected. Deductions may be made for damage, excessive cleaning or other costs caused by the guests.",
+        "pendiente": "Deposit amount pending confirmation."
+      },
+      "cancelacion": {
+        "titulo": "Cancellation",
+        "texto": "Cancellation is free up to 60 days before arrival. After that, no refund is given unless agreed in writing with the administration."
+      },
+      "horarios": {
+        "titulo": "Check-in and check-out",
+        "texto": "Check-in is from 16:00 and check-out is before 10:00. Late check-out depends on availability and carries a charge."
+      },
+      "capacidad": {
+        "titulo": "Capacity",
+        "texto": "The maximum capacity of each villa is 15 people, the legal limit in Andalusia. No more guests than those stated in the booking are allowed."
+      }
+    }
+  },
+  "normas": {
+    "titulo": "House rules",
+    "intro": "We ask all guests to follow these rules so that the stay is pleasant for everyone.",
+    "items": {
+      "tabaco": "Smoking is only allowed outdoors, using an ashtray. Smoking inside the villa or leaving cigarette butts in the garden or pool carries a €200 cleaning charge.",
+      "mascotas": "Pets are welcome for a €200 supplement per pet.",
+      "piscina": "Glasses and sharp objects are not allowed around the pool.",
+      "fiestas": "Parties and events are not allowed without prior written agreement. Unauthorised parties and night-time noise carry a €1,000 fine.",
+      "llaves": "Two sets of keys with remote control are provided. Losing a key or taking it out of the country costs €250, and losing the safe key costs €80.",
+      "danos": "Any damage or defect must be reported within the first 24 hours. Other damage may be deducted from the deposit.",
+      "basura": "Rubbish must be left in closed bags in the designated bins. Leaving it anywhere else carries a €50 charge.",
+      "seguridad": "When you go out and at night, lock the doors and gates and set the alarm if possible. The administration is not responsible for lost or stolen items.",
+      "climatizacion": "Switch the air conditioning off when you leave. 40 kWh per day are included; extra consumption is charged at €0.50 per kWh.",
+      "limpieza": "If the villa is left very dirty, an additional €200 may be charged. Staining sheets or towels with make-up or self-tanner costs €10 per item.",
+      "jardinero": "The gardener comes in between 8:00 and 10:00 and does not ring the bell or knock on the door.",
+      "capacidad": "The maximum occupancy is 15 people, children included. No more guests may stay overnight."
     }
   }
 }
