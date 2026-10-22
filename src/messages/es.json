@@ -189,5 +189,79 @@
       "fechas-ocupadas": "Esas fechas ya están reservadas: elige otras o consulta el calendario.",
       "requiere-oferta": "Para estancias largas de invierno preparamos una oferta a medida: solicítala y te responderemos."
     }
+  },
+  "comodidades": {
+    "categorias": {
+      "exterior": "Exterior y piscina",
+      "cocina": "Cocina y comedor",
+      "dormitorios": "Dormitorios",
+      "banos": "Baños",
+      "confort": "Confort y lavandería",
+      "entretenimiento": "Entretenimiento y trabajo",
+      "seguridad": "Seguridad",
+      "ninos": "Niños"
+    },
+    "items": {
+      "piscina-climatizada": "Piscina privada climatizada",
+      "tumbonas": "Tumbonas",
+      "comedor-exterior": "Comedor y mobiliario de exterior",
+      "barbacoa": "Barbacoa con utensilios",
+      "jardin": "Jardín",
+      "iluminacion-exterior": "Iluminación exterior",
+      "parking-privado": "Parking privado",
+      "garaje": "Garaje",
+      "cocina-equipada": "Cocina totalmente equipada",
+      "isla-cocina": "Isla de cocina",
+      "lavavajillas": "Lavavajillas",
+      "horno-microondas": "Horno y microondas",
+      "nevera-congelador": "Nevera y congelador",
+      "cafetera": "Cafetera Dolce Gusto, cafetera de filtro y hervidor",
+      "tostadora-batidora": "Tostadora y batidora",
+      "menaje-grupos": "Menaje, copas de vino y cubertería para grupos grandes",
+      "comedor-interior": "Comedor interior",
+      "ropa-cama-toallas": "Ropa de cama y toallas",
+      "almohadas-mantas": "Almohadas y mantas extra",
+      "persianas-opacas": "Cortinas opacas",
+      "armarios-perchas": "Perchas y espacio para ropa",
+      "ducha-banera": "Ducha y bañera",
+      "bide": "Bidé",
+      "secador": "Secador de pelo",
+      "gel-champu": "Gel y champú",
+      "aire-acondicionado": "Aire acondicionado",
+      "calefaccion": "Calefacción",
+      "chimenea": "Chimenea",
+      "ventiladores": "Ventiladores portátiles",
+      "lavadora-secadora": "Lavadora y secadora",
+      "plancha": "Plancha y tabla de planchar",
+      "tendedero": "Tendedero",
+      "wifi": "WiFi gratuito",
+      "smart-tv": "Smart TV",
+      "tv-cable": "TV por cable",
+      "sonido": "Equipo de sonido",
+      "piano": "Piano",
+      "zona-trabajo": "Zona de trabajo con escritorio",
+      "alarma": "Sistema de alarma",
+      "detectores": "Detectores de humo y monóxido de carbono",
+      "caja-fuerte": "Caja fuerte",
+      "botiquin-extintor": "Botiquín y extintor",
+      "cuna": "Cuna y cuna de viaje",
+      "trona": "Trona",
+      "puertas-seguridad": "Puertas de seguridad para bebés",
+      "juegos-exterior": "Zona de juegos exterior"
+    }
+  },
+  "villas": {
+    "villa-1": {
+      "descripcion": "Villa de 5 baños para hasta 15 huéspedes, con piscina privada climatizada y tobogán para los más pequeños. El comedor exterior mira al jardín y la cocina, abierta y recién reformada, está equipada para grupos grandes. Decoración nueva y cuidada, en pleno Puerto Banús: restaurantes, bares y supermercados a pocos pasos."
+    },
+    "villa-3": {
+      "descripcion": "Villa de 7 dormitorios y 4 baños para hasta 15 huéspedes, con piscina privada climatizada e iluminada por la noche, un patio con fuente y una terraza de 76 m². El comedor exterior da al jardín y la decoración es nueva y cuidada. En pleno Puerto Banús: restaurantes, bares y supermercados a pocos pasos."
+    },
+    "villa-4": {
+      "descripcion": "Villa de 6 dormitorios y 4 baños para hasta 15 huéspedes, con cocina recién reformada y una zona exterior pensada para disfrutar: piscina privada climatizada, tumbonas, barbacoa y un jardín llano donde los niños pueden jugar. Escalera de caracol, futbolín y la playa a un corto paseo. Es contigua a la villa 5, de modo que ambas juntas acogen a grupos de hasta 30."
+    },
+    "villa-5": {
+      "descripcion": "Villa de 6 dormitorios y 4 baños para hasta 15 huéspedes, a unos 7 minutos a pie del puerto deportivo de Puerto Banús. Tiene un jardín llano ideal para los niños, piscina privada climatizada, zona de barbacoa junto a la piscina y un rincón exterior con columpio. Su distribución es la misma que la de la villa 4, contigua, y juntas acogen a grupos de hasta 30."
+    }
   }
 }

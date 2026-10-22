@@ -1,0 +1,2117 @@
+{
+  "fuente": "https://liriosvillagemarbella.holidayfuture.com/listings/78195",
+  "personCapacity": 15,
+  "bedroomsNumber": 7,
+  "bathroomsNumber": 5,
+  "bedsNumber": 13,
+  "descripcion": "Discover this inviting 7-bedroom villa for up to 19 guests, featuring an amazing HEATED pool with a kids' slide. The lovely outdoor dining area overlooking the garden is perfect for laid-back moments. The villa features new, tasteful decor and an open, recently refurbished kitchen. Just like the rest of our villas, Villa 1 boasts with an unbeatable location and everything you need is just steps away – from restaurants, bars, and supermarkets to vibrant nightlife. Explore the charm of our villas with optional services like maid service, a private chef, and airport transfers. Ideal for families and groups, reserve your spot now for a cozy and memorable getaway! \n\nThe villa features new, tasteful decor and an open, recently refurbished kitchen. The lovely outdoor dining area overlooking the garden is perfect for laid-back moments.  Ideal for families and groups, reserve your spot now for a cozy and memorable getaway! \n\nNEARBY AMENITIES and SECURITY\nLocated in the heart of Puerto Banus, this villa is an ideal choice if you prefer not to drive for dinner or for a drink, as the main strip is just a short walk away. A plethora of dining options awaits, from the upscale La Sala and Breathe restaurants to more casual spots like Mister Noodle, Burger Bar, or an Organic Juicery. SuperCor supermarket, hairdressers, and beauty salons are conveniently located nearby. Despite its central location, Villa 1 provides a relaxing retreat for your well-deserved holiday. For added peace of mind, the villa is equipped with a 24/7 security alarm.\n\nENTERTAINMENT\nEnjoy lightning-fast 5G optic fiber internet, relax to your favorite tunes using the Bluetooth audio speaker, binge-watch your favorites on Netflix, and soak up the sun by the inviting pool. I am sure you will have fun!\n\nSLEEPING ARRANGEMENTS & LAYOUT\nAll the bedrooms in the villa are prepared with fresh linen and towels. All bedrooms are furnished to a high standard with soft duvets, comfortable pillows, and mattresses. Please ask about wheelchair accessibility before booking.\n\nThere are 3 bedrooms on the ground floor: 1 en-suite single bedroom, 1 en-suite double bedroom (with two single beds pushed together) and 1 triple bedroom (with one double and one single bed).\n\nUpstairs, there are two en-suite triple bedrooms (with one double and one single bed), one twin and one triple bedroom (with one double and one single bed) which share another bathroom.\n\nCulinary enthusiasts will love the newly renovated kitchen, equipped with an abundance of pots, pans, wine and champagne glasses, crockery, utensils, and cutlery to accommodate large groups of guests. Coffee aficionados can savor their brew from the Dolce Gusto coffee machine\n\nSERVICES\n@Lirios Village Marbella, we offer a wide range of tailor-made services to ensure your stay is as comfortable and enjoyable as possible. We can arrange your airport transfers, include daily maid service, arrange groceries shopping, welcome surprise decoration, boat trips, and more. Maid service is included in high-season direct bookings, and it can be added to any other booking. We also offer airport transfers and private chef services.\n\nMAID SERVICE\nDirect bookings @liriosvillagemarbella for July and August include one complimentary maid service. The service can also be added to any booking made via online platforms or agents for 125 EUR/day, covering a light clean of the kitchen, living areas, bathrooms, and bedrooms. Fresh linen and towels are available for an additional 130 EUR laundry fee. Make it a holiday for everyone! :-)\n\nAIRPORT TRANSFERS\nWe are happy to arrange airport transfer for your group. We usualy wait for our guests in the arrival hall and take them directly to the villa or make a short supermarket stop on the way. Our fare is 17 EUR/person and a minimum 170 EUR fare per transfer applies.\n\nPRIVATE CHEF\nWe proudly offer services of our professional private chef who can come to the villa with waiters and prepare a special or traditional Spanish lunch, dinner or BBQ. He can even provide half or full-board - check @chefivanduranmiguel and @liriosvillagemarbella to see photos and rates of the amazing things he is able to prepare. His special menu options start from 50 EUR/person.\n\nEven though this villa is completely independent and offers ultimate privacy, the proximity of four other 6-8 bedroom villas with their private pools and gardens allows us to accommodate up to 90 guests in the same area.\n\nMAXIMUM OCCUPANCY UP TO 19 GUESTS\nEven though this villa sleeps up to 17 guests comfortaby, additional 2 beds could be installed in the largest bedrooms for 2 extra guests. There is plenty of space but you must consider if privacy is an issue for you.\n\nPOOL HEATING\nHave the pool heated for your winter stay for 90 EUR/day, minimum 350 EUR fee applies. \n\nPARKING\nYou can safely park 1 car behind the property gates. There is also unlimited parking in a parking lot 50 meters from the property.",
+  "distribucionCamasTexto": "SLEEPING ARRANGEMENTS & LAYOUT All the bedrooms in the villa are prepared with fresh linen and towels. All bedrooms are furnished to a high standard with soft duvets, comfortable pillows, and mattresses. Please ask about wheelchair accessibility before booking. There are 3 bedrooms on the ground floor: 1 en-suite single bedroom, 1 en-suite double bedroom (with two single beds pushed together) and 1 triple bedroom (with one double and one single bed). Upstairs, there are two en-suite triple bedrooms (with one double and one single bed), one twin and one triple bedroom (with one double and one single bed) which share another bathroom. Culinary enthusiasts will love the newly renovated kitchen, equipped with an abundance of pots, pans, wine and champagne glasses, crockery, utensils, and cutlery to accommodate large groups of guests. Coffee aficionados can savor their brew from the Dolce Gusto coffee machine",
+  "listingAmenity": [
+    {
+      "id": 219950041,
+      "amenity": {
+        "id": 51,
+        "name": "Heated swimming pool",
+        "category": "Pool",
+        "icon": "fa-water-ladder"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 51,
+      "amenityIcon": "fa-water-ladder"
+    },
+    {
+      "id": 203304912,
+      "amenity": {
+        "id": 204,
+        "name": "Private pool",
+        "category": "Pool",
+        "icon": "fa-water-ladder"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 204,
+      "amenityIcon": "fa-water-ladder"
+    },
+    {
+      "id": 219950035,
+      "amenity": {
+        "id": 318,
+        "name": "Security system",
+        "category": "Safety",
+        "icon": "fa-shield-halved"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 318,
+      "amenityIcon": "fa-shield-halved"
+    },
+    {
+      "id": 203304920,
+      "amenity": {
+        "id": 220,
+        "name": "Cleaning optional",
+        "category": "Services",
+        "icon": "fa-broom"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 220,
+      "amenityIcon": "fa-broom"
+    },
+    {
+      "id": 219949477,
+      "amenity": {
+        "id": 311,
+        "name": "Outdoor sunloungers",
+        "category": "Outdoors",
+        "icon": "fa-sun"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 311,
+      "amenityIcon": "fa-sun"
+    },
+    {
+      "id": 203304951,
+      "amenity": {
+        "id": 280,
+        "name": "Free WiFi",
+        "category": "General",
+        "icon": "fa-wifi"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 280,
+      "amenityIcon": "fa-wifi"
+    },
+    {
+      "id": 203304828,
+      "amenity": {
+        "id": 4,
+        "name": "Air conditioning",
+        "category": "General",
+        "icon": "fa-snowflake"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 4,
+      "amenityIcon": "fa-snowflake"
+    },
+    {
+      "id": 203304831,
+      "amenity": {
+        "id": 7,
+        "name": "Kitchen",
+        "category": "Kitchen & dining",
+        "icon": "fa-kitchen-set"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 7,
+      "amenityIcon": "fa-kitchen-set"
+    },
+    {
+      "id": 203304830,
+      "amenity": {
+        "id": 6,
+        "name": "Swimming pool",
+        "category": "Pool",
+        "icon": "fa-water-ladder"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 6,
+      "amenityIcon": "fa-water-ladder"
+    },
+    {
+      "id": 203304833,
+      "amenity": {
+        "id": 13,
+        "name": "Washing Machine",
+        "category": "General",
+        "icon": "fa-washing-machine"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 13,
+      "amenityIcon": "fa-washing-machine"
+    },
+    {
+      "id": 203304847,
+      "amenity": {
+        "id": 37,
+        "name": "Pets allowed",
+        "category": "Policy",
+        "icon": "fa-paw"
+      },
+      "isPresent": 1,
+      "description": "A 200 EUR pet fee applies",
+      "amenityId": 37,
+      "amenityIcon": "fa-paw"
+    },
+    {
+      "id": 203304848,
+      "amenity": {
+        "id": 38,
+        "name": "Street parking",
+        "category": "Parking",
+        "icon": "fa-square-parking"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 38,
+      "amenityIcon": "fa-square-parking"
+    },
+    {
+      "id": 203304853,
+      "amenity": {
+        "id": 48,
+        "name": "Suitable for children",
+        "category": "Policy",
+        "icon": "fa-child"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 48,
+      "amenityIcon": "fa-child"
+    },
+    {
+      "id": 203304826,
+      "amenity": {
+        "id": 2,
+        "name": "Internet",
+        "category": "General",
+        "icon": "fa-globe"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 2,
+      "amenityIcon": "fa-globe"
+    },
+    {
+      "id": 203304827,
+      "amenity": {
+        "id": 3,
+        "name": "Wireless",
+        "category": "General",
+        "icon": "fa-wifi"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 3,
+      "amenityIcon": "fa-wifi"
+    },
+    {
+      "id": 203304832,
+      "amenity": {
+        "id": 12,
+        "name": "Fireplace",
+        "category": "General",
+        "icon": "fa-fireplace"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 12,
+      "amenityIcon": "fa-fireplace"
+    },
+    {
+      "id": 203304834,
+      "amenity": {
+        "id": 14,
+        "name": "Dryer",
+        "category": "General",
+        "icon": "fa-dryer"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 14,
+      "amenityIcon": "fa-dryer"
+    },
+    {
+      "id": 203304835,
+      "amenity": {
+        "id": 16,
+        "name": "24-hour checkin",
+        "category": "General",
+        "icon": "fa-clock"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 16,
+      "amenityIcon": "fa-clock"
+    },
+    {
+      "id": 203304836,
+      "amenity": {
+        "id": 17,
+        "name": "Hair Dryer",
+        "category": "General",
+        "icon": "fa-wind"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 17,
+      "amenityIcon": "fa-wind"
+    },
+    {
+      "id": 203304837,
+      "amenity": {
+        "id": 18,
+        "name": "Heating",
+        "category": "General",
+        "icon": "fa-temperature-arrow-up"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 18,
+      "amenityIcon": "fa-temperature-arrow-up"
+    },
+    {
+      "id": 219950037,
+      "amenity": {
+        "id": 25,
+        "name": "Smoke detector",
+        "category": "Safety",
+        "icon": "fa-sensor-smoke"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 25,
+      "amenityIcon": "fa-sensor-smoke"
+    },
+    {
+      "id": 219950026,
+      "amenity": {
+        "id": 26,
+        "name": "Carbon Monoxide Detector",
+        "category": "Safety",
+        "icon": "fa-sensor-cloud"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 26,
+      "amenityIcon": "fa-sensor-cloud"
+    },
+    {
+      "id": 203304838,
+      "amenity": {
+        "id": 27,
+        "name": "First aid kit",
+        "category": "Safety",
+        "icon": "fa-kit-medical"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 27,
+      "amenityIcon": "fa-kit-medical"
+    },
+    {
+      "id": 203304839,
+      "amenity": {
+        "id": 28,
+        "name": "Fire Extinguisher",
+        "category": "Safety",
+        "icon": "fa-fire-extinguisher"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 28,
+      "amenityIcon": "fa-fire-extinguisher"
+    },
+    {
+      "id": 203304840,
+      "amenity": {
+        "id": 29,
+        "name": "Essentials",
+        "category": "General",
+        "icon": "fa-box-open"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 29,
+      "amenityIcon": "fa-box-open"
+    },
+    {
+      "id": 203304841,
+      "amenity": {
+        "id": 30,
+        "name": "Shampoo",
+        "category": "General",
+        "icon": "fa-bottle-droplet"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 30,
+      "amenityIcon": "fa-bottle-droplet"
+    },
+    {
+      "id": 203304842,
+      "amenity": {
+        "id": 31,
+        "name": "Hangers",
+        "category": "General",
+        "icon": "fa-clothes-hanger"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 31,
+      "amenityIcon": "fa-clothes-hanger"
+    },
+    {
+      "id": 203304843,
+      "amenity": {
+        "id": 32,
+        "name": "Iron",
+        "category": "General",
+        "icon": "fa-shirt"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 32,
+      "amenityIcon": "fa-shirt"
+    },
+    {
+      "id": 203304844,
+      "amenity": {
+        "id": 33,
+        "name": "Laptop Friendly workspace",
+        "category": "General",
+        "icon": "fa-laptop"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 33,
+      "amenityIcon": "fa-laptop"
+    },
+    {
+      "id": 203304845,
+      "amenity": {
+        "id": 34,
+        "name": "TV",
+        "category": "General",
+        "icon": "fa-tv"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 34,
+      "amenityIcon": "fa-tv"
+    },
+    {
+      "id": 203304846,
+      "amenity": {
+        "id": 35,
+        "name": "Sound system",
+        "category": "General",
+        "icon": "fa-volume-high"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 35,
+      "amenityIcon": "fa-volume-high"
+    },
+    {
+      "id": 203304849,
+      "amenity": {
+        "id": 39,
+        "name": "Free parking",
+        "category": "Parking",
+        "icon": "fa-square-parking"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 39,
+      "amenityIcon": "fa-square-parking"
+    },
+    {
+      "id": 203304850,
+      "amenity": {
+        "id": 41,
+        "name": "Suitable for events",
+        "category": "Policy",
+        "icon": "fa-champagne-glasses"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 41,
+      "amenityIcon": "fa-champagne-glasses"
+    },
+    {
+      "id": 203304851,
+      "amenity": {
+        "id": 45,
+        "name": "Balcony",
+        "category": "General",
+        "icon": "fa-building-flag"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 45,
+      "amenityIcon": "fa-building-flag"
+    },
+    {
+      "id": 203304852,
+      "amenity": {
+        "id": 47,
+        "name": "Private living room ",
+        "category": "General",
+        "icon": "fa-couch"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 47,
+      "amenityIcon": "fa-couch"
+    },
+    {
+      "id": 203304854,
+      "amenity": {
+        "id": 49,
+        "name": "Suitable for infants",
+        "category": "Policy",
+        "icon": "fa-baby"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 49,
+      "amenityIcon": "fa-baby"
+    },
+    {
+      "id": 203304855,
+      "amenity": {
+        "id": 53,
+        "name": "Iron board",
+        "category": "General",
+        "icon": "fa-shirt"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 53,
+      "amenityIcon": "fa-shirt"
+    },
+    {
+      "id": 203304856,
+      "amenity": {
+        "id": 54,
+        "name": "Linens",
+        "category": "General",
+        "icon": "fa-bed"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 54,
+      "amenityIcon": "fa-bed"
+    },
+    {
+      "id": 203304857,
+      "amenity": {
+        "id": 55,
+        "name": "Outdoor grill",
+        "category": "General",
+        "icon": "fa-grill-hot"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 55,
+      "amenityIcon": "fa-grill-hot"
+    },
+    {
+      "id": 203304858,
+      "amenity": {
+        "id": 56,
+        "name": "Toaster",
+        "category": "Kitchen & dining",
+        "icon": "fa-bread-slice"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 56,
+      "amenityIcon": "fa-bread-slice"
+    },
+    {
+      "id": 203304859,
+      "amenity": {
+        "id": 57,
+        "name": "Dishwasher",
+        "category": "Kitchen & dining",
+        "icon": "fa-utensils"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 57,
+      "amenityIcon": "fa-utensils"
+    },
+    {
+      "id": 203304860,
+      "amenity": {
+        "id": 58,
+        "name": "Microwave",
+        "category": "Kitchen & dining",
+        "icon": "fa-microwave"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 58,
+      "amenityIcon": "fa-microwave"
+    },
+    {
+      "id": 203304861,
+      "amenity": {
+        "id": 59,
+        "name": "Oven",
+        "category": "Kitchen & dining",
+        "icon": "fa-oven"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 59,
+      "amenityIcon": "fa-oven"
+    },
+    {
+      "id": 203304862,
+      "amenity": {
+        "id": 60,
+        "name": "Electric kettle",
+        "category": "Kitchen & dining",
+        "icon": "fa-coffee-pot"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 60,
+      "amenityIcon": "fa-coffee-pot"
+    },
+    {
+      "id": 203304863,
+      "amenity": {
+        "id": 61,
+        "name": "Coffee/tea maker",
+        "category": "Kitchen & dining",
+        "icon": "fa-coffee-pot"
+      },
+      "isPresent": 1,
+      "description": "Dolce Gusto coffee machine",
+      "amenityId": 61,
+      "amenityIcon": "fa-coffee-pot"
+    },
+    {
+      "id": 203304864,
+      "amenity": {
+        "id": 62,
+        "name": "Shower",
+        "category": "Bathroom",
+        "icon": "fa-shower"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 62,
+      "amenityIcon": "fa-shower"
+    },
+    {
+      "id": 203304865,
+      "amenity": {
+        "id": 63,
+        "name": "Tub",
+        "category": "Bathroom",
+        "icon": "fa-bath"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 63,
+      "amenityIcon": "fa-bath"
+    },
+    {
+      "id": 203304866,
+      "amenity": {
+        "id": 64,
+        "name": "Bidet",
+        "category": "Bathroom",
+        "icon": "fa-toilet"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 64,
+      "amenityIcon": "fa-toilet"
+    },
+    {
+      "id": 254310843,
+      "amenity": {
+        "id": 65,
+        "name": "Wheelchair not accessible",
+        "category": "Accessibility",
+        "icon": "fa-wheelchair"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 65,
+      "amenityIcon": "fa-wheelchair"
+    },
+    {
+      "id": 203304867,
+      "amenity": {
+        "id": 66,
+        "name": "Baby crib",
+        "category": "Children",
+        "icon": "fa-baby"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 66,
+      "amenityIcon": "fa-baby"
+    },
+    {
+      "id": 203304963,
+      "amenity": {
+        "id": 68,
+        "name": "Stove",
+        "category": "Kitchen & dining",
+        "icon": "fa-fire-burner"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 68,
+      "amenityIcon": "fa-fire-burner"
+    },
+    {
+      "id": 203304868,
+      "amenity": {
+        "id": 69,
+        "name": "Refrigerator",
+        "category": "Kitchen & dining",
+        "icon": "fa-refrigerator"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 69,
+      "amenityIcon": "fa-refrigerator"
+    },
+    {
+      "id": 203304869,
+      "amenity": {
+        "id": 70,
+        "name": "Towels",
+        "category": "General",
+        "icon": "fa-shower"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 70,
+      "amenityIcon": "fa-shower"
+    },
+    {
+      "id": 203304870,
+      "amenity": {
+        "id": 71,
+        "name": "Dining room",
+        "category": "Kitchen & dining",
+        "icon": "fa-utensils"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 71,
+      "amenityIcon": "fa-utensils"
+    },
+    {
+      "id": 203304871,
+      "amenity": {
+        "id": 72,
+        "name": "Garden or backyard",
+        "category": "General",
+        "icon": "fa-seedling"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 72,
+      "amenityIcon": "fa-seedling"
+    },
+    {
+      "id": 203304872,
+      "amenity": {
+        "id": 73,
+        "name": "High chair",
+        "category": "Kitchen & dining",
+        "icon": "fa-chair"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 73,
+      "amenityIcon": "fa-chair"
+    },
+    {
+      "id": 203304873,
+      "amenity": {
+        "id": 74,
+        "name": "Kitchen utensils",
+        "category": "Kitchen & dining",
+        "icon": "fa-utensils"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 74,
+      "amenityIcon": "fa-utensils"
+    },
+    {
+      "id": 203304874,
+      "amenity": {
+        "id": 77,
+        "name": "Path to entrance lit at night",
+        "category": "Accessibility",
+        "icon": "fa-lightbulb"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 77,
+      "amenityIcon": "fa-lightbulb"
+    },
+    {
+      "id": 203304876,
+      "amenity": {
+        "id": 101,
+        "name": "Hot water",
+        "category": "General",
+        "icon": "fa-faucet-drip"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 101,
+      "amenityIcon": "fa-faucet-drip"
+    },
+    {
+      "id": 203304877,
+      "amenity": {
+        "id": 102,
+        "name": "Private entrance",
+        "category": "General",
+        "icon": "fa-door-closed"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 102,
+      "amenityIcon": "fa-door-closed"
+    },
+    {
+      "id": 219950029,
+      "amenity": {
+        "id": 104,
+        "name": "Extra pillows and blankets",
+        "category": "General",
+        "icon": "fa-bed"
+      },
+      "isPresent": 1,
+      "description": "On request",
+      "amenityId": 104,
+      "amenityIcon": "fa-bed"
+    },
+    {
+      "id": 203304878,
+      "amenity": {
+        "id": 106,
+        "name": "Cooking basics",
+        "category": "General",
+        "icon": "fa-kitchen-set"
+      },
+      "isPresent": 1,
+      "description": "Salt, pepper, extra virgin olive oil",
+      "amenityId": 106,
+      "amenityIcon": "fa-kitchen-set"
+    },
+    {
+      "id": 203304957,
+      "amenity": {
+        "id": 109,
+        "name": "Room darkening shades",
+        "category": "General",
+        "icon": "fa-moon"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 109,
+      "amenityIcon": "fa-moon"
+    },
+    {
+      "id": 203304879,
+      "amenity": {
+        "id": 117,
+        "name": "Bay",
+        "category": "Attractions",
+        "icon": "fa-water"
+      },
+      "isPresent": 1,
+      "description": "Walking distance",
+      "amenityId": 117,
+      "amenityIcon": "fa-water"
+    },
+    {
+      "id": 203304880,
+      "amenity": {
+        "id": 120,
+        "name": "Health beauty spa",
+        "category": "Attractions",
+        "icon": "fa-spa"
+      },
+      "isPresent": 1,
+      "description": "Walking distance",
+      "amenityId": 120,
+      "amenityIcon": "fa-spa"
+    },
+    {
+      "id": 203304881,
+      "amenity": {
+        "id": 121,
+        "name": "Marina",
+        "category": "Attractions",
+        "icon": "fa-anchor"
+      },
+      "isPresent": 1,
+      "description": "Walking distance",
+      "amenityId": 121,
+      "amenityIcon": "fa-anchor"
+    },
+    {
+      "id": 203304882,
+      "amenity": {
+        "id": 123,
+        "name": "Theme parks",
+        "category": "Attractions",
+        "icon": "fa-ticket"
+      },
+      "isPresent": 1,
+      "description": "30 mins drive",
+      "amenityId": 123,
+      "amenityIcon": "fa-ticket"
+    },
+    {
+      "id": 203304883,
+      "amenity": {
+        "id": 124,
+        "name": "Water parks",
+        "category": "Attractions",
+        "icon": "fa-person-swimming"
+      },
+      "isPresent": 1,
+      "description": "30 mins drive",
+      "amenityId": 124,
+      "amenityIcon": "fa-person-swimming"
+    },
+    {
+      "id": 203304884,
+      "amenity": {
+        "id": 125,
+        "name": "Winery tours",
+        "category": "Attractions",
+        "icon": "fa-wine-bottle"
+      },
+      "isPresent": 1,
+      "description": "1 hours drive",
+      "amenityId": 125,
+      "amenityIcon": "fa-wine-bottle"
+    },
+    {
+      "id": 219950033,
+      "amenity": {
+        "id": 126,
+        "name": "Zoo",
+        "category": "Attractions",
+        "icon": "fa-paw"
+      },
+      "isPresent": 1,
+      "description": "30 mins drive",
+      "amenityId": 126,
+      "amenityIcon": "fa-paw"
+    },
+    {
+      "id": 203304885,
+      "amenity": {
+        "id": 129,
+        "name": "Toilet",
+        "category": "Bathroom",
+        "icon": "fa-toilet"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 129,
+      "amenityIcon": "fa-toilet"
+    },
+    {
+      "id": 203304886,
+      "amenity": {
+        "id": 131,
+        "name": "Car not necessary",
+        "category": "Car",
+        "icon": "fa-person-walking"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 131,
+      "amenityIcon": "fa-person-walking"
+    },
+    {
+      "id": 203304887,
+      "amenity": {
+        "id": 135,
+        "name": "Babysitter recommendations",
+        "category": "Children",
+        "icon": "fa-person-breastfeeding"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 135,
+      "amenityIcon": "fa-person-breastfeeding"
+    },
+    {
+      "id": 203304888,
+      "amenity": {
+        "id": 138,
+        "name": "Pack n play travel crib",
+        "category": "Children",
+        "icon": "fa-baby"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 138,
+      "amenityIcon": "fa-baby"
+    },
+    {
+      "id": 203304889,
+      "amenity": {
+        "id": 149,
+        "name": "Dining area",
+        "category": "Kitchen & dining",
+        "icon": "fa-utensils"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 149,
+      "amenityIcon": "fa-utensils"
+    },
+    {
+      "id": 203304890,
+      "amenity": {
+        "id": 153,
+        "name": "Spices",
+        "category": "Kitchen & dining",
+        "icon": "fa-pepper-hot"
+      },
+      "isPresent": 1,
+      "description": "Sald & Pepper, Extra Virgin Olive Oil",
+      "amenityId": 153,
+      "amenityIcon": "fa-pepper-hot"
+    },
+    {
+      "id": 203304891,
+      "amenity": {
+        "id": 156,
+        "name": "Bird watching",
+        "category": "Leisure",
+        "icon": "fa-binoculars"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 156,
+      "amenityIcon": "fa-binoculars"
+    },
+    {
+      "id": 203304892,
+      "amenity": {
+        "id": 157,
+        "name": "Boating",
+        "category": "Leisure",
+        "icon": "fa-sailboat"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 157,
+      "amenityIcon": "fa-sailboat"
+    },
+    {
+      "id": 203304893,
+      "amenity": {
+        "id": 158,
+        "name": "Eco tourism",
+        "category": "Leisure",
+        "icon": "fa-leaf"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 158,
+      "amenityIcon": "fa-leaf"
+    },
+    {
+      "id": 203304894,
+      "amenity": {
+        "id": 159,
+        "name": "Gambling",
+        "category": "Leisure",
+        "icon": "fa-dice"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 159,
+      "amenityIcon": "fa-dice"
+    },
+    {
+      "id": 203304895,
+      "amenity": {
+        "id": 160,
+        "name": "Horseback riding",
+        "category": "Leisure",
+        "icon": "fa-horse"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 160,
+      "amenityIcon": "fa-horse"
+    },
+    {
+      "id": 203304896,
+      "amenity": {
+        "id": 161,
+        "name": "Outlet shopping",
+        "category": "Leisure",
+        "icon": "fa-cart-shopping"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 161,
+      "amenityIcon": "fa-cart-shopping"
+    },
+    {
+      "id": 203304897,
+      "amenity": {
+        "id": 162,
+        "name": "Paddle boating",
+        "category": "Leisure",
+        "icon": "fa-sailboat"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 162,
+      "amenityIcon": "fa-sailboat"
+    },
+    {
+      "id": 203304898,
+      "amenity": {
+        "id": 163,
+        "name": "Shopping",
+        "category": "Leisure",
+        "icon": "fa-bag-shopping"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 163,
+      "amenityIcon": "fa-bag-shopping"
+    },
+    {
+      "id": 203304899,
+      "amenity": {
+        "id": 165,
+        "name": "Water sports",
+        "category": "Leisure",
+        "icon": "fa-person-swimming"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 165,
+      "amenityIcon": "fa-person-swimming"
+    },
+    {
+      "id": 203304900,
+      "amenity": {
+        "id": 166,
+        "name": "Whale watching",
+        "category": "Leisure",
+        "icon": "fa-binoculars"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 166,
+      "amenityIcon": "fa-binoculars"
+    },
+    {
+      "id": 203304901,
+      "amenity": {
+        "id": 167,
+        "name": "Wildlife viewing",
+        "category": "Leisure",
+        "icon": "fa-paw"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 167,
+      "amenityIcon": "fa-paw"
+    },
+    {
+      "id": 203304902,
+      "amenity": {
+        "id": 168,
+        "name": "Beach",
+        "category": "Location",
+        "icon": "fa-umbrella-beach"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 168,
+      "amenityIcon": "fa-umbrella-beach"
+    },
+    {
+      "id": 203304904,
+      "amenity": {
+        "id": 179,
+        "name": "Near ocean",
+        "category": "Location",
+        "icon": "fa-water"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 179,
+      "amenityIcon": "fa-water"
+    },
+    {
+      "id": 219950030,
+      "amenity": {
+        "id": 181,
+        "name": "Ocean view",
+        "category": "Location",
+        "icon": "fa-water"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 181,
+      "amenityIcon": "fa-water"
+    },
+    {
+      "id": 203304905,
+      "amenity": {
+        "id": 188,
+        "name": "Town",
+        "category": "Location",
+        "icon": "fa-house-chimney"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 188,
+      "amenityIcon": "fa-house-chimney"
+    },
+    {
+      "id": 203304908,
+      "amenity": {
+        "id": 194,
+        "name": "Golf",
+        "category": "Outdoors",
+        "icon": "fa-golf-ball-tee"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 194,
+      "amenityIcon": "fa-golf-ball-tee"
+    },
+    {
+      "id": 203304911,
+      "amenity": {
+        "id": 201,
+        "name": "Luggage dropoff allowed",
+        "category": "Policy",
+        "icon": "fa-suitcase-rolling"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 201,
+      "amenityIcon": "fa-suitcase-rolling"
+    },
+    {
+      "id": 203304970,
+      "amenity": {
+        "id": 202,
+        "name": "Long term stays allowed",
+        "category": "Policy",
+        "icon": "fa-calendar-days"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 202,
+      "amenityIcon": "fa-calendar-days"
+    },
+    {
+      "id": 203304962,
+      "amenity": {
+        "id": 203,
+        "name": "Cleaning before checkout",
+        "category": "Policy",
+        "icon": "fa-broom"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 203,
+      "amenityIcon": "fa-broom"
+    },
+    {
+      "id": 219950028,
+      "amenity": {
+        "id": 211,
+        "name": "Deadbolt lock",
+        "category": "Safety",
+        "icon": "fa-lock"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 211,
+      "amenityIcon": "fa-lock"
+    },
+    {
+      "id": 203304913,
+      "amenity": {
+        "id": 213,
+        "name": "Fire emergency contact",
+        "category": "Safety",
+        "icon": "fa-phone-volume"
+      },
+      "isPresent": 1,
+      "description": "112",
+      "amenityId": 213,
+      "amenityIcon": "fa-phone-volume"
+    },
+    {
+      "id": 203304914,
+      "amenity": {
+        "id": 214,
+        "name": "Hospital nearby",
+        "category": "Safety",
+        "icon": "fa-hospital"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 214,
+      "amenityIcon": "fa-hospital"
+    },
+    {
+      "id": 203304915,
+      "amenity": {
+        "id": 215,
+        "name": "Medical emergency contact",
+        "category": "Safety",
+        "icon": "fa-phone-volume"
+      },
+      "isPresent": 1,
+      "description": "112",
+      "amenityId": 215,
+      "amenityIcon": "fa-phone-volume"
+    },
+    {
+      "id": 203304916,
+      "amenity": {
+        "id": 216,
+        "name": "Outdoor lighting",
+        "category": "Safety",
+        "icon": "fa-lightbulb"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 216,
+      "amenityIcon": "fa-lightbulb"
+    },
+    {
+      "id": 203304917,
+      "amenity": {
+        "id": 217,
+        "name": "Police emergency contact",
+        "category": "Safety",
+        "icon": "fa-shield-halved"
+      },
+      "isPresent": 1,
+      "description": "112",
+      "amenityId": 217,
+      "amenityIcon": "fa-shield-halved"
+    },
+    {
+      "id": 203304918,
+      "amenity": {
+        "id": 218,
+        "name": "Breakfast possible",
+        "category": "Services",
+        "icon": "fa-mug-saucer"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 218,
+      "amenityIcon": "fa-mug-saucer"
+    },
+    {
+      "id": 203304919,
+      "amenity": {
+        "id": 219,
+        "name": "Cleaning included",
+        "category": "Services",
+        "icon": "fa-broom"
+      },
+      "isPresent": 1,
+      "description": "Final cleaning is included, daily maid services can be arranged.",
+      "amenityId": 219,
+      "amenityIcon": "fa-broom"
+    },
+    {
+      "id": 203304921,
+      "amenity": {
+        "id": 223,
+        "name": "Massage",
+        "category": "Services",
+        "icon": "fa-spa"
+      },
+      "isPresent": 1,
+      "description": "Optional",
+      "amenityId": 223,
+      "amenityIcon": "fa-spa"
+    },
+    {
+      "id": 203304922,
+      "amenity": {
+        "id": 224,
+        "name": "Private chef",
+        "category": "Services",
+        "icon": "fa-hat-chef"
+      },
+      "isPresent": 1,
+      "description": "Private chef optional",
+      "amenityId": 224,
+      "amenityIcon": "fa-hat-chef"
+    },
+    {
+      "id": 203304923,
+      "amenity": {
+        "id": 227,
+        "name": "Cycling",
+        "category": "Sports",
+        "icon": "fa-bicycle"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 227,
+      "amenityIcon": "fa-bicycle"
+    },
+    {
+      "id": 203304924,
+      "amenity": {
+        "id": 228,
+        "name": "Deepsea fishing",
+        "category": "Sports",
+        "icon": "fa-fish-fins"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 228,
+      "amenityIcon": "fa-fish-fins"
+    },
+    {
+      "id": 203304925,
+      "amenity": {
+        "id": 229,
+        "name": "Fishing",
+        "category": "Sports",
+        "icon": "fa-fish"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 229,
+      "amenityIcon": "fa-fish"
+    },
+    {
+      "id": 203304926,
+      "amenity": {
+        "id": 230,
+        "name": "Fishing bay",
+        "category": "Sports",
+        "icon": "fa-fish"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 230,
+      "amenityIcon": "fa-fish"
+    },
+    {
+      "id": 203304927,
+      "amenity": {
+        "id": 233,
+        "name": "Fishing surf",
+        "category": "Sports",
+        "icon": "fa-fish"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 233,
+      "amenityIcon": "fa-fish"
+    },
+    {
+      "id": 203304928,
+      "amenity": {
+        "id": 234,
+        "name": "Golf",
+        "category": "Sports",
+        "icon": "fa-golf-ball-tee"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 234,
+      "amenityIcon": "fa-golf-ball-tee"
+    },
+    {
+      "id": 203304929,
+      "amenity": {
+        "id": 235,
+        "name": "Golf optional",
+        "category": "Sports",
+        "icon": "fa-golf-ball-tee"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 235,
+      "amenityIcon": "fa-golf-ball-tee"
+    },
+    {
+      "id": 203304930,
+      "amenity": {
+        "id": 236,
+        "name": "Hiking",
+        "category": "Sports",
+        "icon": "fa-person-hiking"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 236,
+      "amenityIcon": "fa-person-hiking"
+    },
+    {
+      "id": 203304931,
+      "amenity": {
+        "id": 239,
+        "name": "Jet skiing",
+        "category": "Sports",
+        "icon": "fa-water"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 239,
+      "amenityIcon": "fa-water"
+    },
+    {
+      "id": 203304932,
+      "amenity": {
+        "id": 240,
+        "name": "Kayaking",
+        "category": "Sports",
+        "icon": "fa-water"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 240,
+      "amenityIcon": "fa-water"
+    },
+    {
+      "id": 203304933,
+      "amenity": {
+        "id": 241,
+        "name": "Mountain biking",
+        "category": "Sports",
+        "icon": "fa-bicycle"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 241,
+      "amenityIcon": "fa-bicycle"
+    },
+    {
+      "id": 203304934,
+      "amenity": {
+        "id": 242,
+        "name": "Mountain climbing",
+        "category": "Sports",
+        "icon": "fa-mountain"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 242,
+      "amenityIcon": "fa-mountain"
+    },
+    {
+      "id": 203304935,
+      "amenity": {
+        "id": 243,
+        "name": "Mountaineering",
+        "category": "Sports",
+        "icon": "fa-mountain"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 243,
+      "amenityIcon": "fa-mountain"
+    },
+    {
+      "id": 203304936,
+      "amenity": {
+        "id": 244,
+        "name": "Parasailing",
+        "category": "Sports",
+        "icon": "fa-parachute-box"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 244,
+      "amenityIcon": "fa-parachute-box"
+    },
+    {
+      "id": 203304937,
+      "amenity": {
+        "id": 248,
+        "name": "Sailing",
+        "category": "Sports",
+        "icon": "fa-sailboat"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 248,
+      "amenityIcon": "fa-sailboat"
+    },
+    {
+      "id": 203304938,
+      "amenity": {
+        "id": 249,
+        "name": "Scuba or snorkeling",
+        "category": "Sports",
+        "icon": "fa-mask-snorkel"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 249,
+      "amenityIcon": "fa-mask-snorkel"
+    },
+    {
+      "id": 203304939,
+      "amenity": {
+        "id": 253,
+        "name": "Water Skiing",
+        "category": "Sports",
+        "icon": "fa-water"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 253,
+      "amenityIcon": "fa-water"
+    },
+    {
+      "id": 203304940,
+      "amenity": {
+        "id": 254,
+        "name": "Snorkeling",
+        "category": "Sports",
+        "icon": "fa-mask-snorkel"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 254,
+      "amenityIcon": "fa-mask-snorkel"
+    },
+    {
+      "id": 203304941,
+      "amenity": {
+        "id": 255,
+        "name": "Snorkeling diving",
+        "category": "Sports",
+        "icon": "fa-mask-snorkel"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 255,
+      "amenityIcon": "fa-mask-snorkel"
+    },
+    {
+      "id": 203304942,
+      "amenity": {
+        "id": 259,
+        "name": "Surfing",
+        "category": "Sports",
+        "icon": "fa-water"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 259,
+      "amenityIcon": "fa-water"
+    },
+    {
+      "id": 203304943,
+      "amenity": {
+        "id": 260,
+        "name": "Swimming",
+        "category": "Sports",
+        "icon": "fa-person-swimming"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 260,
+      "amenityIcon": "fa-person-swimming"
+    },
+    {
+      "id": 203304944,
+      "amenity": {
+        "id": 261,
+        "name": "Tubing water",
+        "category": "Sports",
+        "icon": "fa-water"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 261,
+      "amenityIcon": "fa-water"
+    },
+    {
+      "id": 203304945,
+      "amenity": {
+        "id": 263,
+        "name": "Wind surfing",
+        "category": "Sports",
+        "icon": "fa-wind"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 263,
+      "amenityIcon": "fa-wind"
+    },
+    {
+      "id": 203304946,
+      "amenity": {
+        "id": 264,
+        "name": "Family",
+        "category": "Themes",
+        "icon": "fa-people-roof"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 264,
+      "amenityIcon": "fa-people-roof"
+    },
+    {
+      "id": 219950031,
+      "amenity": {
+        "id": 266,
+        "name": "Romantic",
+        "category": "Themes",
+        "icon": "fa-heart"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 266,
+      "amenityIcon": "fa-heart"
+    },
+    {
+      "id": 203304947,
+      "amenity": {
+        "id": 267,
+        "name": "Enhanced Cleaning Practices",
+        "category": "Cleanliness",
+        "icon": "fa-shield-check"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 267,
+      "amenityIcon": "fa-shield-check"
+    },
+    {
+      "id": 203304949,
+      "amenity": {
+        "id": 272,
+        "name": "Contactless Check-In/Out",
+        "category": "Cleanliness",
+        "icon": "fa-mobile-screen-button"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 272,
+      "amenityIcon": "fa-mobile-screen-button"
+    },
+    {
+      "id": 203304950,
+      "amenity": {
+        "id": 274,
+        "name": "Fenced yard",
+        "category": "General",
+        "icon": "fa-fence"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 274,
+      "amenityIcon": "fa-fence"
+    },
+    {
+      "id": 203304953,
+      "amenity": {
+        "id": 285,
+        "name": "WiFi speed (250+ Mbps)",
+        "category": "General",
+        "icon": "fa-wifi"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 285,
+      "amenityIcon": "fa-wifi"
+    },
+    {
+      "id": 203304954,
+      "amenity": {
+        "id": 287,
+        "name": "Smart TV",
+        "category": "General",
+        "icon": "fa-tv"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 287,
+      "amenityIcon": "fa-tv"
+    },
+    {
+      "id": 203304955,
+      "amenity": {
+        "id": 291,
+        "name": "Desk chair",
+        "category": "General",
+        "icon": "fa-chair"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 291,
+      "amenityIcon": "fa-chair"
+    },
+    {
+      "id": 219950040,
+      "amenity": {
+        "id": 293,
+        "name": "Outdoor play area",
+        "category": "Children",
+        "icon": "fa-child-reaching"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 293,
+      "amenityIcon": "fa-child-reaching"
+    },
+    {
+      "id": 203304956,
+      "amenity": {
+        "id": 294,
+        "name": "Dining table",
+        "category": "Kitchen & dining",
+        "icon": "fa-utensils"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 294,
+      "amenityIcon": "fa-utensils"
+    },
+    {
+      "id": 219950023,
+      "amenity": {
+        "id": 300,
+        "name": "In person check-in",
+        "category": "General",
+        "icon": "fa-handshake"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 300,
+      "amenityIcon": "fa-handshake"
+    },
+    {
+      "id": 219950042,
+      "amenity": {
+        "id": 305,
+        "name": "City view",
+        "category": "Location",
+        "icon": "fa-city"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 305,
+      "amenityIcon": "fa-city"
+    },
+    {
+      "id": 219950044,
+      "amenity": {
+        "id": 308,
+        "name": "Outdoor dining",
+        "category": "Outdoors",
+        "icon": "fa-utensils"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 308,
+      "amenityIcon": "fa-utensils"
+    },
+    {
+      "id": 203304960,
+      "amenity": {
+        "id": 310,
+        "name": "Outdoor furniture",
+        "category": "Outdoors",
+        "icon": "fa-bench-tree"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 310,
+      "amenityIcon": "fa-bench-tree"
+    },
+    {
+      "id": 219950025,
+      "amenity": {
+        "id": 314,
+        "name": "Private parking",
+        "category": "Parking",
+        "icon": "fa-square-parking"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 314,
+      "amenityIcon": "fa-square-parking"
+    },
+    {
+      "id": 219950038,
+      "amenity": {
+        "id": 315,
+        "name": "Pets allowed on request",
+        "category": "Policy",
+        "icon": "fa-paw"
+      },
+      "isPresent": 1,
+      "description": "A 200 EUR pet fee applies",
+      "amenityId": 315,
+      "amenityIcon": "fa-paw"
+    },
+    {
+      "id": 219950024,
+      "amenity": {
+        "id": 316,
+        "name": "Pool",
+        "category": "Pool",
+        "icon": "fa-water-ladder"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 316,
+      "amenityIcon": "fa-water-ladder"
+    },
+    {
+      "id": 219949478,
+      "amenity": {
+        "id": 317,
+        "name": "Safe",
+        "category": "Safety",
+        "icon": "fa-vault"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 317,
+      "amenityIcon": "fa-vault"
+    },
+    {
+      "id": 219950039,
+      "amenity": {
+        "id": 320,
+        "name": "Private chef on request",
+        "category": "Services",
+        "icon": "fa-hat-chef"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 320,
+      "amenityIcon": "fa-hat-chef"
+    },
+    {
+      "id": 219950027,
+      "amenity": {
+        "id": 324,
+        "name": "Housekeeper on request",
+        "category": "Services",
+        "icon": "fa-broom"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 324,
+      "amenityIcon": "fa-broom"
+    },
+    {
+      "id": 219950034,
+      "amenity": {
+        "id": 326,
+        "name": "Grocery on request",
+        "category": "Services",
+        "icon": "fa-basket-shopping"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 326,
+      "amenityIcon": "fa-basket-shopping"
+    },
+    {
+      "id": 219950045,
+      "amenity": {
+        "id": 328,
+        "name": "Site staff on request",
+        "category": "Services",
+        "icon": "fa-user-tie"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 328,
+      "amenityIcon": "fa-user-tie"
+    },
+    {
+      "id": 203304967,
+      "amenity": {
+        "id": 337,
+        "name": "Cleaning products",
+        "category": "Bathroom",
+        "icon": "fa-spray-can-sparkles"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 337,
+      "amenityIcon": "fa-spray-can-sparkles"
+    },
+    {
+      "id": 203304966,
+      "amenity": {
+        "id": 338,
+        "name": "Body soap",
+        "category": "Bathroom",
+        "icon": "fa-pump-soap"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 338,
+      "amenityIcon": "fa-pump-soap"
+    },
+    {
+      "id": 203304965,
+      "amenity": {
+        "id": 341,
+        "name": "Shower gel",
+        "category": "Bathroom",
+        "icon": "fa-pump-soap"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 341,
+      "amenityIcon": "fa-pump-soap"
+    },
+    {
+      "id": 203304968,
+      "amenity": {
+        "id": 343,
+        "name": "Drying rack for clothing",
+        "category": "General",
+        "icon": "fa-shirt"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 343,
+      "amenityIcon": "fa-shirt"
+    },
+    {
+      "id": 203304964,
+      "amenity": {
+        "id": 346,
+        "name": "Piano",
+        "category": "Entertainment",
+        "icon": "fa-piano-keyboard"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 346,
+      "amenityIcon": "fa-piano-keyboard"
+    },
+    {
+      "id": 219950032,
+      "amenity": {
+        "id": 348,
+        "name": "Baby safety gates",
+        "category": "Safety",
+        "icon": "fa-shield"
+      },
+      "isPresent": 1,
+      "description": "On request",
+      "amenityId": 348,
+      "amenityIcon": "fa-shield"
+    },
+    {
+      "id": 203304959,
+      "amenity": {
+        "id": 353,
+        "name": "Barbeque utensils",
+        "category": "Kitchen & dining",
+        "icon": "fa-grill-hot"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 353,
+      "amenityIcon": "fa-grill-hot"
+    },
+    {
+      "id": 219950043,
+      "amenity": {
+        "id": 355,
+        "name": "Blender",
+        "category": "Kitchen & dining",
+        "icon": "fa-blender"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 355,
+      "amenityIcon": "fa-blender"
+    },
+    {
+      "id": 219950022,
+      "amenity": {
+        "id": 356,
+        "name": "Coffee",
+        "category": "Kitchen & dining",
+        "icon": "fa-mug-hot"
+      },
+      "isPresent": 1,
+      "description": "A couple of complementary coffe capsules provided on arrival",
+      "amenityId": 356,
+      "amenityIcon": "fa-mug-hot"
+    },
+    {
+      "id": 203304969,
+      "amenity": {
+        "id": 357,
+        "name": "Freezer",
+        "category": "Kitchen & dining",
+        "icon": "fa-snowflake"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 357,
+      "amenityIcon": "fa-snowflake"
+    },
+    {
+      "id": 219950036,
+      "amenity": {
+        "id": 358,
+        "name": "Mini fridge",
+        "category": "Kitchen & dining",
+        "icon": "fa-refrigerator"
+      },
+      "isPresent": 1,
+      "description": "",
+      "amenityId": 358,
+      "amenityIcon": "fa-refrigerator"
+    },
+    {
+      "id": 203304958,
+      "amenity": {
+        "id": 361,
+        "name": "Wine glasses",
+        "category": "Kitchen & dining",
+        "icon": "fa-wine-glass"
+      },
+      "isPresent": 1,
+      "description": null,
+      "amenityId": 361,
+      "amenityIcon": "fa-wine-glass"
+    }
+  ]
+}

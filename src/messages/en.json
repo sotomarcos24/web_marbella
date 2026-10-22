@@ -189,5 +189,79 @@
       "fechas-ocupadas": "Those dates are already booked: please choose others or check the calendar.",
       "requiere-oferta": "For long winter stays we prepare a tailored offer: request one and we will get back to you."
     }
+  },
+  "comodidades": {
+    "categorias": {
+      "exterior": "Outdoors and pool",
+      "cocina": "Kitchen and dining",
+      "dormitorios": "Bedrooms",
+      "banos": "Bathrooms",
+      "confort": "Comfort and laundry",
+      "entretenimiento": "Entertainment and work",
+      "seguridad": "Safety",
+      "ninos": "Children"
+    },
+    "items": {
+      "piscina-climatizada": "Private heated pool",
+      "tumbonas": "Sun loungers",
+      "comedor-exterior": "Outdoor dining and furniture",
+      "barbacoa": "Barbecue with utensils",
+      "jardin": "Garden",
+      "iluminacion-exterior": "Outdoor lighting",
+      "parking-privado": "Private parking",
+      "garaje": "Garage",
+      "cocina-equipada": "Fully equipped kitchen",
+      "isla-cocina": "Kitchen island",
+      "lavavajillas": "Dishwasher",
+      "horno-microondas": "Oven and microwave",
+      "nevera-congelador": "Fridge and freezer",
+      "cafetera": "Dolce Gusto coffee machine, coffee maker and kettle",
+      "tostadora-batidora": "Toaster and blender",
+      "menaje-grupos": "Cookware, wine glasses and cutlery for large groups",
+      "comedor-interior": "Indoor dining room",
+      "ropa-cama-toallas": "Bed linen and towels",
+      "almohadas-mantas": "Extra pillows and blankets",
+      "persianas-opacas": "Room-darkening shades",
+      "armarios-perchas": "Hangers and clothing storage",
+      "ducha-banera": "Shower and bathtub",
+      "bide": "Bidet",
+      "secador": "Hair dryer",
+      "gel-champu": "Body soap, shower gel and shampoo",
+      "aire-acondicionado": "Air conditioning",
+      "calefaccion": "Heating",
+      "chimenea": "Fireplace",
+      "ventiladores": "Portable fans",
+      "lavadora-secadora": "Washer and dryer",
+      "plancha": "Iron and ironing board",
+      "tendedero": "Drying rack",
+      "wifi": "Free WiFi",
+      "smart-tv": "Smart TV",
+      "tv-cable": "Cable TV",
+      "sonido": "Sound system",
+      "piano": "Piano",
+      "zona-trabajo": "Workspace with desk",
+      "alarma": "Security alarm",
+      "detectores": "Smoke and carbon monoxide detectors",
+      "caja-fuerte": "Safe",
+      "botiquin-extintor": "First aid kit and fire extinguisher",
+      "cuna": "Baby crib and travel crib",
+      "trona": "High chair",
+      "puertas-seguridad": "Baby safety gates",
+      "juegos-exterior": "Outdoor play area"
+    }
+  },
+  "villas": {
+    "villa-1": {
+      "descripcion": "Villa with 5 bathrooms for up to 15 guests, with a private heated pool and a slide for the little ones. The outdoor dining area looks onto the garden and the open, recently refurbished kitchen is equipped for large groups. Newly and tastefully decorated, in the heart of Puerto Banús: restaurants, bars and supermarkets just steps away."
+    },
+    "villa-3": {
+      "descripcion": "Villa with 7 bedrooms and 4 bathrooms for up to 15 guests, with a private heated pool lit up at night, a courtyard with a fountain and a 76 m² terrace. The outdoor dining area looks onto the garden and the decor is new and tasteful. In the heart of Puerto Banús: restaurants, bars and supermarkets just steps away."
+    },
+    "villa-4": {
+      "descripcion": "Villa with 6 bedrooms and 4 bathrooms for up to 15 guests, with a recently refurbished kitchen and an outdoor area made for enjoying: a private heated pool, sun loungers, a barbecue and a flat garden where children can play. Spiral staircase, table football and the beach a short stroll away. It adjoins Villa 5, so together they welcome groups of up to 30."
+    },
+    "villa-5": {
+      "descripcion": "Villa with 6 bedrooms and 4 bathrooms for up to 15 guests, about a 7-minute walk from the Puerto Banús marina. It has a flat garden ideal for children, a private heated pool, a poolside barbecue area and an outdoor seating corner with a swing. Its layout mirrors Villa 4, next door, and together they welcome groups of up to 30."
+    }
   }
 }

@@ -110,3 +110,19 @@ export interface Villa {
   /** Fase 2: ids de estancias para las tarjetas en arco. */
   destacadas?: readonly string[];
 }
+
+/** Dormitorio según la ficha (SPEC §7). Sin `camas` = camas sin confirmar (solo `plazas`). */
+export interface Dormitorio extends Pick<Estancia, "id" | "camas" | "banoEnSuite"> {
+  planta: "baja" | "alta";
+  /** Las camas individuales están unidas para formar una doble. */
+  unidas?: boolean;
+  banoCompartido?: boolean;
+  plazas?: number;
+}
+
+/** Distribución de camas con su procedencia: nunca se da por confirmada sin contrastar. */
+export interface DistribucionCamas {
+  fuente: "ficha" | "plano";
+  estado: "pendiente de confirmar" | "confirmado";
+  dormitorios: readonly Dormitorio[];
+}

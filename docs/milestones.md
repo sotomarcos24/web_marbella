@@ -112,11 +112,12 @@ Archivos: `src/lib/booking/{types,mock,occupied.json,index}.ts`.
 
 # M3 — Contenido y fotos
 
-### #11 Textos de las villas (ES/EN) — `content`, `i18n` · M · dep #6,#2
-- [ ] Descripciones y comodidades de las 4 fichas copiadas y adaptadas a `messages/{es,en}.json`
-- [ ] Sin "Lirios Village", sin nombres de personas (Eva, Laura, Iván), capacidad 15 (test de búsqueda de términos prohibidos)
-- [ ] ES y EN revisados; sin "mucama"
-- [ ] Distribución de camas por villa
+### #11 Textos de las villas (ES/EN) — `content`, `i18n` · M · dep #6,#2 ✅ PR #30
+- [x] Descripciones y comodidades de las 4 fichas copiadas y adaptadas a `messages/{es,en}.json`
+- [x] Sin "Lirios Village", sin nombres de personas (Eva, Laura, Iván), capacidad 15 (test de búsqueda de términos prohibidos)
+- [x] ES y EN revisados; sin "mucama"
+- [x] Distribución de camas por villa (fuente: ficha, pendiente de confirmar; sin contrastar con planos)
+Archivos: `src/content/{comodidades,dormitorios}.ts`, `docs/fuentes/`, `tests/villas-textos.test.ts`.
 
 ### #12 Textos generales y servicios (ES/EN) — `content`, `i18n` · M · dep #8,#2
 - [ ] Condiciones de reserva y normas de la casa adaptadas, sin normas de apartamentos
