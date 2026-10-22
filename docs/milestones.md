@@ -57,11 +57,11 @@ Archivos: `src/app/[locale]/dev/layout.tsx`, `src/lib/dev/*`, `src/app/api/dev/*
 
 # M2 — Datos y negocio
 
-### #5 Tipos y modelo de datos — `data` · M · dep #1
-- [ ] `src/types/villa.ts`: `Poligono` (`[x,y][]` normalizado), `Zona`, `Estancia`, `Planta`, `Exterior`, `Hero`, `Villa`
-- [ ] Validador `validarVilla()` con tests: polígonos ≥3 vértices, coordenadas en [0,1], ids únicos, destinos de zonas existentes
-- [ ] Tipos de `Tarifa`, `Servicio`, `Foto` definidos
-- [ ] **[visión]** Tipos previstos para la Fase 2: `Conjunto` (`imagen`, `parcelas: { villaId, poligono }[]`), `Recorrido` (`id`, `transicion`, `imagenFinal`) y `destacadas` (ids de estancias existentes), cubiertos por `validarVilla()`
+### #5 Tipos y modelo de datos — `data` · M · dep #1 · ✅ PR #24
+- [x] `src/types/villa.ts`: `Poligono` (`[x,y][]` normalizado), `Zona`, `Estancia`, `Planta`, `Exterior`, `Hero`, `Villa`
+- [x] Validador `validarVilla()` con tests: polígonos ≥3 vértices, coordenadas en [0,1], ids únicos, destinos de zonas existentes
+- [x] Tipos de `Tarifa`, `Servicio`, `Foto` definidos
+- [x] **[visión]** Tipos previstos para la Fase 2: `Conjunto` (`imagen`, `parcelas: { villaId, poligono }[]`), `Recorrido` (`id`, `transicion`, `imagenFinal`) y `destacadas` (ids de estancias existentes), cubiertos por `validarVilla()`
 Archivos: `src/types/*`, `src/lib/validation/villa.ts`.
 
 ### #6 Datos de las villas (`villas.ts`) — `data` · M · dep #5
