@@ -2,7 +2,7 @@ import { existsSync, mkdirSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import sharp from "sharp";
-import { aPixeles, recorteValido } from "./process-photos.ts";
+import { aPixeles } from "./process-photos.ts";
 import type { Recorte } from "./photos.config.ts";
 
 // Aérea provisional del conjunto (Fase 2): el mapa original tiene marcadores, rótulos de villa y logo, así que se
@@ -21,7 +21,6 @@ export const DESENFOQUE = 45;
 export async function generarAerea(opts: { origen: string; destino: string }): Promise<string> {
   const entrada = path.join(opts.origen, MAPA);
   if (!existsSync(entrada)) throw new Error(`Falta el mapa original: ${entrada} (mapa_villas_1_3_4_5_1.jpg)`);
-  if (!recorteValido(RECORTE_AEREA)) throw new Error("Recorte de la aérea inviable");
 
   const { width = 0, height = 0 } = await sharp(entrada).metadata();
   mkdirSync(opts.destino, { recursive: true });
