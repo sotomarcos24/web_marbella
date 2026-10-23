@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { centroide, puntosSvg } from "@/lib/scenes/poligono";
 import type { Poligono } from "@/types/villa";
 
@@ -27,9 +27,8 @@ export function ZonasOverlay({ zonas, visible, onSeleccion, etiquetaLista }: Zon
   const [activa, setActiva] = useState<string | null>(null);
   const tactil = useRef(false);
 
-  useEffect(() => {
-    if (!visible) setActiva(null);
-  }, [visible]);
+  // Al ocultarse se descarta la ficha (ajuste de estado durante el render, sin efecto).
+  if (!visible && activa !== null) setActiva(null);
 
   const zonaActiva = zonas.find((z) => z.id === activa);
 

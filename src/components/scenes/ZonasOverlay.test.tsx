@@ -12,7 +12,7 @@ const zonas = [
 const base = { zonas, visible: true, onSeleccion: () => {}, etiquetaLista: "Zonas de la villa" };
 
 const svg = (c: HTMLElement) => c.querySelector("svg")!;
-const poligonos = (c: HTMLElement) => Array.from(c.querySelectorAll("polygon"));
+const poligonos = (c: HTMLElement) => Array.from(c.querySelectorAll("polygon")) as SVGPolygonElement[];
 
 describe("ZonasOverlay", () => {
   it("dibuja un svg 0–1 con slice y un polígono por zona", () => {
@@ -20,7 +20,7 @@ describe("ZonasOverlay", () => {
     expect(svg(container).getAttribute("viewBox")).toBe("0 0 1 1");
     expect(svg(container).getAttribute("preserveAspectRatio")).toBe("xMidYMid slice");
     expect(poligonos(container)).toHaveLength(2);
-    expect(poligonos(container)[0].getAttribute("points")).toBe("0.1,0.5 0.4,0.5 0.4,0.9");
+    expect(poligonos(container)[0]!.getAttribute("points")).toBe("0.1,0.5 0.4,0.5 0.4,0.9");
   });
 
   it("sin visible está oculto, sin zonas accesibles ni clicables", () => {
@@ -60,18 +60,18 @@ describe("ZonasOverlay", () => {
   it("el clic de ratón sobre el polígono selecciona", () => {
     const onSeleccion = vi.fn();
     const { container } = render(<ZonasOverlay {...base} onSeleccion={onSeleccion} />);
-    fireEvent.pointerDown(poligonos(container)[0], { pointerType: "mouse" });
-    fireEvent.click(poligonos(container)[0]);
+    fireEvent.pointerDown(poligonos(container)[0]!, { pointerType: "mouse" });
+    fireEvent.click(poligonos(container)[0]!);
     expect(onSeleccion).toHaveBeenCalledWith("piscina");
   });
 
   it("al pasar el ratón se oscurece la zona y aparece su nombre", () => {
     const { container } = render(<ZonasOverlay {...base} />);
     expect(container.querySelector("text")).toBeNull();
-    fireEvent.pointerEnter(poligonos(container)[0], { pointerType: "mouse" });
+    fireEvent.pointerEnter(poligonos(container)[0]!, { pointerType: "mouse" });
     expect(container.querySelector("text")?.textContent).toBe("Piscina");
-    expect(poligonos(container)[0].getAttribute("data-activa")).toBe("true");
-    fireEvent.pointerLeave(poligonos(container)[0], { pointerType: "mouse" });
+    expect(poligonos(container)[0]!.getAttribute("data-activa")).toBe("true");
+    fireEvent.pointerLeave(poligonos(container)[0]!, { pointerType: "mouse" });
     expect(container.querySelector("text")).toBeNull();
   });
 
@@ -79,7 +79,7 @@ describe("ZonasOverlay", () => {
     const { container } = render(<ZonasOverlay {...base} />);
     fireEvent.focus(screen.getByRole("button", { name: "Salón" }));
     expect(container.querySelector("text")?.textContent).toBe("Salón");
-    expect(poligonos(container)[1].getAttribute("data-activa")).toBe("true");
+    expect(poligonos(container)[1]!.getAttribute("data-activa")).toBe("true");
     fireEvent.blur(screen.getByRole("button", { name: "Salón" }));
     expect(container.querySelector("text")).toBeNull();
   });
@@ -87,7 +87,7 @@ describe("ZonasOverlay", () => {
   it("táctil: el primer toque muestra la ficha y el segundo activa", () => {
     const onSeleccion = vi.fn();
     const { container } = render(<ZonasOverlay {...base} onSeleccion={onSeleccion} />);
-    const zona = () => poligonos(container)[0];
+    const zona = () => poligonos(container)[0]!;
     fireEvent.pointerDown(zona(), { pointerType: "touch" });
     fireEvent.click(zona());
     expect(onSeleccion).not.toHaveBeenCalled();
@@ -100,17 +100,17 @@ describe("ZonasOverlay", () => {
   it("táctil: tocar otra zona solo cambia la ficha", () => {
     const onSeleccion = vi.fn();
     const { container } = render(<ZonasOverlay {...base} onSeleccion={onSeleccion} />);
-    fireEvent.pointerDown(poligonos(container)[0], { pointerType: "touch" });
-    fireEvent.click(poligonos(container)[0]);
-    fireEvent.pointerDown(poligonos(container)[1], { pointerType: "touch" });
-    fireEvent.click(poligonos(container)[1]);
+    fireEvent.pointerDown(poligonos(container)[0]!, { pointerType: "touch" });
+    fireEvent.click(poligonos(container)[0]!);
+    fireEvent.pointerDown(poligonos(container)[1]!, { pointerType: "touch" });
+    fireEvent.click(poligonos(container)[1]!);
     expect(onSeleccion).not.toHaveBeenCalled();
     expect(container.querySelector("text")?.textContent).toBe("Salón");
   });
 
   it("al ocultarse se limpia la ficha", () => {
     const { container, rerender } = render(<ZonasOverlay {...base} />);
-    fireEvent.pointerEnter(poligonos(container)[0], { pointerType: "mouse" });
+    fireEvent.pointerEnter(poligonos(container)[0]!, { pointerType: "mouse" });
     rerender(<ZonasOverlay {...base} visible={false} />);
     rerender(<ZonasOverlay {...base} />);
     expect(container.querySelector("text")).toBeNull();

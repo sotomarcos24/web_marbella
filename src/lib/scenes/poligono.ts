@@ -11,7 +11,7 @@ export function centroide(poligono: Poligono): Punto {
   let cx = 0;
   let cy = 0;
   poligono.forEach(([x0, y0], i) => {
-    const [x1, y1] = poligono[(i + 1) % poligono.length];
+    const [x1, y1] = poligono[(i + 1) % poligono.length]!;
     const cruz = x0 * y1 - x1 * y0;
     area += cruz;
     cx += (x0 + x1) * cruz;
