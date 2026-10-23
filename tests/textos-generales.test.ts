@@ -21,7 +21,7 @@ const hojas = (messages: Messages, prefix = ""): [string, string][] =>
 
 const textos = (messages: Messages): string[] => hojas(messages).map(([, v]) => v);
 
-const PROHIBIDOS = /lirios|\beva\b|\blaura\b|iv[aá]n|\bjulio\b|mucama|maid|\b(18|19|20)\s*(personas|hu[eé]spedes|guests|people)/i;
+const PROHIBIDOS = /lirios|\beva\b|\blaura\b|iv[aá]n|mucama|maid|\b(18|19|20)\s*(personas|hu[eé]spedes|guests|people)/i;
 const APARTAMENTOS = /comunitari|community|vecinos|neighbou?rs|portero|porter|ascensor|elevator|celos[ií]a|trellis|tender ropa|hang(ing)? (laundry|clothes)/i;
 const NO_SPEC = /traslado|transfer|aeropuerto|airport|despedida|hen party|bachelorette|\bspa\b|masaje|massage|manicur|fot[oó]graf|photograph/i;
 
@@ -78,6 +78,17 @@ describe("textos generales y de servicios (#12)", () => {
 
   it.each(IDIOMAS)("%s: términos prohibidos ausentes en todos los textos", (_, m) => {
     expect(textos(m as Messages).filter((t) => PROHIBIDOS.test(t))).toEqual([]);
+  });
+
+  it.each(IDIOMAS)("%s: el chef privado se presenta como Julio (SPEC §9)", (_, m) => {
+    for (const clave of ["nombre", "presentacion"]) {
+      expect(resolver(m, `servicios.chef-privado.${clave}`), clave).toMatch(/\bJulio\b/);
+    }
+  });
+
+  it.each(IDIOMAS)("%s: \"Julio\" solo como nombre del chef privado (SPEC §9)", (_, m) => {
+    const fuera = hojas(m as Messages).filter(([k, v]) => /\bJulio\b/.test(v) && !k.startsWith("servicios.chef-privado."));
+    expect(fuera).toEqual([]);
   });
 
   it("es y en tienen las mismas claves en condiciones, normas y servicios", () => {

@@ -95,7 +95,8 @@ export interface DesglosePrecio {
   /** Preautorizada aparte; no forma parte del total. */
   fianza: Centimos;
   pagos: readonly Pago[];
-  cancelacionGratuitaHasta: FechaISO;
+  /** `null` si el plazo ya ha vencido (lo explica el aviso `cancelacion-gratuita-vencida`). */
+  cancelacionGratuitaHasta: FechaISO | null;
   avisos: readonly CodigoAviso[];
 }
 

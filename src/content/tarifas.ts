@@ -64,8 +64,8 @@ export const reglas = {
 } as const;
 
 export const suplementosHuesped: Readonly<Record<VillaId, SuplementoHuesped>> = {
-  "villa-1": { importe: eur(250), meses: [8] },
-  "villa-3": { importe: eur(150), estimado: true },
-  "villa-4": { importe: eur(150) },
-  "villa-5": { importe: eur(150) },
+  "villa-1": [{ importe: eur(250), meses: [8] }, { importe: eur(150), estimado: true }],
+  "villa-3": [{ importe: eur(150), estimado: true }],
+  "villa-4": [{ importe: eur(150) }],
+  "villa-5": [{ importe: eur(150) }],
 };

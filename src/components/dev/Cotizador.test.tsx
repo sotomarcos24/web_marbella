@@ -122,6 +122,13 @@ describe.each(locales)("Cotizador (%s)", (locale, messages) => {
     expect(r.queryByText(messages.pricing.avisos["cancelacion-gratuita-vencida"].split("{")[0] ?? "", { exact: false })).toBeNull();
   });
 
+  it("cancelación gratuita vencida: sin fila de fecha límite, solo el aviso", async () => {
+    await cotizar({ villa: "villa-4", entrada: "2027-02-20", salida: "2027-02-23", huespedes: "10" });
+    const r = resultado();
+    expect(r.queryByText(m.result.cancelacion)).toBeNull();
+    expect(r.getByText(messages.pricing.avisos["cancelacion-gratuita-vencida"].split("{")[0] ?? "", { exact: false })).toBeTruthy();
+  });
+
   it("muestra disponibilidad libre", async () => {
     await cotizar({ villa: "villa-4", entrada: "2027-08-01", salida: "2027-08-04", huespedes: "10" });
     expect(screen.getByText(m.disponibilidad.libre)).toBeTruthy();
