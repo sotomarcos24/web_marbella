@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
-import { villas as villasContenido } from "@/content/villas";
 import type { PoligonoEditable } from "@/lib/dev/polygon";
+import { villasVacias } from "../../../tests/villasVacias";
 import { aEditables, construirSalida, leerSalida, validarSalida, type ImagenZonas } from "@/lib/dev/zonasSalida";
 
 const cuadrado: PoligonoEditable["puntos"] = [[0.1, 0.1], [0.4, 0.1], [0.4, 0.4], [0.1, 0.4]];
 const pol = (campos: Partial<PoligonoEditable>): PoligonoEditable => ({ id: "x", nombre: "", puntos: cuadrado, cerrado: true, ...campos });
 
 // Las villas reales no traen exteriores hasta asignar fotos en /dev/fotos.
-const villas = villasContenido.map((villa) => ({ ...villa, exteriores: [{ id: "jardin" as const, fotos: [] }] }));
+const villas = villasVacias.map((villa) => ({ ...villa, exteriores: [{ id: "jardin" as const, fotos: [] }] }));
 
 const portada: ImagenZonas = { clave: "/images/villas/villa-4/villa4_059.webp", tipo: "portada", imagen: "/images/villas/villa-4/villa4_059.webp", archivo: "zonas/villa-4/portada.json", villaId: "villa-4", poligonos: [] };
 const plano: ImagenZonas = { clave: "/images/villas/villa-4/plano-planta-baja.webp", tipo: "plano", imagen: "/images/villas/villa-4/plano-planta-baja.webp", archivo: "zonas/villa-4/planta-baja.json", villaId: "villa-4", plantaId: "planta-baja", poligonos: [] };
