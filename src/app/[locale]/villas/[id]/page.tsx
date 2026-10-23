@@ -3,6 +3,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Cabecera } from "@/components/villa/Cabecera";
+import { Destacadas } from "@/components/villa/Destacadas";
 import { Plano } from "@/components/villa/Plano";
 import { Recorrido } from "@/components/villa/Recorrido";
 import { distribucionCamas } from "@/content/dormitorios";
@@ -26,14 +27,21 @@ export default async function VillaPage({ params }: PageProps<"/[locale]/villas/
   const alts = new Map(catalogo.filter((f) => f.villa === villa.id).map((f) => [f.archivo, f.alt[locale]]));
   const altDe = (src: string) => alts.get(src.split("/").pop() ?? "") ?? "";
   const enGrupo = new Set<string>();
+  const contenidos = [...villa.exteriores, ...villa.plantas.flatMap((planta) => planta.estancias)];
   // Una foto aparece solo en el primer grupo que la usa.
-  const fotos = [...villa.exteriores, ...villa.plantas.flatMap((planta) => planta.estancias)].map((e) => ({
+  const fotos = contenidos.map((e) => ({
     id: e.id,
     nombre: "nombre" in e ? e.nombre : e.id,
     fotos: e.fotos
       .filter((src) => !enGrupo.has(src) && enGrupo.add(src))
       .map((src) => ({ src, alt: altDe(src) })),
   }));
+  // Las tarjetas usan la foto principal de cada destacada, aunque otro grupo de la galería ya la tenga.
+  const destacadas = (villa.destacadas ?? []).flatMap((id) => {
+    const contenido = contenidos.find((e) => e.id === id);
+    const foto = contenido?.fotos[0];
+    return foto ? [{ id, nombre: "nombre" in contenido ? contenido.nombre : id, foto }] : [];
+  });
   const altsRecorrido = Object.fromEntries((villa.recorrido ?? []).map((tramo) => [tramo.inicio, altDe(tramo.inicio)]));
 
   return (
@@ -55,6 +63,7 @@ export default async function VillaPage({ params }: PageProps<"/[locale]/villas/
           />
         </Suspense>
         <Recorrido tramos={villa.recorrido} alts={altsRecorrido} />
+        <Destacadas tarjetas={destacadas} />
       </main>
     </NextIntlClientProvider>
   );

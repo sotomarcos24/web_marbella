@@ -462,6 +462,32 @@
       "siguiente": "Foto siguiente",
       "contador": "{actual} / {total}",
       "alt": "Foto {actual} de {total}"
+    },
+    "destacadas": {
+      "titulo": "Dentro de la villa",
+      "cerrar": "Cerrar",
+      "estancias": {
+        "salon": {
+          "nombre": "Salón",
+          "frase": "Luz natural y espacio para reunir a todo el grupo."
+        },
+        "cocina": {
+          "nombre": "Cocina",
+          "frase": "Equipada para cocinar en casa con calma."
+        },
+        "pa-suite-1": {
+          "nombre": "Dormitorio principal",
+          "frase": "Una suite en la planta alta con baño propio."
+        },
+        "bano-1": {
+          "nombre": "Baño",
+          "frase": "Para empezar el día sin prisas."
+        },
+        "porche": {
+          "nombre": "Porche",
+          "frase": "Sombra al aire libre, del desayuno a la cena."
+        }
+      }
     }
   },
   "Plano": {

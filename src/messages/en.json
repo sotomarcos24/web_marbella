@@ -462,6 +462,32 @@
       "siguiente": "Next photo",
       "contador": "{actual} / {total}",
       "alt": "Photo {actual} of {total}"
+    },
+    "destacadas": {
+      "titulo": "Inside the villa",
+      "cerrar": "Close",
+      "estancias": {
+        "salon": {
+          "nombre": "Living room",
+          "frase": "Natural light and room for the whole group to gather."
+        },
+        "cocina": {
+          "nombre": "Kitchen",
+          "frase": "Equipped for relaxed home cooking."
+        },
+        "pa-suite-1": {
+          "nombre": "Main bedroom",
+          "frase": "An upstairs suite with its own bathroom."
+        },
+        "bano-1": {
+          "nombre": "Bathroom",
+          "frase": "To start the day unhurried."
+        },
+        "porche": {
+          "nombre": "Porch",
+          "frase": "Outdoor shade, from breakfast to dinner."
+        }
+      }
     }
   },
   "Plano": {
