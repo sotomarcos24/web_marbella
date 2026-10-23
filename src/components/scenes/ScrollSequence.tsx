@@ -1,7 +1,7 @@
 "use client";
 
 import { animate, motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "motion/react";
-import { useEffect, useRef } from "react";
+import { type ReactNode, useEffect, useRef } from "react";
 import {
   escalaInicio,
   escalaLlegada,
@@ -31,6 +31,10 @@ interface ScrollSequenceProps {
   /** Modo clic: avanza solo al montarse, sin botón (T2 tras elegir una villa). */
   autoplay?: boolean;
   onLlegada?: () => void;
+  /** `object-position` de las tres imágenes (fotos verticales: qué banda se ve). */
+  encuadre?: string;
+  /** Capa sobre la escena (titulares), dentro del hijo sticky. */
+  children?: ReactNode;
   /** Reservado para los fotogramas de la Fase 4; sin uso aún. */
   manifiesto?: ManifiestoSecuencia;
 }
@@ -50,6 +54,8 @@ export function ScrollSequence({
   duracion = 3,
   autoplay = false,
   onLlegada,
+  encuadre,
+  children,
 }: ScrollSequenceProps) {
   const contenedor = useRef<HTMLDivElement>(null);
   const emitida = useRef(false);
@@ -94,9 +100,16 @@ export function ScrollSequence({
       style={{ height: alto ? `${pantallas * 100}dvh` : "100dvh" }}
     >
       <div className="sticky top-0 h-dvh overflow-hidden bg-black">
-        <motion.img src={inicio} alt={alt} className={imagen} style={{ scale: escalaI }} />
-        <motion.img src={llegada} alt="" aria-hidden className={imagen} style={{ scale: escalaL, opacity: opacidadL }} />
-        <motion.img src={llegada} alt="" aria-hidden className={imagen} style={{ opacity: opacidadF }} />
+        <motion.img src={inicio} alt={alt} className={imagen} style={{ objectPosition: encuadre, scale: escalaI }} />
+        <motion.img
+          src={llegada}
+          alt=""
+          aria-hidden
+          className={imagen}
+          style={{ objectPosition: encuadre, scale: escalaL, opacity: opacidadL }}
+        />
+        <motion.img src={llegada} alt="" aria-hidden className={imagen} style={{ objectPosition: encuadre, opacity: opacidadF }} />
+        {children}
         {modo === "clic" && !autoplay && (
           <button
             type="button"

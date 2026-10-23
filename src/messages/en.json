@@ -523,5 +523,9 @@
       "litera": "{cantidad, plural, one {# bunk bed} other {# bunk beds}}",
       "sofa-cama": "{cantidad, plural, one {# sofa bed} other {# sofa beds}}"
     }
+  },
+  "recorrido": {
+    "seccion": "Step inside",
+    "bienvenida": "Welcome home"
   }
 }

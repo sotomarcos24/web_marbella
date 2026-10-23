@@ -113,6 +113,22 @@ describe("ScrollSequence", () => {
     await waitFor(() => expect(inicio.style.transform).toMatch(/scale\(1\.\d+\)/));
   });
 
+  it("encuadre: aplica object-position a todas las imágenes", () => {
+    const { container } = render(<ScrollSequence {...base} encuadre="50% 55%" />);
+    const imgs = [...container.querySelectorAll("img")];
+    expect(imgs.length).toBeGreaterThan(0);
+    for (const img of imgs) expect(img.style.objectPosition).toBe("50% 55%");
+  });
+
+  it("muestra los hijos sobre la escena (capa sticky)", () => {
+    const { container } = render(
+      <ScrollSequence {...base}>
+        <p>Titular</p>
+      </ScrollSequence>,
+    );
+    expect(container.querySelector(".sticky")!.textContent).toContain("Titular");
+  });
+
   it("autoplay: avanza solo al montar, sin botón, y emite onLlegada", async () => {
     const onLlegada = vi.fn();
     render(<ScrollSequence {...base} modo="clic" autoplay duracion={0.05} onLlegada={onLlegada} />);

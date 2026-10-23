@@ -162,4 +162,41 @@ describe("process-photos", () => {
     expect(meta.format).toBe("webp");
     expect(meta.width).toBe(1920);
   });
+  it("retoque: copia la zona origen sobre la zona a tapar antes de convertir", async () => {
+    // Mitad superior roja, inferior azul: se tapa un trozo de arriba con azul de abajo.
+    const ruta = path.join(origen, "villa1/statics/villa1_001.jpg");
+    mkdirSync(path.dirname(ruta), { recursive: true });
+    await sharp({ create: { width: 200, height: 200, channels: 3, background: "#c00" } })
+      .composite([{ input: { create: { width: 200, height: 100, channels: 3, background: "#00c" } }, top: 100, left: 0 }])
+      .jpeg()
+      .toFile(ruta);
+    await processPhotos({
+      origen,
+      destino,
+      config: {
+        ...baseConfig,
+        retoques: { "villa1/villa1_001.jpg": [{ zona: { left: 0.25, top: 0.1, width: 0.5, height: 0.3 }, origen: { left: 0.25, top: 0.6 } }] },
+      },
+    });
+    const { data, info } = await sharp(path.join(destino, "villa-1/villa1_001.webp")).raw().toBuffer({ resolveWithObject: true });
+    const pixel = (x: number, y: number) => [...data.subarray((y * info.width + x) * info.channels, (y * info.width + x) * info.channels + 3)];
+    const [r1, , b1] = pixel(100, 50);
+    expect(b1).toBeGreaterThan(r1!);
+    const [r2, , b2] = pixel(10, 50);
+    expect(r2).toBeGreaterThan(b2!);
+  });
+
+  it("retoque fuera de la imagen: foto descartada sin salida", async () => {
+    await jpg(path.join(origen, "villa1/statics/villa1_001.jpg"));
+    const informe = await processPhotos({
+      origen,
+      destino,
+      config: {
+        ...baseConfig,
+        retoques: { "villa1/villa1_001.jpg": [{ zona: { left: 0, top: 0, width: 0.5, height: 0.5 }, origen: { left: 0.8, top: 0 } }] },
+      },
+    });
+    expect(salida("villa-1")).toEqual([]);
+    expect(informe.descartadas[0]?.motivo).toMatch(/retoque/i);
+  });
 });
