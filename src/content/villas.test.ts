@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { villas } from "@/content/villas";
 import { validarVilla } from "@/lib/validation/villa";
-import type { VillaId } from "@/types/villa";
+import type { Villa, VillaId } from "@/types/villa";
+
+const campos = (villa: Villa) => villa.pendientes.map((p) => p.campo);
 
 const porId = (id: VillaId) => {
   const villa = villas.find((v) => v.id === id);
@@ -59,7 +61,7 @@ describe("villas (SPEC §6)", () => {
     }
   });
 
-  it("hero: portada provisional y zonas de ejemplo", () => {
+  it("hero: portada provisional", () => {
     const portadas = {
       "villa-1": "villa1_012",
       "villa-3": "villa3_019",
@@ -68,7 +70,16 @@ describe("villas (SPEC §6)", () => {
     } satisfies Record<VillaId, string>;
     for (const villa of villas) {
       expect(villa.hero.imagenDia).toBe(`/images/villas/${villa.id}/${portadas[villa.id]}.webp`);
-      expect(villa.hero.zonas.map((z) => z.id)).toEqual(["jardin", "planta-baja", "planta-alta"]);
+    }
+  });
+
+  it("sin rectángulos de ejemplo: zonas y estancias salen solo de los JSON de /dev", () => {
+    for (const villa of villas) {
+      const sinZonas = campos(villa).includes("hero.zonas");
+      expect(villa.hero.zonas.length === 0, villa.id).toBe(sinZonas);
+      for (const planta of villa.plantas) {
+        expect(planta.estancias.length === 0, `${villa.id}/${planta.id}`).toBe(campos(villa).includes(`plantas.${planta.id}.estancias`));
+      }
     }
   });
 
