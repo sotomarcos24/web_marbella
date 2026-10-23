@@ -17,12 +17,14 @@ Objetivo del milestone: $ARGUMENTS
    - archivos probables;
    - dependencias (otros issues de la propuesta);
    - etiquetas;
-   - tamaño S/M/L (si es L, pártelo).
+   - tamaño S/M/L (si es L, pártelo). `/issue` lo usa para decidir plan mode (L), `/simplify` (M y L) y si salta QA (S de solo contenido o documentación).
+   - Los criterios no incluyen tests sobre documentos: los documentos no se testean.
 
    Preséntalos en una tabla (`#`, título, tamaño, etiquetas, depende de, archivos) con el orden recomendado y qué issues pueden hacerse en paralelo. Después de la tabla, incluye el detalle (descripción y criterios) de cada issue.
 4. **Aprobación.** Para y espera la aprobación explícita del usuario. Aplica los cambios que pida y vuelve a presentar. No crees nada en GitHub antes.
 5. **Creación.** Con la aprobación:
    - crea el milestone (`gh api repos/{owner}/{repo}/milestones -f title=... -f description=...`);
    - crea las etiquetas que falten (`gh label create`);
-   - crea los issues en orden de dependencias con `gh issue create --milestone ... --label ...`, y enlaza las dependencias con "Depende de #N" en el cuerpo.
+   - crea los issues en orden de dependencias con `gh issue create --milestone ... --label ...`; en el cuerpo, la línea `Tamaño: S|M|L` y "Depende de #N" para enlazar dependencias.
+   - actualiza la línea **Estado** de `CLAUDE.md` con el primer issue (commit directo en `main`: es el único cambio de progreso fuera de un PR).
 6. **Resumen.** Lista final: una línea por issue (número, título, URL).
