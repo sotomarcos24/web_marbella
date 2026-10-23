@@ -8,6 +8,15 @@
     "pista": "Click the arch or scroll",
     "lema": "Four luxury villas in Puerto Banús"
   },
+  "Conjunto": {
+    "nombre": "Villa {numero}",
+    "plazas": "{n} guests",
+    "dormitorios": "{n} bedrooms",
+    "pendiente": "(to be confirmed)",
+    "desde": "From {precio} / night",
+    "estimado": "(estimated)",
+    "lista": "Villas in the complex"
+  },
   "LocaleSwitcher": {
     "label": "Language",
     "locales": {

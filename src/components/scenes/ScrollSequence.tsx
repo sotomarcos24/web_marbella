@@ -1,7 +1,7 @@
 "use client";
 
 import { animate, motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   escalaInicio,
   escalaLlegada,
@@ -28,6 +28,8 @@ interface ScrollSequenceProps {
   pantallas?: number;
   /** Duración del avance automático, en segundos. */
   duracion?: number;
+  /** Modo clic: avanza solo al montarse, sin botón (T2 tras elegir una villa). */
+  autoplay?: boolean;
   onLlegada?: () => void;
   /** Reservado para los fotogramas de la Fase 4; sin uso aún. */
   manifiesto?: ManifiestoSecuencia;
@@ -46,6 +48,7 @@ export function ScrollSequence({
   enFlujo = false,
   pantallas = 3,
   duracion = 3,
+  autoplay = false,
   onLlegada,
 }: ScrollSequenceProps) {
   const contenedor = useRef<HTMLDivElement>(null);
@@ -72,6 +75,12 @@ export function ScrollSequence({
   const opacidadL = useTransform(progreso, (p) => opacidadLlegada(p, reducido));
   const opacidadF = useTransform(progreso, (p) => opacidadFinal(p, reducido));
 
+  useEffect(() => {
+    if (!autoplay || alto) return;
+    const controles = animate(manual, 1, { duration: duracion, ease: "easeInOut" });
+    return () => controles.stop();
+  }, [autoplay, alto, manual, duracion]);
+
   function avanzar() {
     if (enFlujo) avanzarAlFinal();
     else animate(manual, 1, { duration: duracion, ease: "easeInOut" });
@@ -88,7 +97,7 @@ export function ScrollSequence({
         <motion.img src={inicio} alt={alt} className={imagen} style={{ scale: escalaI }} />
         <motion.img src={llegada} alt="" aria-hidden className={imagen} style={{ scale: escalaL, opacity: opacidadL }} />
         <motion.img src={llegada} alt="" aria-hidden className={imagen} style={{ opacity: opacidadF }} />
-        {modo === "clic" && (
+        {modo === "clic" && !autoplay && (
           <button
             type="button"
             aria-label={etiqueta}

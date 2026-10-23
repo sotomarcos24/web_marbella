@@ -8,6 +8,15 @@
     "pista": "Haz clic en el arco o desliza",
     "lema": "Cuatro villas de lujo en Puerto Banús"
   },
+  "Conjunto": {
+    "nombre": "Villa {numero}",
+    "plazas": "{n} plazas",
+    "dormitorios": "{n} dormitorios",
+    "pendiente": "(pendiente de confirmar)",
+    "desde": "Desde {precio} / noche",
+    "estimado": "(estimado)",
+    "lista": "Villas del conjunto"
+  },
   "LocaleSwitcher": {
     "label": "Idioma",
     "locales": {

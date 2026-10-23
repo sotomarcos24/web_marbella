@@ -1,8 +1,9 @@
 "use client";
 
-import { motion, useScroll, useTransform, type MotionValue } from "motion/react";
-import { useRef } from "react";
+import { motion, useMotionValueEvent, useScroll, useTransform, type MotionValue } from "motion/react";
+import { type ReactNode, useRef, useState } from "react";
 import { siteConfig } from "@/config/site";
+import { haLlegado } from "@/lib/scenes/progreso";
 import { useAvanzarAlFinal } from "@/lib/scenes/useLenisScroll";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 import {
@@ -22,6 +23,8 @@ interface IntroProps {
   pantallas?: number;
   /** Duración del avance automático tras el clic, en segundos. */
   duracion?: number;
+  /** Contenido sobre la aérea (mapa del conjunto): solo visible e interactivo al llegar (§3.3). */
+  children?: ReactNode;
 }
 
 // Arco andaluz de medio punto sobre columnas, con la puerta dentro (porche de las villas 4 y 5).
@@ -66,11 +69,13 @@ function CapaNube({ progreso, profundidad, fondo }: { progreso: MotionValue<numb
 
 // Intro del inicio (docs/vision.md §2.1, T1 sin vídeo §3.4): contenedor alto + hijo sticky (§3.1).
 // Con la rueda avanza al ritmo del scroll; el clic en el arco desplaza solo hasta el final.
-export function Intro({ textos, pantallas = 4, duracion = 4 }: IntroProps) {
+export function Intro({ textos, pantallas = 4, duracion = 4, children }: IntroProps) {
   const contenedor = useRef<HTMLDivElement>(null);
   const reducido = usePrefersReducedMotion();
   const avanzar = useAvanzarAlFinal(contenedor, duracion);
   const { scrollYProgress: progreso } = useScroll({ target: contenedor, offset: ["start start", "end end"] });
+  const [llegado, setLlegado] = useState(() => haLlegado(progreso.get()));
+  useMotionValueEvent(progreso, "change", (p) => setLlegado(haLlegado(p)));
 
   const opacidadA = useTransform(progreso, (p) => opacidadArco(p, reducido));
   const escalaA = useTransform(progreso, (p) => escalaArco(p, reducido));
@@ -134,6 +139,17 @@ export function Intro({ textos, pantallas = 4, duracion = 4 }: IntroProps) {
           <p className="text-sm opacity-70">{textos.lema}</p>
           <p className="absolute bottom-8 text-xs uppercase tracking-[0.3em] opacity-60">{textos.pista}</p>
         </motion.div>
+        {children && (
+          <div
+            data-llegada={llegado}
+            inert={!llegado}
+            className={`absolute inset-0 transition-opacity duration-500 motion-reduce:transition-none ${
+              llegado ? "opacity-100" : "pointer-events-none opacity-0"
+            }`}
+          >
+            {children}
+          </div>
+        )}
       </div>
     </div>
   );

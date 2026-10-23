@@ -1,8 +1,8 @@
 import type { Poligono, Punto } from "@/types/villa";
 
-/** Vértices en el formato del atributo `points` de un `<polygon>` SVG. */
-export function puntosSvg(poligono: Poligono): string {
-  return poligono.map(([x, y]) => `${x},${y}`).join(" ");
+/** Vértices en el formato del atributo `points` de un `<polygon>` SVG, opcionalmente escalados a [ancho, alto]. */
+export function puntosSvg(poligono: Poligono, [ancho, alto]: readonly [number, number] = [1, 1]): string {
+  return poligono.map(([x, y]) => `${x * ancho},${y * alto}`).join(" ");
 }
 
 /** Centroide del área; si el polígono es degenerado (área 0) cae a la media de vértices. */
