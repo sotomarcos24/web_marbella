@@ -156,13 +156,16 @@ describe("validarVilla", () => {
   });
 
   describe("Fase 2: destacadas y recorrido", () => {
-    it("destacadas solo admite estancias existentes", () => {
+    it("destacadas admite ids de estancias y de exteriores", () => {
+      expect(validarVilla({ ...villaValida(), destacadas: ["salon", "jardin"] })).toEqual([]);
+    });
+
+    it("destacadas solo admite estancias o exteriores existentes", () => {
       const villa = { ...villaValida(), destacadas: ["salon", "bodega"] };
       expectError(validarVilla(villa), "destacadas", "bodega");
     });
 
-    it("destacadas no admite exteriores ni plantas", () => {
-      expectError(validarVilla({ ...villaValida(), destacadas: ["jardin"] }), "destacadas", "jardin");
+    it("destacadas no admite plantas", () => {
       expectError(validarVilla({ ...villaValida(), destacadas: ["planta-baja"] }), "destacadas", "planta-baja");
     });
 

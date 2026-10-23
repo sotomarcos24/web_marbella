@@ -111,7 +111,7 @@ export interface Villa {
   exteriores: readonly Exterior[];
   /** Fase 2. */
   recorrido?: readonly Recorrido[];
-  /** Fase 2: ids de estancias para las tarjetas en arco. */
+  /** Fase 2: ids de estancias o exteriores para las tarjetas en arco. */
   destacadas?: readonly string[];
 }
 

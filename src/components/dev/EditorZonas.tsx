@@ -8,12 +8,11 @@ import { Container } from "@/components/ui/Container";
 import { Heading } from "@/components/ui/Heading";
 import { Input } from "@/components/ui/Input";
 import { focusRing } from "@/components/ui/styles";
-import { villas } from "@/content/villas";
 import { cn } from "@/lib/cn";
 import { type AccionEditor, editorZonas, estadoInicial, normalizar, type PoligonoEditable } from "@/lib/dev/polygon";
 import { construirSalida, type ImagenZonas, validarSalida } from "@/lib/dev/zonasSalida";
 import { destinosZona } from "@/lib/validation/villa";
-import { ACCIONES_ZONA, type AccionZona, TIPOS_ESTANCIA, type TipoEstancia } from "@/types/villa";
+import { ACCIONES_ZONA, type AccionZona, TIPOS_ESTANCIA, type TipoEstancia, type Villa } from "@/types/villa";
 
 type Guardado = { tipo: "ok"; archivo: string } | { tipo: "error"; errores: readonly string[] } | null;
 
@@ -35,12 +34,12 @@ function CampoSelect({ label, value, onChange, children }: { label: string; valu
 }
 
 /** Ids a los que puede llevar una zona según su acción (las reglas de `validarVilla`). */
-function destinosPosibles(entrada: ImagenZonas, accion: AccionZona): string[] {
+function destinosPosibles(villas: readonly Villa[], entrada: ImagenZonas, accion: AccionZona): string[] {
   const villa = villas.find((v) => v.id === entrada.villaId);
   return villa ? [...destinosZona(villa)[accion]] : [];
 }
 
-function FormularioPoligono({ entrada, poligono, editar }: { entrada: ImagenZonas; poligono: PoligonoEditable; editar: (campos: Partial<PoligonoEditable>) => void }) {
+function FormularioPoligono({ villas, entrada, poligono, editar }: { villas: readonly Villa[]; entrada: ImagenZonas; poligono: PoligonoEditable; editar: (campos: Partial<PoligonoEditable>) => void }) {
   const t = useTranslations("DevZonas");
 
   if (entrada.tipo === "conjunto") {
@@ -79,7 +78,7 @@ function FormularioPoligono({ entrada, poligono, editar }: { entrada: ImagenZona
           </CampoSelect>
           <CampoSelect label={t("campos.destino")} value={poligono.destino ?? ""} onChange={(destino) => editar({ destino })}>
             <option value="">{t("sinDestino")}</option>
-            {destinosPosibles(entrada, accion).map((id) => (
+            {destinosPosibles(villas, entrada, accion).map((id) => (
               <option key={id} value={id}>
                 {id}
               </option>
@@ -91,7 +90,7 @@ function FormularioPoligono({ entrada, poligono, editar }: { entrada: ImagenZona
   );
 }
 
-export function EditorZonas({ imagenes }: { imagenes: readonly ImagenZonas[] }) {
+export function EditorZonas({ imagenes, villas }: { imagenes: readonly ImagenZonas[]; villas: readonly Villa[] }) {
   const t = useTranslations("DevZonas");
   const [clave, setClave] = useState(imagenes[0]?.clave);
   const entrada = imagenes.find((e) => e.clave === clave);
@@ -105,7 +104,7 @@ export function EditorZonas({ imagenes }: { imagenes: readonly ImagenZonas[] }) 
   const lienzo = useRef<HTMLDivElement>(null);
   // Validar en cada render saldría caro al arrastrar vértices: solo cuando cambian los polígonos.
   const salida = useMemo(() => entrada && construirSalida(entrada, estado.poligonos), [entrada, estado.poligonos]);
-  const errores = useMemo(() => (entrada && salida ? validarSalida(entrada, salida, villas) : []), [entrada, salida]);
+  const errores = useMemo(() => (entrada && salida ? validarSalida(entrada, salida, villas) : []), [entrada, salida, villas]);
 
   if (!entrada || !salida) {
     return (
@@ -233,7 +232,7 @@ export function EditorZonas({ imagenes }: { imagenes: readonly ImagenZonas[] }) 
           </ul>
 
           {seleccionado && indiceSeleccionado !== null ? (
-            <FormularioPoligono entrada={entrada} poligono={seleccionado} editar={(campos) => cambiar({ tipo: "editar", poligono: indiceSeleccionado, campos })} />
+            <FormularioPoligono villas={villas} entrada={entrada} poligono={seleccionado} editar={(campos) => cambiar({ tipo: "editar", poligono: indiceSeleccionado, campos })} />
           ) : null}
 
           <section aria-label={t("errores")}>
