@@ -63,8 +63,7 @@ describe("Intro", () => {
   it("clic en el arco: avanza solo hasta el final con lenis.scrollTo", () => {
     render(<Intro textos={textos} duracion={4} />);
     fireEvent.click(screen.getByRole("button", { name: "Entrar" }));
-    expect(lenis.scrollTo).toHaveBeenCalledTimes(1);
-    expect(lenis.scrollTo.mock.calls[0][1]).toMatchObject({ duration: 4 });
+    expect(lenis.scrollTo).toHaveBeenCalledExactlyOnceWith(expect.any(Number), expect.objectContaining({ duration: 4 }));
   });
 
   it("clic sin Lenis: salta al final con window.scrollTo", () => {
