@@ -14,6 +14,7 @@ Frontend de la web de alquiler vacacional **Soto Village Marbella**: 4 villas de
 - Máximo 3 rondas de corrección por issue; si no pasa, para y explica el bloqueo.
 - Plan mode con aprobación solo en issues L o si te apartas de los criterios aprobados. Orden: tests → código → `/simplify` (solo M y L) → lint/typecheck/test una vez → `qa-reviewer` (recibe esos resultados; se salta en S de solo contenido o docs) → PR.
 - Aprobación del usuario: el desglose en issues (`/milestone`). Con QA en PASS y checks en verde, merge directo. Para y pregunta solo si QA falla 3 veces, si cambias el modelo de datos o si vas a gastar créditos de Pletor. `/ok` fuerza un merge.
+- En paralelo: un worktree por issue (`../web_marbella-N`, rama `issue-N`), cada uno con su terminal y `/issue N`. En los worktrees no se toca la línea Estado ni `docs/milestones.md`; al terminar, `/sincronizar` en la carpeta principal borra los worktrees fusionados, comprueba el `main` combinado y actualiza el progreso.
 - Progreso: GitHub es la única fuente de verdad. La línea Estado solo indica el siguiente issue; `docs/milestones.md` se actualiza al cerrar cada milestone. Sin commits solo de progreso.
 - Al cerrar un milestone, para y da un resumen de 5 líneas con qué revisar en el navegador.
 - Los documentos no se testean.
