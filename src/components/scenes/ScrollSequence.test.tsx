@@ -112,6 +112,7 @@ describe("ScrollSequence", () => {
     const inicio = container.querySelector('img[src="/a.webp"]') as HTMLElement;
     await waitFor(() => expect(inicio.style.transform).toMatch(/scale\(1\.\d+\)/));
   });
+
   it("encuadre: aplica object-position a todas las imágenes", () => {
     const { container } = render(<ScrollSequence {...base} encuadre="50% 55%" />);
     const imgs = [...container.querySelectorAll("img")];
@@ -126,5 +127,12 @@ describe("ScrollSequence", () => {
       </ScrollSequence>,
     );
     expect(container.querySelector(".sticky")!.textContent).toContain("Titular");
+  });
+
+  it("autoplay: avanza solo al montar, sin botón, y emite onLlegada", async () => {
+    const onLlegada = vi.fn();
+    render(<ScrollSequence {...base} modo="clic" autoplay duracion={0.05} onLlegada={onLlegada} />);
+    expect(screen.queryByRole("button")).toBeNull();
+    await waitFor(() => expect(onLlegada).toHaveBeenCalledTimes(1));
   });
 });

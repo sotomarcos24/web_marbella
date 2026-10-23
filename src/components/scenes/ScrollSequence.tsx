@@ -1,7 +1,7 @@
 "use client";
 
 import { animate, motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "motion/react";
-import { type ReactNode, useRef } from "react";
+import { type ReactNode, useEffect, useRef } from "react";
 import {
   escalaInicio,
   escalaLlegada,
@@ -28,6 +28,8 @@ interface ScrollSequenceProps {
   pantallas?: number;
   /** Duración del avance automático, en segundos. */
   duracion?: number;
+  /** Modo clic: avanza solo al montarse, sin botón (T2 tras elegir una villa). */
+  autoplay?: boolean;
   onLlegada?: () => void;
   /** `object-position` de las tres imágenes (fotos verticales: qué banda se ve). */
   encuadre?: string;
@@ -50,6 +52,7 @@ export function ScrollSequence({
   enFlujo = false,
   pantallas = 3,
   duracion = 3,
+  autoplay = false,
   onLlegada,
   encuadre,
   children,
@@ -78,6 +81,12 @@ export function ScrollSequence({
   const opacidadL = useTransform(progreso, (p) => opacidadLlegada(p, reducido));
   const opacidadF = useTransform(progreso, (p) => opacidadFinal(p, reducido));
 
+  useEffect(() => {
+    if (!autoplay || alto) return;
+    const controles = animate(manual, 1, { duration: duracion, ease: "easeInOut" });
+    return () => controles.stop();
+  }, [autoplay, alto, manual, duracion]);
+
   function avanzar() {
     if (enFlujo) avanzarAlFinal();
     else animate(manual, 1, { duration: duracion, ease: "easeInOut" });
@@ -101,7 +110,7 @@ export function ScrollSequence({
         />
         <motion.img src={llegada} alt="" aria-hidden className={imagen} style={{ objectPosition: encuadre, opacity: opacidadF }} />
         {children}
-        {modo === "clic" && (
+        {modo === "clic" && !autoplay && (
           <button
             type="button"
             aria-label={etiqueta}
