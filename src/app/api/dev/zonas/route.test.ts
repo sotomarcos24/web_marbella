@@ -6,7 +6,7 @@ vi.mock("@/lib/dev/writeContent", () => ({ writeContent: vi.fn() }));
 
 const ctx = { params: Promise.resolve({}) };
 const imagen = "/images/villas/villa-4/villa4_059.webp";
-const zona = { id: "jardin", nombre: "zonas.jardin", poligono: [[0, 0], [1, 0], [1, 1]], accion: "galeria", destino: "jardin" };
+const zona = { id: "jardin", nombre: "zonas.jardin", poligono: [[0, 0], [1, 0], [1, 1]], accion: "planta", destino: "planta-baja" };
 
 const post = (body: unknown) =>
   POST(new Request("http://localhost/api/dev/zonas", { method: "POST", body: typeof body === "string" ? body : JSON.stringify(body) }), ctx);

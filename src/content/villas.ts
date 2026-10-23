@@ -1,34 +1,25 @@
-import type { Exterior, Hero, Pendiente, Planta, Poligono, Villa, VillaId } from "@/types/villa";
+import { cargarVilla } from "@/lib/content/cargar";
+import type { Hero, Pendiente, Planta, Villa, VillaId } from "@/types/villa";
 
 // SPEC §6. Datos sin confirmar van vacíos y marcados en `pendientes`; nunca se inventan.
-// Portadas, planos y polígonos son provisionales hasta procesar las fotos reales.
+// Las portadas y los planos son provisionales hasta procesar las fotos reales.
 
 const pendientesComunes: readonly Pendiente[] = [
   { campo: "inscripcionTuristica", nota: "pendiente de recibir el número de inscripción turística" },
   { campo: "coordenadas", nota: "pendiente de obtener las coordenadas" },
 ];
 
-const poligonoJardin: Poligono = [[0.05, 0.6], [0.45, 0.6], [0.45, 0.95], [0.05, 0.95]];
-const poligonoPlantaBaja: Poligono = [[0.3, 0.45], [0.7, 0.45], [0.7, 0.7], [0.3, 0.7]];
-const poligonoPlantaAlta: Poligono = [[0.3, 0.2], [0.7, 0.2], [0.7, 0.45], [0.3, 0.45]];
-
 const hero = (villa: VillaId, portada: string): Hero => ({
   imagenDia: `/images/villas/${villa}/${portada}.webp`,
-  zonas: [
-    { id: "jardin", nombre: "zonas.jardin", poligono: poligonoJardin, accion: "galeria", destino: "jardin" },
-    { id: "planta-baja", nombre: "zonas.planta-baja", poligono: poligonoPlantaBaja, accion: "planta", destino: "planta-baja" },
-    { id: "planta-alta", nombre: "zonas.planta-alta", poligono: poligonoPlantaAlta, accion: "planta", destino: "planta-alta" },
-  ],
+  zonas: [],
 });
-
-const exteriores: readonly Exterior[] = [{ id: "jardin", fotos: [] }];
 
 const plantas = (villa: VillaId): readonly Planta[] => [
   { id: "planta-baja", nombre: "zonas.planta-baja", imagenPlano: `/images/villas/${villa}/plano-planta-baja.webp`, estancias: [] },
   { id: "planta-alta", nombre: "zonas.planta-alta", imagenPlano: `/images/villas/${villa}/plano-planta-alta.webp`, estancias: [] },
 ];
 
-export const villas: readonly Villa[] = [
+const base: readonly Villa[] = [
   {
     id: "villa-1",
     plazasMax: 15,
@@ -43,7 +34,7 @@ export const villas: readonly Villa[] = [
     ],
     hero: hero("villa-1", "villa1_012"),
     plantas: plantas("villa-1"),
-    exteriores,
+    exteriores: [],
   },
   {
     id: "villa-3",
@@ -56,7 +47,7 @@ export const villas: readonly Villa[] = [
     pendientes: pendientesComunes,
     hero: hero("villa-3", "villa3_019"),
     plantas: plantas("villa-3"),
-    exteriores,
+    exteriores: [],
   },
   {
     id: "villa-4",
@@ -70,7 +61,7 @@ export const villas: readonly Villa[] = [
     pendientes: pendientesComunes,
     hero: hero("villa-4", "villa4_059"),
     plantas: plantas("villa-4"),
-    exteriores,
+    exteriores: [],
   },
   {
     id: "villa-5",
@@ -84,6 +75,9 @@ export const villas: readonly Villa[] = [
     pendientes: pendientesComunes,
     hero: hero("villa-5", "villa5_002"),
     plantas: plantas("villa-5"),
-    exteriores,
+    exteriores: [],
   },
 ];
+
+// Zonas, estancias y fotos salen de los JSON que guardan /dev/zonas y /dev/fotos (solo servidor).
+export const villas: readonly Villa[] = base.map((villa) => cargarVilla(villa));

@@ -61,7 +61,7 @@ export function validarVilla(villa: Villa, contexto: { conjunto?: Conjunto } = {
   const plantaIds = plantas.map((planta) => planta.id);
   const estanciaIds = plantas.flatMap((planta) => planta.estancias.map((estancia) => estancia.id));
   const exteriorIds = exteriores.map((exterior) => exterior.id);
-  const idsEstancias = new Set(estanciaIds);
+  const idsDestacables = new Set([...estanciaIds, ...exteriorIds]);
 
   const errores = [
     ...validarZonas(hero.zonas, villa, "hero.zonas"),
@@ -80,8 +80,8 @@ export function validarVilla(villa: Villa, contexto: { conjunto?: Conjunto } = {
   });
 
   for (const id of new Set(destacadas)) {
-    if (!idsEstancias.has(id)) {
-      errores.push(`destacadas: "${id}" no es una estancia de la villa`);
+    if (!idsDestacables.has(id)) {
+      errores.push(`destacadas: "${id}" no es una estancia ni un exterior de la villa`);
     }
   }
 

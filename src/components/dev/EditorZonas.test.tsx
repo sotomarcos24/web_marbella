@@ -5,7 +5,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { ImagenZonas } from "@/lib/dev/zonasSalida";
 import en from "@/messages/en.json";
 import es from "@/messages/es.json";
+import { villas as villasContenido } from "@/content/villas";
 import { EditorZonas } from "./EditorZonas";
+
+// Las villas reales no traen exteriores hasta asignar fotos en /dev/fotos.
+const villas = villasContenido.map((villa) => ({ ...villa, exteriores: [{ id: "jardin" as const, fotos: [] }] }));
 
 const portada: ImagenZonas = { clave: "/images/villas/villa-4/villa4_059.webp", tipo: "portada", imagen: "/images/villas/villa-4/villa4_059.webp", archivo: "zonas/villa-4/portada.json", villaId: "villa-4", poligonos: [] };
 const plano: ImagenZonas = {
@@ -32,7 +36,7 @@ describe.each([
   beforeEach(() => {
     render(
       <NextIntlClientProvider locale={locale} messages={messages}>
-        <EditorZonas imagenes={[portada, plano]} />
+        <EditorZonas imagenes={[portada, plano]} villas={villas} />
       </NextIntlClientProvider>,
     );
   });

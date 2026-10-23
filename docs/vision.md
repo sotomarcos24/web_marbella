@@ -152,10 +152,10 @@ Los vídeos se generan a partir de **dos fotos reales** (inicio y llegada); la I
 0. **Fase 1** (issues #1–#19, ya en GitHub): se completa antes. Ajustes derivados de esta visión: ver §6.
 1. **Este documento** → OK del usuario.
 2. **Fase 2 — Prototipo de la Villa 4 con sustitutos** (sin vídeos). Milestones propuestos (se crearán con `/milestone` tras el OK):
-   - **M5 Motor de escenas**: `ScrollSequence` (canvas, cover, precarga progresiva, modos scroll/clic, sustituto Ken Burns, reduced-motion) · `ZonasOverlay` (SVG slice, aparición al final, accesible) · script `build-frames` y formato de manifiesto · ampliación del modelo de datos (§3.7).
+   - **M5 Motor de escenas**: `ScrollSequence` (cover, modos scroll/clic, sustituto Ken Burns, reduced-motion) · `ZonasOverlay` (SVG slice, aparición al final, accesible) · carga en el modelo del contenido de `/dev` (JSON de zonas y fotos) · ampliación del modelo de datos (§3.7). Desglose simplificado: el canvas, la precarga progresiva, el script `build-frames` y el manifiesto pasan a la Fase 4; `transiciones.json`, a la Fase 3.
    - **M6 Prototipo Villa 4**: intro con arco + T1 sustituto · mapa del conjunto con parcelas y mini ficha + T2 sustituto · cabecera de villa con zonas, día/noche condicional y galería · plano de planta con estancias y panel · "Entrar en la casa" (T3 sustituto) · tarjetas en arco con apertura a pantalla completa.
 3. **Fase 3 — Vídeos T1–T3 con Pletor** (con OK en cada generación): verificación de modelo y coste · aérea limpia · imagen de cielo · T1 · T2 · T3 · (T4) · registro en `transiciones.json`.
-4. **Fase 4 — Integración**: fotogramas en `ScrollSequence`, ajuste de tiempos y zonas sobre las imágenes finales, versión móvil con MP4.
+4. **Fase 4 — Integración**: `build-frames`, manifiesto, canvas y precarga progresiva; fotogramas en `ScrollSequence`, ajuste de tiempos y zonas sobre las imágenes finales, versión móvil con MP4.
 5. **Fase 5 — Resto de la web**: servicios con previsualización, secciones editoriales, ficha clásica con reserva simulada, páginas y formularios, réplica para las villas 1, 3 y 5 y revisión final. Detalle y milestones M9–M13 en la §8 (M7 y M8 quedan para las fases 3 y 4). M9–M11 no dependen de los vídeos: si Pletor sigue bloqueado, pueden adelantarse a las fases 3 y 4.
 
 Commits pequeños; un PR por issue (flujo de CLAUDE.md).
