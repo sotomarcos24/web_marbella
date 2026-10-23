@@ -58,10 +58,16 @@ const base: readonly Villa[] = [
     superficieParcela: 1213,
     parking: 3,
     combinableCon: ["villa-5"],
-    pendientes: pendientesComunes,
+    pendientes: [
+      ...pendientesComunes,
+      { campo: "hero.zonas-provisionales", nota: "borrador del agente (zonas, estancias y parcela): ajustar en /dev/zonas" },
+      { campo: "fotos-provisionales", nota: "borrador del agente a partir de las sugerencias del catálogo: revisar en /dev/fotos" },
+    ],
     hero: hero("villa-4", "villa4_059"),
     plantas: plantas("villa-4"),
     exteriores: [],
+    // Salón, cocina, dormitorio principal, baño y porche (provisional).
+    destacadas: ["salon", "cocina", "pa-suite-1", "bano-1", "porche"],
   },
   {
     id: "villa-5",

@@ -1,0 +1,190 @@
+{
+  "imagen": "/images/villas/villa-4/plano-planta-alta.webp",
+  "estancias": [
+    {
+      "id": "pa-suite-1",
+      "nombre": "Dormitorio principal",
+      "tipo": "dormitorio",
+      "poligono": [
+        [
+          0.246,
+          0.149
+        ],
+        [
+          0.334,
+          0.072
+        ],
+        [
+          0.615,
+          0.072
+        ],
+        [
+          0.615,
+          0.369
+        ],
+        [
+          0.351,
+          0.369
+        ],
+        [
+          0.246,
+          0.292
+        ]
+      ]
+    },
+    {
+      "id": "pa-triple",
+      "nombre": "Dormitorio con tres camas",
+      "tipo": "dormitorio",
+      "poligono": [
+        [
+          0.357,
+          0.38
+        ],
+        [
+          0.556,
+          0.38
+        ],
+        [
+          0.556,
+          0.66
+        ],
+        [
+          0.357,
+          0.66
+        ]
+      ]
+    },
+    {
+      "id": "bano-1",
+      "nombre": "Baño",
+      "tipo": "bano",
+      "poligono": [
+        [
+          0.562,
+          0.517
+        ],
+        [
+          0.703,
+          0.517
+        ],
+        [
+          0.703,
+          0.66
+        ],
+        [
+          0.562,
+          0.66
+        ]
+      ]
+    },
+    {
+      "id": "pa-hall",
+      "nombre": "Distribuidor",
+      "tipo": "recibidor",
+      "poligono": [
+        [
+          0.708,
+          0.385
+        ],
+        [
+          0.884,
+          0.385
+        ],
+        [
+          0.972,
+          0.451
+        ],
+        [
+          0.972,
+          0.616
+        ],
+        [
+          0.884,
+          0.682
+        ],
+        [
+          0.708,
+          0.682
+        ]
+      ]
+    },
+    {
+      "id": "pa-suite-2",
+      "nombre": "Dormitorio con dos camas",
+      "tipo": "dormitorio",
+      "poligono": [
+        [
+          0.246,
+          0.737
+        ],
+        [
+          0.351,
+          0.66
+        ],
+        [
+          0.527,
+          0.66
+        ],
+        [
+          0.527,
+          0.979
+        ],
+        [
+          0.351,
+          0.979
+        ],
+        [
+          0.246,
+          0.891
+        ]
+      ]
+    },
+    {
+      "id": "bano-2",
+      "nombre": "Baño compartido",
+      "tipo": "bano",
+      "poligono": [
+        [
+          0.533,
+          0.836
+        ],
+        [
+          0.679,
+          0.836
+        ],
+        [
+          0.679,
+          0.979
+        ],
+        [
+          0.533,
+          0.979
+        ]
+      ]
+    },
+    {
+      "id": "pa-doble",
+      "nombre": "Dormitorio con cama doble",
+      "tipo": "dormitorio",
+      "poligono": [
+        [
+          0.691,
+          0.704
+        ],
+        [
+          0.872,
+          0.704
+        ],
+        [
+          0.872,
+          0.979
+        ],
+        [
+          0.691,
+          0.979
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "imagen": "/images/villas/villa-4/villa4_059.webp",
+  "zonas": [
+    {
+      "id": "jardin",
+      "nombre": "Jardín",
+      "poligono": [
+        [
+          0,
+          0.789
+        ],
+        [
+          1,
+          0.781
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "accion": "galeria",
+      "destino": "jardin"
+    },
+    {
+      "id": "planta-baja",
+      "nombre": "Planta baja",
+      "poligono": [
+        [
+          0.227,
+          0.617
+        ],
+        [
+          0.62,
+          0.5
+        ],
+        [
+          0.651,
+          0.547
+        ],
+        [
+          0.651,
+          0.762
+        ],
+        [
+          0.531,
+          0.809
+        ],
+        [
+          0.229,
+          0.813
+        ]
+      ],
+      "accion": "planta",
+      "destino": "planta-baja"
+    },
+    {
+      "id": "planta-alta",
+      "nombre": "Planta alta",
+      "poligono": [
+        [
+          0.513,
+          0.43
+        ],
+        [
+          0.62,
+          0.344
+        ],
+        [
+          0.667,
+          0.344
+        ],
+        [
+          0.784,
+          0.453
+        ],
+        [
+          0.784,
+          0.563
+        ],
+        [
+          0.651,
+          0.563
+        ],
+        [
+          0.62,
+          0.492
+        ],
+        [
+          0.516,
+          0.5
+        ]
+      ],
+      "accion": "planta",
+      "destino": "planta-alta"
+    }
+  ]
+}
