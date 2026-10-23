@@ -419,5 +419,21 @@
       "jardinero": "El jardinero accede a la villa entre las 8:00 y las 10:00 y no llama al timbre ni a la puerta.",
       "capacidad": "La ocupación máxima es de 15 personas, incluidos niños. No se permite pernoctar a más huéspedes."
     }
+  },
+  "DevEscenas": {
+    "title": "Escenas",
+    "intro": "Herramienta interna para probar ScrollSequence con el sustituto sin vídeo (fundido y zoom). Con prefers-reduced-motion solo hay fundido.",
+    "scroll": {
+      "title": "Modo scroll",
+      "descripcion": "El progreso es el scroll: baja despacio y la imagen se acerca y se funde con la de llegada.",
+      "etiqueta": "Imagen de la villa que se acerca al hacer scroll"
+    },
+    "clic": {
+      "title": "Modo clic",
+      "descripcion": "Pulsa la imagen: avanza sola hasta la llegada.",
+      "etiqueta": "Entrar en la villa",
+      "alt": "Fachada de la villa"
+    },
+    "llegadas": "Llegadas registradas: {count}"
   }
 }
