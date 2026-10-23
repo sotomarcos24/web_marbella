@@ -1,6 +1,6 @@
 ---
 name: issue
-description: Implementa un issue de GitHub de principio a fin: plan, tests primero, código, revisión con qa-reviewer y PR.
+description: Implementa un issue de GitHub de principio a fin: tests primero, código, revisión con qa-reviewer, PR y merge.
 argument-hint: <número de issue>
 disable-model-invocation: true
 ---
@@ -11,19 +11,21 @@ Issue a implementar: #$ARGUMENTS
 - Entre pasos, como mucho 1–2 líneas: qué has hecho y qué sigue. Sin repetir lo ya dicho.
 - Salida de comandos: solo el resumen (`tail`/`grep` de errores y totales), nunca la salida completa.
 - Al delegar en subagentes, pídeles informes breves (formato fijo, sin repetir el diff ni lo verificado sin problemas).
-- Informe final: máx. 6 líneas (PR, qué hace, estado de checks, puntos a revisar).
+- Informe final: máx. 4 líneas (PR, qué hace, estado de checks, puntos a revisar).
 
 ## Pasos
 
-1. **Leer.** `gh issue view $ARGUMENTS` y crea la rama `issue-$ARGUMENTS` (`git switch -c issue-$ARGUMENTS`). Lee `CLAUDE.md` y el código afectado.
-2. **Plan.** Entra en plan mode (EnterPlanMode) y presenta un plan corto: enfoque, archivos a tocar y tests previstos. Espera la aprobación del usuario antes de continuar.
-3. **Tests primero.** Convierte cada criterio de aceptación en uno o más tests. Enséñale al usuario solo la lista de casos (nombres de los tests, no el código), ejecútalos y confirma en una línea que fallan por la razón correcta (no por errores de sintaxis o imports).
-4. **Implementar.** Escribe el código hasta que lint, typecheck y tests pasen. Muestra la línea de resultado real de cada uno de los tres comandos. No modifiques los tests para que pasen salvo que el criterio estuviera mal; en ese caso, díselo al usuario.
-5. **Revisión.** Lanza el subagente `qa-reviewer` con el diff (`git diff main...HEAD` más cambios sin commitear) y la lista de criterios de aceptación del issue. No le pases tu razonamiento ni tu opinión del código.
-   - Si devuelve **FAIL**: corrige cada fallo, vuelve a ejecutar lint, typecheck y tests, y relanza `qa-reviewer`. Máximo **3 rondas** de corrección.
-   - Si tras 3 rondas sigue en FAIL: para y explica al usuario el bloqueo (qué falla y por qué).
-6. **Cierre (con PASS).**
-   - Ejecuta `/simplify` (pide a sus agentes máx. 5 hallazgos, una línea cada uno) y vuelve a pasar lint, typecheck y tests. Resume al usuario en ≤3 líneas qué aplicaste y qué descartaste.
-   - Haz commit con un mensaje que referencie el issue.
-   - Sube la rama y abre el PR con `gh pr create`. El cuerpo debe incluir: `Closes #$ARGUMENTS`, un resumen del diff en 5 puntos de una línea y una sección "Qué debería revisar" con máx. 3 puntos de una línea.
-7. **Merge.** No hagas merge: espera a que el usuario dé el visto bueno con `/ok`, que anota el progreso, hace merge, cierra el issue y borra la rama.
+1. **Leer.** `gh issue view $ARGUMENTS` y crea la rama `issue-$ARGUMENTS` desde `main` actualizado. Lee el código afectado. Tamaño: el que indique el issue (S/M/L); si no lo indica, estímalo.
+2. **Plan (solo L o desvíos).** Entra en plan mode y espera aprobación solo si el issue es **L** o si vas a apartarte de los criterios de aceptación aprobados. En el resto, empieza directamente.
+3. **Tests primero.** Convierte cada criterio en uno o más tests. Enseña al usuario la lista de casos (nombres, no código) **sin esperar respuesta**, ejecútalos y confirma en una línea que fallan por la razón correcta. Los documentos (`docs/`, README, CLAUDE.md) no se testean.
+4. **Implementar** hasta que el código cumpla los criterios. No modifiques tests para que pasen salvo que el criterio estuviera mal; en ese caso, díselo al usuario.
+5. **/simplify** solo en issues **M** y **L** (pide a sus agentes máx. 5 hallazgos, una línea cada uno). Resume en ≤2 líneas qué aplicaste y qué descartaste.
+6. **Checks, una vez.** Commit y ejecuta `npm run lint`, `npm run typecheck` y `npm run test` sobre ese commit. Si algo falla, corrige y repite este paso.
+7. **Revisión.** Lanza `qa-reviewer` con: el diff (`git diff main...HEAD`), los criterios de aceptación, el hash del commit y las líneas de resultado de lint, typecheck y test. No le pases tu razonamiento ni tu opinión del código.
+   - En issues **S** de solo contenido o documentación, sáltate QA.
+   - **FAIL**: corrige cada fallo, vuelve al paso 6 y relanza `qa-reviewer`. Máximo **3 rondas**; si sigue en FAIL, para y explica el bloqueo al usuario.
+8. **PR.** Sube la rama y abre el PR con `gh pr create`. Cuerpo: `Closes #$ARGUMENTS`, resumen del diff en ≤5 puntos de una línea y "Qué debería revisar" con ≤3 puntos.
+9. **Merge directo** con QA en PASS (o saltado) y checks en verde: sigue los pasos de `/ok` sin esperar al usuario. Para y pide aprobación en lugar de hacer merge solo si:
+   - el issue cambia el modelo de datos (tipos de `src/types/`, forma de `src/content/`, interfaz `BookingProvider`);
+   - va a gastar créditos de Pletor.
+10. **Fin de milestone.** Si con este issue se cierra el milestone, actualiza `docs/milestones.md` (en el mismo PR, antes del merge) y para: resume en 5 líneas qué se ha hecho y qué revisar en el navegador (rutas concretas).
