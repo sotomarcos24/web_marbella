@@ -164,12 +164,12 @@ Archivos: `src/content/fotos.ts`, `docs/fotos-resumen.md`, `scripts/photos.confi
 - [x] Exportar JSON y guardar en `src/content` vía `/api/dev` (solo en desarrollo)
 - [x] Salida valida contra `validarVilla()`
 
-### #18 /dev/fotos — `dev-tools` · L · dep #15,#17
-- [ ] Por villa: izquierda estancias y exteriores, derecha miniaturas
-- [ ] Arrastrar foto a estancia/exterior; persiste en `src/content`
-- [ ] Marcar foto principal por estancia
-- [ ] Muestra confianza baja y estanciaSugerida del catálogo
-- [ ] Lógica de asignación pura con tests
+### #18 /dev/fotos — `dev-tools` · L · dep #15,#17 · ✅ PR #37
+- [x] Por villa: izquierda estancias y exteriores, derecha miniaturas
+- [x] Arrastrar foto a estancia/exterior; persiste en `src/content`
+- [x] Marcar foto principal por estancia
+- [x] Muestra confianza baja y estanciaSugerida del catálogo
+- [x] Lógica de asignación pura con tests
 
 ### #19 Revisión final de Fase 1 — `setup` · S · dep todo lo anterior
 - [ ] `typecheck`, `lint`, `test` y `build` en verde

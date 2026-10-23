@@ -177,6 +177,27 @@
     "guardado": "Saved to src/content/{archivo}",
     "errorGuardar": "Could not save."
   },
+  "DevFotos": {
+    "title": "Photos",
+    "intro": "Internal tool to assign photos to rooms and outdoor areas. Drag a thumbnail onto a target (or use the selector) and mark the main photo: it is the first one of each target.",
+    "villa": "Villa",
+    "destinos": "Rooms and outdoor areas",
+    "estancias": "Rooms",
+    "exteriores": "Outdoor areas",
+    "miniaturas": "Thumbnails",
+    "sinEstancias": "No rooms drawn yet on this villa's floor plans (/dev/zonas).",
+    "vacio": "No photos",
+    "asignarA": "Assign to",
+    "sinAsignar": "Unassigned",
+    "principal": "Main",
+    "quitar": "Remove",
+    "confianzaBaja": "Low confidence",
+    "sugerida": "Suggested: {destino}",
+    "errores": "Validation errors",
+    "guardar": "Save",
+    "guardado": "Saved in src/content/{archivo}",
+    "errorGuardar": "Could not save."
+  },
   "zonas": {
     "jardin": "Garden",
     "planta-baja": "Ground floor",

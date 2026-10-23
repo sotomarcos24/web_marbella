@@ -177,6 +177,27 @@
     "guardado": "Guardado en src/content/{archivo}",
     "errorGuardar": "No se ha podido guardar."
   },
+  "DevFotos": {
+    "title": "Fotos",
+    "intro": "Herramienta interna para asignar fotos a estancias y exteriores. Arrastra una miniatura a un destino (o usa el selector) y marca la foto principal: es la primera de cada destino.",
+    "villa": "Villa",
+    "destinos": "Estancias y exteriores",
+    "estancias": "Estancias",
+    "exteriores": "Exteriores",
+    "miniaturas": "Miniaturas",
+    "sinEstancias": "Aún no hay estancias dibujadas en los planos de esta villa (/dev/zonas).",
+    "vacio": "Sin fotos",
+    "asignarA": "Asignar a",
+    "sinAsignar": "Sin asignar",
+    "principal": "Principal",
+    "quitar": "Quitar",
+    "confianzaBaja": "Confianza baja",
+    "sugerida": "Sugerida: {destino}",
+    "errores": "Errores de validación",
+    "guardar": "Guardar",
+    "guardado": "Guardado en src/content/{archivo}",
+    "errorGuardar": "No se ha podido guardar."
+  },
   "zonas": {
     "jardin": "Jardín",
     "planta-baja": "Planta baja",
