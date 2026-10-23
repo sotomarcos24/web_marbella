@@ -454,5 +454,39 @@
       "contador": "{actual} / {total}",
       "alt": "Foto {actual} de {total}"
     }
+  },
+  "Plano": {
+    "titulo": "Explora la villa",
+    "selector": "Planta",
+    "planoAlt": "Plano de {planta}",
+    "estancias": "Estancias de la planta",
+    "banoEnSuite": "Baño en suite",
+    "volver": "Volver a plantas",
+    "anterior": "Foto anterior",
+    "siguiente": "Foto siguiente",
+    "contador": "{actual} / {total}",
+    "fotoAlt": "{estancia}: foto {actual} de {total}",
+    "sinFotos": "Aún sin fotos",
+    "medidas": "Medidas: {medidas}",
+    "camasTitulo": "Camas",
+    "sinCamas": "Camas sin confirmar",
+    "camasPendientes": "Distribución pendiente de confirmar",
+    "tipos": {
+      "salon": "Salón",
+      "cocina": "Cocina",
+      "comedor": "Comedor",
+      "dormitorio": "Dormitorio",
+      "bano": "Baño",
+      "aseo": "Aseo",
+      "recibidor": "Recibidor",
+      "lavanderia": "Lavandería",
+      "otro": "Estancia"
+    },
+    "camas": {
+      "doble": "{cantidad, plural, one {# cama doble} other {# camas dobles}}",
+      "individual": "{cantidad, plural, one {# cama individual} other {# camas individuales}}",
+      "litera": "{cantidad, plural, one {# litera} other {# literas}}",
+      "sofa-cama": "{cantidad, plural, one {# sofá cama} other {# sofás cama}}"
+    }
   }
 }

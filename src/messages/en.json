@@ -454,5 +454,39 @@
       "contador": "{actual} / {total}",
       "alt": "Photo {actual} of {total}"
     }
+  },
+  "Plano": {
+    "titulo": "Explore the villa",
+    "selector": "Floor",
+    "planoAlt": "Floor plan of {planta}",
+    "estancias": "Rooms on this floor",
+    "banoEnSuite": "En-suite bathroom",
+    "volver": "Back to floors",
+    "anterior": "Previous photo",
+    "siguiente": "Next photo",
+    "contador": "{actual} / {total}",
+    "fotoAlt": "{estancia}: photo {actual} of {total}",
+    "sinFotos": "No photos yet",
+    "medidas": "Size: {medidas}",
+    "camasTitulo": "Beds",
+    "sinCamas": "Beds not confirmed",
+    "camasPendientes": "Layout pending confirmation",
+    "tipos": {
+      "salon": "Living room",
+      "cocina": "Kitchen",
+      "comedor": "Dining room",
+      "dormitorio": "Bedroom",
+      "bano": "Bathroom",
+      "aseo": "Toilet",
+      "recibidor": "Hall",
+      "lavanderia": "Laundry",
+      "otro": "Room"
+    },
+    "camas": {
+      "doble": "{cantidad, plural, one {# double bed} other {# double beds}}",
+      "individual": "{cantidad, plural, one {# single bed} other {# single beds}}",
+      "litera": "{cantidad, plural, one {# bunk bed} other {# bunk beds}}",
+      "sofa-cama": "{cantidad, plural, one {# sofa bed} other {# sofa beds}}"
+    }
   }
 }
