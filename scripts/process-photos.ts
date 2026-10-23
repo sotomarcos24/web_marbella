@@ -2,7 +2,7 @@ import { mkdirSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import sharp from "sharp";
-import { aWebp, carpetaPublica, photosConfig, type PhotosConfig, type Recorte } from "./photos.config.ts";
+import { aWebp, carpetaPublica, photosConfig, type PhotosConfig, type Recorte, type Retoque } from "./photos.config.ts";
 
 export type Entrada = { villa: string; archivo: string; motivo?: string };
 export type Informe = { procesadas: Entrada[]; apartadas: Entrada[]; descartadas: Entrada[] };
@@ -12,6 +12,10 @@ const PLANO = "plano: ver process-plans";
 
 export function recorteValido({ left, top, width, height }: Recorte) {
   return left >= 0 && top >= 0 && width > 0 && height > 0 && left + width <= 1 && top + height <= 1;
+}
+
+export function retoqueValido({ zona, origen }: Retoque) {
+  return recorteValido(zona) && recorteValido({ ...zona, ...origen });
 }
 
 /** Píxeles de un recorte normalizado sobre una imagen de `width`×`height`. */
@@ -58,6 +62,26 @@ export async function processPhotos(opts: {
       }
 
       let imagen = sharp(path.join(origen, villa, "statics", archivo));
+      const retoques = config.retoques?.[`${villa}/${archivo}`] ?? [];
+      if (!retoques.every(retoqueValido)) {
+        informe.descartadas.push({ ...entrada, motivo: "retoque inviable" });
+        continue;
+      }
+      if (retoques.length) {
+        // `composite` se aplica después de `extract`: se materializa el retoque antes de recortar.
+        const { width = 0, height = 0 } = await imagen.metadata();
+        const parches = await Promise.all(
+          retoques.map(async ({ zona, origen: desde }) => {
+            const destino = aPixeles(zona, width, height);
+            const input = await imagen
+              .clone()
+              .extract({ ...aPixeles({ ...zona, ...desde }, width, height), width: destino.width, height: destino.height })
+              .toBuffer();
+            return { input, left: destino.left, top: destino.top };
+          }),
+        );
+        imagen = sharp(await imagen.composite(parches).png().toBuffer());
+      }
       const recorte = config.recortes[`${villa}/${archivo}`];
       if (recorte) {
         if (!recorteValido(recorte)) {

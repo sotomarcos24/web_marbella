@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { Cabecera } from "@/components/villa/Cabecera";
 import { Plano } from "@/components/villa/Plano";
+import { Recorrido } from "@/components/villa/Recorrido";
 import { distribucionCamas } from "@/content/dormitorios";
 import { fotos as catalogo } from "@/content/fotos";
 import { villas } from "@/content/villas";
@@ -21,8 +22,9 @@ export default async function VillaPage({ params }: PageProps<"/[locale]/villas/
   if (!hasLocale(routing.locales, locale) || !villa) notFound();
   setRequestLocale(locale);
 
-  const { VillaPage, zonas, Plano: textosPlano } = await getMessages();
+  const { VillaPage, zonas, Plano: textosPlano, recorrido } = await getMessages();
   const alts = new Map(catalogo.filter((f) => f.villa === villa.id).map((f) => [f.archivo, f.alt[locale]]));
+  const altDe = (src: string) => alts.get(src.split("/").pop() ?? "") ?? "";
   const enGrupo = new Set<string>();
   // Una foto aparece solo en el primer grupo que la usa.
   const fotos = [...villa.exteriores, ...villa.plantas.flatMap((planta) => planta.estancias)].map((e) => ({
@@ -30,12 +32,13 @@ export default async function VillaPage({ params }: PageProps<"/[locale]/villas/
     nombre: "nombre" in e ? e.nombre : e.id,
     fotos: e.fotos
       .filter((src) => !enGrupo.has(src) && enGrupo.add(src))
-      .map((src) => ({ src, alt: alts.get(src.split("/").pop() ?? "") ?? "" })),
+      .map((src) => ({ src, alt: altDe(src) })),
   }));
+  const altsRecorrido = Object.fromEntries((villa.recorrido ?? []).map((tramo) => [tramo.inicio, altDe(tramo.inicio)]));
 
   return (
     // El layout raíz solo envía al cliente los textos de LocaleSwitcher.
-    <NextIntlClientProvider messages={{ VillaPage, zonas, Plano: textosPlano }}>
+    <NextIntlClientProvider messages={{ VillaPage, zonas, Plano: textosPlano, recorrido }}>
       <main>
         <Cabecera
           id={villa.id}
@@ -51,6 +54,7 @@ export default async function VillaPage({ params }: PageProps<"/[locale]/villas/
             estadoCamas={distribucionCamas[villa.id].estado}
           />
         </Suspense>
+        <Recorrido tramos={villa.recorrido} alts={altsRecorrido} />
       </main>
     </NextIntlClientProvider>
   );

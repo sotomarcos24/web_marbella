@@ -1,6 +1,8 @@
 import type { Poligono } from "../src/types/villa.ts";
 
 export type Recorte = { left: number; top: number; width: number; height: number };
+/** Tapa `zona` con una copia del mismo tamaño tomada en `origen` (esquina superior izquierda), todo en 0–1. */
+export type Retoque = { zona: Recorte; origen: { left: number; top: number } };
 
 export const PLANTAS = ["planta-baja", "planta-alta"] as const;
 export type PlantaId = (typeof PLANTAS)[number];
@@ -23,6 +25,8 @@ export type PhotosConfig = {
   pendientesEdicion: string[];
   /** Recorte por `<villa>/<archivo>` en coordenadas normalizadas 0–1. Inviable ⇒ foto descartada. */
   recortes: Record<string, Recorte>;
+  /** Retoques por `<villa>/<archivo>`, antes del recorte. Inviable ⇒ foto descartada. */
+  retoques?: Record<string, Retoque[]>;
   /** Plano de cada villa: no se publica entero; `process-plans` saca una imagen por planta. */
   planos: Record<string, Plano>;
 };
@@ -54,7 +58,6 @@ export const photosConfig: PhotosConfig = {
     { archivo: "villa4_041.jpg", motivo: "carta de bienvenida con logo de marca" },
     { archivo: "villa4_061.jpg", motivo: "carta de bienvenida con marca y datos de contacto" },
     { archivo: "villa4_067.jpg", motivo: "carta de bienvenida con logo sobre la consola" },
-    { archivo: "villa4_078.jpg", motivo: "placa con logo y número de villa en la puerta" },
     { archivo: "villa5_007.jpg", motivo: "tarjeta de bienvenida con logo sobre las toallas (retocable)" },
     { archivo: "villa5_010_1.jpg", motivo: "mapa de ubicación con distancias y nombre de marca" },
     { archivo: "villa5_013_1.jpg", motivo: "cartel Guest services con logo de marca" },
@@ -72,6 +75,10 @@ export const photosConfig: PhotosConfig = {
     "villa3/villa3_001.jpg": { left: 0, top: 0, width: 1, height: 0.8 },
     "villa4/villa4_001.jpg": { left: 0, top: 0, width: 1, height: 0.8 },
     "villa5/villa5_001.jpg": { left: 0, top: 0, width: 1, height: 0.79 },
+  },
+  // Placa con logo y número de villa en la puerta: se tapa con la madera de debajo (mismos tablones).
+  retoques: {
+    "villa4/villa4_078.jpg": [{ zona: { left: 0.345, top: 0.381, width: 0.088, height: 0.062 }, origen: { left: 0.345, top: 0.455 } }],
   },
   // Coordenadas verificadas visualmente sobre los originales de imgs/ (sin logo, dirección ni texto legal).
   planos: {

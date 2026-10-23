@@ -497,5 +497,9 @@
       "litera": "{cantidad, plural, one {# litera} other {# literas}}",
       "sofa-cama": "{cantidad, plural, one {# sofá cama} other {# sofás cama}}"
     }
+  },
+  "recorrido": {
+    "seccion": "Entrar en la casa",
+    "bienvenida": "Bienvenido a casa"
   }
 }

@@ -87,6 +87,7 @@ export function validarVilla(villa: Villa, contexto: { conjunto?: Conjunto } = {
 
   recorrido.forEach((tramo, i) => {
     if (vacio(tramo.transicion)) errores.push(`recorrido[${i}]: transicion vacía`);
+    if (vacio(tramo.inicio)) errores.push(`recorrido[${i}]: inicio vacío`);
     if (vacio(tramo.imagenFinal)) errores.push(`recorrido[${i}]: imagenFinal vacía`);
   });
 

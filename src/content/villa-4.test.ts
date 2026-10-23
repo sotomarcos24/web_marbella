@@ -8,6 +8,8 @@ import { fotos } from "@/content/fotos";
 import { villas } from "@/content/villas";
 import { validarAsignacion } from "@/lib/dev/fotosAsignacion";
 import { validarConjunto, validarVilla } from "@/lib/validation/villa";
+import en from "@/messages/en.json";
+import es from "@/messages/es.json";
 
 const publico = (ruta: string) => path.join(process.cwd(), "public", ruta);
 const villa4 = villas.find((v) => v.id === "villa-4")!;
@@ -73,3 +75,30 @@ describe("villa-4: borrador del agente (#47)", () => {
   });
 });
 
+
+describe("villa-4: recorrido T3/T4 (#53)", () => {
+  const recorrido = villa4.recorrido ?? [];
+  const foto = (n: string) => `/images/villas/villa-4/villa4_${n}.webp`;
+
+  it("T3 puerta (078) → recibidor (044) con «Bienvenido a casa»; T4 recibidor → salón (022)", () => {
+    expect(recorrido.map((t) => [t.id, t.transicion, t.inicio, t.imagenFinal])).toEqual([
+      ["t3", "villa-4-t3", foto("078"), foto("044")],
+      ["t4", "villa-4-t4", foto("044"), foto("022")],
+    ]);
+    expect(recorrido[0]?.titularKey).toBe("recorrido.bienvenida");
+    expect(es.recorrido.bienvenida).toBe("Bienvenido a casa");
+    expect(en.recorrido.bienvenida).toBeTruthy();
+  });
+
+  it("las imágenes del recorrido existen en public/", () => {
+    for (const tramo of recorrido) {
+      expect(existsSync(publico(tramo.inicio)), tramo.inicio).toBe(true);
+      expect(existsSync(publico(tramo.imagenFinal)), tramo.imagenFinal).toBe(true);
+    }
+  });
+
+  it("encuadre (object-position) de las fotos verticales, igual en T3 y T4 para que el recibidor no salte", () => {
+    for (const tramo of recorrido) expect(tramo.encuadre, tramo.id).toMatch(/^\d{1,3}% \d{1,3}%$/);
+    expect(recorrido[0]?.encuadre).toBe(recorrido[1]?.encuadre);
+  });
+});

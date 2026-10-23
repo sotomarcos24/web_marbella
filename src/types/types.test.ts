@@ -24,6 +24,8 @@ describe("tipos del modelo", () => {
     expectTypeOf<Conjunto["parcelas"][number]>().toEqualTypeOf<{ villaId: VillaId; poligono: Poligono }>();
     expectTypeOf<Recorrido>().toHaveProperty("transicion").toEqualTypeOf<string>();
     expectTypeOf<Recorrido>().toHaveProperty("imagenFinal").toEqualTypeOf<string>();
+    expectTypeOf<Recorrido>().toHaveProperty("inicio").toEqualTypeOf<string>();
+    expectTypeOf<Recorrido>().toHaveProperty("encuadre").toEqualTypeOf<string | undefined>();
   });
 
   it("Tarifa: 12 meses en céntimos, con estimado opcional", () => {

@@ -68,6 +68,25 @@ const base: readonly Villa[] = [
     exteriores: [],
     // Salón, cocina, dormitorio principal, baño y porche (provisional).
     destacadas: ["salon", "cocina", "pa-suite-1", "bano-1", "porche"],
+    // Puerta → recibidor → salón. Encuadre: banda 16:9 de las fotos verticales con la puerta y la escalera
+    // enteras (la parte alta de la escalera se pierde), el mismo recorte previsto para T3/T4 en la Fase 3.
+    recorrido: [
+      {
+        id: "t3",
+        transicion: "villa-4-t3",
+        inicio: "/images/villas/villa-4/villa4_078.webp",
+        imagenFinal: "/images/villas/villa-4/villa4_044.webp",
+        titularKey: "recorrido.bienvenida",
+        encuadre: "50% 55%",
+      },
+      {
+        id: "t4",
+        transicion: "villa-4-t4",
+        inicio: "/images/villas/villa-4/villa4_044.webp",
+        imagenFinal: "/images/villas/villa-4/villa4_022.webp",
+        encuadre: "50% 55%",
+      },
+    ],
   },
   {
     id: "villa-5",
