@@ -180,3 +180,8 @@ Archivos: `src/content/fotos.ts`, `docs/fotos-resumen.md`, `scripts/photos.confi
 ### #39 Correcciones de la revisión externa de Fase 1 — S · ✅ PR #40
 - [x] Suplemento villa-1 por tramos (250 € en agosto, 150 € estimado el resto) · pago único del 100 % a ≤30 días · cancelación vencida → `null`
 - [x] Fuentes locales (`@fontsource-variable`), build sin conexión · chef "Julio" · camas contrastadas en `docs/pendientes.md`
+
+## M5 Motor de escenas (Fase 2) — ✅ cerrado
+- #44 Cargar el contenido de /dev en el modelo · ✅ PR #58
+- #45 ScrollSequence: modos scroll/clic, sustituto y reduced-motion · ✅ PR #59
+- #46 ZonasOverlay accesible · ✅ PR #60
