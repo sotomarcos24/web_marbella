@@ -137,6 +137,46 @@
       "ocupados": "Rangos ocupados"
     }
   },
+  "DevZonas": {
+    "title": "Zonas",
+    "intro": "Herramienta interna para dibujar polígonos sobre portadas, planos, la aérea del conjunto y las imágenes finales de las transiciones. Haz clic en la imagen para añadir vértices, cierra el polígono y arrastra un vértice para moverlo (Supr lo borra).",
+    "imagen": "Imagen",
+    "archivo": "Se guarda en src/content/{archivo}",
+    "tipos": {
+      "portada": "Portada",
+      "plano": "Plano",
+      "conjunto": "Aérea del conjunto",
+      "transicion": "Transición"
+    },
+    "sinImagenes": "No hay imágenes disponibles.",
+    "lienzo": "Lienzo de dibujo",
+    "vertice": "Vértice {n} de {id}",
+    "cerrar": "Cerrar polígono",
+    "poligonos": "Polígonos",
+    "abierto": "abierto",
+    "borrar": "Borrar",
+    "campos": {
+      "id": "Id",
+      "nombre": "Nombre (clave de traducción)",
+      "accion": "Acción",
+      "destino": "Destino",
+      "tipo": "Tipo de estancia",
+      "villa": "Villa"
+    },
+    "acciones": {
+      "galeria": "Galería",
+      "planta": "Planta"
+    },
+    "sinDestino": "Sin destino",
+    "errores": "Errores de validación",
+    "sinErrores": "Sin errores: la salida valida.",
+    "exportar": "Exportar JSON",
+    "json": "JSON",
+    "descargar": "Descargar",
+    "guardar": "Guardar",
+    "guardado": "Guardado en src/content/{archivo}",
+    "errorGuardar": "No se ha podido guardar."
+  },
   "zonas": {
     "jardin": "Jardín",
     "planta-baja": "Planta baja",

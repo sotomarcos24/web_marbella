@@ -1,4 +1,4 @@
-import type { Conjunto, Poligono, Villa, Zona } from "@/types/villa";
+import type { AccionZona, Conjunto, Poligono, Villa, VillaId, Zona } from "@/types/villa";
 
 // Los validadores devuelven la lista de errores, cada uno con su ruta en el objeto; [] = válido.
 
@@ -24,19 +24,47 @@ function idsRepetidos(ids: readonly string[], ruta: string): string[] {
 
 const vacio = (valor: string) => valor.trim() === "";
 
+/** Errores por cada id o nombre vacío. */
+function camposVacios(elementos: readonly { id: string; nombre: string }[], ruta: string): string[] {
+  return elementos.flatMap(({ id, nombre }, i) => [
+    ...(vacio(id) ? [`${ruta}[${i}]: id vacío`] : []),
+    ...(vacio(nombre) ? [`${ruta}[${i}]: nombre vacío`] : []),
+  ]);
+}
+
+/** Ids a los que puede llevar una zona según su acción: plantas ("planta"), exteriores o estancias ("galeria"). */
+export function destinosZona(villa: Villa): Record<AccionZona, ReadonlySet<string>> {
+  const { plantas, exteriores } = villa;
+  return {
+    planta: new Set(plantas.map((planta) => planta.id)),
+    galeria: new Set([...exteriores.map((exterior) => exterior.id), ...plantas.flatMap((planta) => planta.estancias.map((estancia) => estancia.id))]),
+  };
+}
+
+const DESTINO_ESPERADO: Record<AccionZona, string> = { planta: "una planta", galeria: "un exterior o estancia" };
+
+/** Zonas clicables sobre una imagen de la villa (cabecera o imagen final de una transición). */
+export function validarZonas(zonas: readonly Zona[], villa: Villa, ruta: string): string[] {
+  const destinos = destinosZona(villa);
+  const errores = [...idsRepetidos(zonas.map((zona) => zona.id), ruta), ...camposVacios(zonas, ruta)];
+  zonas.forEach((zona, i) => {
+    errores.push(...validarPoligono(zona.poligono, `${ruta}[${i}].poligono`));
+    if (!destinos[zona.accion].has(zona.destino)) {
+      errores.push(`${ruta}[${i}]: el destino "${zona.destino}" no es ${DESTINO_ESPERADO[zona.accion]} de la villa`);
+    }
+  });
+  return errores;
+}
+
 export function validarVilla(villa: Villa, contexto: { conjunto?: Conjunto } = {}): string[] {
   const { hero, plantas, exteriores, recorrido = [], destacadas = [] } = villa;
   const plantaIds = plantas.map((planta) => planta.id);
   const estanciaIds = plantas.flatMap((planta) => planta.estancias.map((estancia) => estancia.id));
   const exteriorIds = exteriores.map((exterior) => exterior.id);
   const idsEstancias = new Set(estanciaIds);
-  const destinos = {
-    planta: { ids: new Set(plantaIds), esperado: "una planta" },
-    galeria: { ids: new Set([...exteriorIds, ...estanciaIds]), esperado: "un exterior o estancia" },
-  } satisfies Record<Zona["accion"], { ids: Set<string>; esperado: string }>;
 
   const errores = [
-    ...idsRepetidos(hero.zonas.map((zona) => zona.id), "hero.zonas"),
+    ...validarZonas(hero.zonas, villa, "hero.zonas"),
     ...idsRepetidos(plantaIds, "plantas"),
     ...idsRepetidos(estanciaIds, "estancias"),
     ...idsRepetidos(exteriorIds, "exteriores"),
@@ -44,16 +72,8 @@ export function validarVilla(villa: Villa, contexto: { conjunto?: Conjunto } = {
     ...idsRepetidos(destacadas, "destacadas"),
   ];
 
-  hero.zonas.forEach((zona, i) => {
-    const ruta = `hero.zonas[${i}]`;
-    errores.push(...validarPoligono(zona.poligono, `${ruta}.poligono`));
-    const { ids, esperado } = destinos[zona.accion];
-    if (!ids.has(zona.destino)) {
-      errores.push(`${ruta}: el destino "${zona.destino}" no es ${esperado} de la villa`);
-    }
-  });
-
   plantas.forEach((planta, p) => {
+    errores.push(...camposVacios(planta.estancias, `plantas[${p}].estancias`));
     planta.estancias.forEach((estancia, e) => {
       errores.push(...validarPoligono(estancia.poligono, `plantas[${p}].estancias[${e}].poligono`));
     });
@@ -81,10 +101,11 @@ export function validarVilla(villa: Villa, contexto: { conjunto?: Conjunto } = {
   return errores;
 }
 
-/** Polígonos válidos y una sola parcela por villa. */
-export function validarConjunto(conjunto: Conjunto): string[] {
+/** Polígonos válidos y una sola parcela por villa; con `villaIds`, además, solo villas existentes. */
+export function validarConjunto(conjunto: Conjunto, villaIds?: readonly VillaId[]): string[] {
   return [
     ...idsRepetidos(conjunto.parcelas.map((parcela) => parcela.villaId), "conjunto.parcelas"),
+    ...conjunto.parcelas.flatMap(({ villaId }, i) => (villaIds && !villaIds.includes(villaId) ? [`conjunto.parcelas[${i}]: "${villaId}" no es una villa`] : [])),
     ...conjunto.parcelas.flatMap((parcela, i) => validarPoligono(parcela.poligono, `conjunto.parcelas[${i}].poligono`)),
   ];
 }

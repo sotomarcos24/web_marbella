@@ -9,16 +9,20 @@ export type Punto = readonly [x: number, y: number];
 /** Polígono cerrado implícitamente (el último vértice se une con el primero); mínimo 3 vértices. */
 export type Poligono = readonly Punto[];
 
+export const ACCIONES_ZONA = ["galeria", "planta"] as const;
+export type AccionZona = (typeof ACCIONES_ZONA)[number];
+
 /** Zona interactiva de la cabecera. `destino`: id de exterior o estancia ("galeria") o id de planta ("planta"). */
 export interface Zona {
   id: string;
   nombre: string;
   poligono: Poligono;
-  accion: "galeria" | "planta";
+  accion: AccionZona;
   destino: string;
 }
 
-export type TipoEstancia = "salon" | "cocina" | "comedor" | "dormitorio" | "bano" | "aseo" | "recibidor" | "lavanderia" | "otro";
+export const TIPOS_ESTANCIA = ["salon", "cocina", "comedor", "dormitorio", "bano", "aseo", "recibidor", "lavanderia", "otro"] as const;
+export type TipoEstancia = (typeof TIPOS_ESTANCIA)[number];
 
 export type TipoCama = "doble" | "individual" | "litera" | "sofa-cama";
 
