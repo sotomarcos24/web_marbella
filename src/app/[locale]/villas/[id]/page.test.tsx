@@ -21,7 +21,8 @@ vi.mock("next/navigation", async (importOriginal) => ({
 afterEach(cleanup);
 
 type Provider = ReactElement<{ messages: Record<string, unknown>; children: ReactElement }>;
-const params = (id: string, locale = "es") => ({ params: Promise.resolve({ locale, id }) });
+const params = (id: string, locale = "es") =>
+  ({ params: Promise.resolve({ locale, id }), searchParams: Promise.resolve({}) }) as PageProps<"/[locale]/villas/[id]">;
 
 describe("página /villas/[id]", () => {
   it("genera la ruta de las 4 villas en cada idioma", () => {
