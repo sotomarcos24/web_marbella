@@ -112,14 +112,14 @@ export function calcularPrecio(solicitud: SolicitudPrecio): ResultadoPrecio {
   });
   const alojamiento = noches.reduce((s, n) => s + n.precio, 0);
 
-  const sup = suplementosHuesped[villa];
-  const aplicaSuplemento = !sup.meses || dias.some(({ mes }) => sup.meses?.includes(mes));
-  const personas = aplicaSuplemento ? Math.max(0, huespedes - (reglas.suplementoDesdeHuesped - 1)) : 0;
+  const tramo = suplementosHuesped[villa].find((t) => !t.meses || dias.some(({ mes }) => t.meses?.includes(mes)));
+  const personas = tramo ? Math.max(0, huespedes - (reglas.suplementoDesdeHuesped - 1)) : 0;
+  const unitario = tramo?.importe ?? 0;
   const suplemento: SuplementoCalculado = {
     personas,
-    unitario: sup.importe,
-    total: personas * sup.importe,
-    ...(personas > 0 && sup.estimado && { estimado: sup.estimado }),
+    unitario,
+    total: personas * unitario,
+    ...(personas > 0 && tramo?.estimado && { estimado: tramo.estimado }),
   };
 
   const importeMascotas = mascotas * reglas.mascota;
@@ -129,7 +129,7 @@ export function calcularPrecio(solicitud: SolicitudPrecio): ResultadoPrecio {
   const { porcentajeReserva, porcentajeResto, diasAntesResto } = reglas.pagos;
   const reserva = Math.round((total * porcentajeReserva) / 100);
   const pagos: Pago[] =
-    entrada - hoy < diasAntesResto
+    entrada - hoy <= diasAntesResto
       ? [{ porcentaje: 100, importe: total, fecha: solicitud.hoy }]
       : [
           { porcentaje: porcentajeReserva, importe: reserva, fecha: solicitud.hoy },
@@ -144,7 +144,8 @@ export function calcularPrecio(solicitud: SolicitudPrecio): ResultadoPrecio {
     avisos.push("servicio-provisional");
   }
   if (extrasCalculados.some((e) => e.importe === null)) avisos.push("servicio-bajo-presupuesto");
-  if (hoy > limiteCancelacion) avisos.push("cancelacion-gratuita-vencida");
+  const cancelacionVencida = hoy > limiteCancelacion;
+  if (cancelacionVencida) avisos.push("cancelacion-gratuita-vencida");
 
   return {
     tipo: "precio",
@@ -157,7 +158,7 @@ export function calcularPrecio(solicitud: SolicitudPrecio): ResultadoPrecio {
     total,
     fianza: reglas.fianza,
     pagos,
-    cancelacionGratuitaHasta: aFecha(limiteCancelacion),
+    cancelacionGratuitaHasta: cancelacionVencida ? null : aFecha(limiteCancelacion),
     avisos,
   };
 }

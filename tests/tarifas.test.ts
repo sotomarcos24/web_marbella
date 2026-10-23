@@ -90,15 +90,15 @@ describe("tarifas: reglas comerciales", () => {
 
 describe("tarifas: suplementos por huésped", () => {
   it("villa-4 y villa-5: 150 € todo el año", () => {
-    expect(suplementosHuesped["villa-4"]).toEqual({ importe: 15000 });
-    expect(suplementosHuesped["villa-5"]).toEqual({ importe: 15000 });
+    expect(suplementosHuesped["villa-4"]).toEqual([{ importe: 15000 }]);
+    expect(suplementosHuesped["villa-5"]).toEqual([{ importe: 15000 }]);
   });
 
-  it("villa-1: 250 € solo en agosto", () => {
-    expect(suplementosHuesped["villa-1"]).toEqual({ importe: 25000, meses: [8] });
+  it("villa-1: 250 € en agosto; el resto del año 150 € estimado", () => {
+    expect(suplementosHuesped["villa-1"]).toEqual([{ importe: 25000, meses: [8] }, { importe: 15000, estimado: true }]);
   });
 
   it("villa-3: 150 € estimado", () => {
-    expect(suplementosHuesped["villa-3"]).toEqual({ importe: 15000, estimado: true });
+    expect(suplementosHuesped["villa-3"]).toEqual([{ importe: 15000, estimado: true }]);
   });
 });

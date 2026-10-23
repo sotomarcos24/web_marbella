@@ -101,9 +101,14 @@ describe("pagos", () => {
     expect(r.pagos).toEqual([{ porcentaje: 100, importe: r.total, fecha: HOY }]);
   });
 
-  it("llegada en ≥30 días → 25 % hoy y 75 % 30 días antes, cuadrando al céntimo", () => {
+  it("llegada en 30 días exactos → un único pago del 100 %", () => {
+    const r = precio({ entrada: "2027-02-14", salida: "2027-02-17" });
+    expect(r.pagos).toEqual([{ porcentaje: 100, importe: r.total, fecha: HOY }]);
+  });
+
+  it("llegada en más de 30 días → 25 % hoy y 75 % 30 días antes, cuadrando al céntimo", () => {
     for (const [entrada, salida, fechaResto] of [
-      ["2027-02-14", "2027-02-17", "2027-01-15"],
+      ["2027-02-15", "2027-02-18", "2027-01-16"],
       ["2027-03-01", "2027-03-04", "2027-01-30"],
     ] as const) {
       const r = precio({ entrada, salida });
@@ -160,13 +165,19 @@ describe("estancia de invierno", () => {
 });
 
 describe("suplementos, mascotas y extras", () => {
-  it("villa-1: 250 € por persona solo si alguna noche cae en agosto", () => {
-    const julio = precio({ villa: "villa-1", entrada: "2027-07-10", salida: "2027-07-13", huespedes: 14 });
-    expect(julio.suplemento.total).toBe(0);
+  it("villa-1: 250 € por persona si alguna noche cae en agosto", () => {
+    const agosto13 = precio({ villa: "villa-1", huespedes: 13 });
+    expect(agosto13.suplemento).toEqual({ personas: 1, unitario: eur(250), total: eur(250) });
     const agosto = precio({ villa: "villa-1", huespedes: 14 });
     expect(agosto.suplemento).toEqual({ personas: 2, unitario: eur(250), total: eur(500) });
     const cruce = precio({ villa: "villa-1", entrada: "2027-07-30", salida: "2027-08-02", huespedes: 13 });
     expect(cruce.suplemento.total).toBe(eur(250));
+  });
+
+  it("villa-1: fuera de agosto, 150 € por persona estimado", () => {
+    const julio = precio({ villa: "villa-1", entrada: "2027-07-10", salida: "2027-07-13", huespedes: 13 });
+    expect(julio.suplemento).toEqual({ personas: 1, unitario: eur(150), total: eur(150), estimado: true });
+    expect(julio.avisos).toContain("tarifa-estimada");
   });
 
   it("villa-3: 150 € estimado, con aviso de tarifa estimada", () => {
@@ -229,7 +240,14 @@ describe("fianza, cancelación y avisos", () => {
   it("fecha límite de cancelación gratuita = llegada − 60 días", () => {
     expect(precio().cancelacionGratuitaHasta).toBe("2027-06-02");
     expect(precio().avisos).not.toContain("cancelacion-gratuita-vencida");
-    expect(precio({ hoy: "2027-07-12" }).avisos).toContain("cancelacion-gratuita-vencida");
+  });
+
+  it("cancelación gratuita vencida → sin fecha límite y solo el aviso", () => {
+    const r = precio({ hoy: "2027-07-12" });
+    expect(r.cancelacionGratuitaHasta).toBeNull();
+    expect(r.avisos).toContain("cancelacion-gratuita-vencida");
+    // El último día del plazo aún no está vencido.
+    expect(precio({ hoy: "2027-06-02" }).cancelacionGratuitaHasta).toBe("2027-06-02");
   });
 
   it("aviso de limpieza cada 2 días incluida, siempre", () => {

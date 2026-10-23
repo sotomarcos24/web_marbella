@@ -109,9 +109,11 @@ function Desglose({ d }: { d: Extract<ResultadoPrecio, { tipo: "precio" }> }) {
         ))}
         <Fila label={t("result.total")}>{eur(d.total)}</Fila>
         <Fila label={t("result.fianza")}>{eur(d.fianza)}</Fila>
-        <Fila label={t("result.cancelacion")}>
-          {formatFecha(d.cancelacionGratuitaHasta, locale)}
-        </Fila>
+        {d.cancelacionGratuitaHasta !== null && (
+          <Fila label={t("result.cancelacion")}>
+            {formatFecha(d.cancelacionGratuitaHasta, locale)}
+          </Fila>
+        )}
       </dl>
       <h3 className="mt-4">{t("result.pagos")}</h3>
       <ul>
