@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { lstat, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { isDev } from "@/lib/dev/isDev";
 
@@ -16,12 +16,25 @@ export function resolveContentPath(relPath: string, contentDir = CONTENT_DIR): s
   if (relPath.split(/[\\/]/).includes("..")) {
     throw new Error(`Ruta de contenido con "..": ${relPath}`);
   }
-  const root = path.resolve(contentDir);
+  const root = path.resolve(/*turbopackIgnore: true*/ contentDir);
   const target = path.resolve(root, relPath);
   if (!target.startsWith(root + path.sep)) {
     throw new Error(`Ruta fuera de la carpeta de contenido: ${relPath}`);
   }
   return target;
+}
+
+/** Lanza si algún tramo existente de `relPath` es un enlace simbólico: `writeFile` lo seguiría fuera de `contentDir`. */
+async function rechazarEnlaces(relPath: string, contentDir: string): Promise<void> {
+  let actual = path.resolve(/*turbopackIgnore: true*/ contentDir);
+  for (const tramo of relPath.split(/[\\/]/).filter(Boolean)) {
+    actual = path.join(actual, tramo);
+    const info = await lstat(actual).catch(() => null);
+    if (!info) return;
+    if (info.isSymbolicLink()) {
+      throw new Error(`Ruta de contenido con enlace simbólico: ${relPath}`);
+    }
+  }
 }
 
 /** Escribe en `src/content/` (solo en desarrollo). Los objetos se guardan como JSON formateado. */
@@ -30,6 +43,7 @@ export async function writeContent(relPath: string, data: string | object, conte
     throw new Error("writeContent solo está disponible en desarrollo");
   }
   const target = resolveContentPath(relPath, contentDir);
+  await rechazarEnlaces(relPath, contentDir);
   await mkdir(path.dirname(target), { recursive: true });
   await writeFile(target, typeof data === "string" ? data : `${JSON.stringify(data, null, 2)}\n`);
 }

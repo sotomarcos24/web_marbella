@@ -1,4 +1,4 @@
-import { mkdtemp, readdir, readFile, rm } from "node:fs/promises";
+import { mkdtemp, readdir, readFile, rm, symlink } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -33,6 +33,22 @@ describe("resolveContentPath", () => {
 });
 
 describe("writeContent", () => {
+  it.each([
+    ["una carpeta", "zonas"],
+    ["un archivo", "villas.json"],
+  ])("no escribe fuera a través de un enlace simbólico a %s", async (_, enlace) => {
+    const fuera = await mkdtemp(path.join(tmpdir(), "fuera-"));
+    try {
+      const destino = enlace === "zonas" ? fuera : path.join(fuera, "villas.json");
+      await symlink(destino, path.join(contentDir, enlace));
+      const ruta = enlace === "zonas" ? "zonas/villa-1.json" : "villas.json";
+      await expect(writeContent(ruta, { a: 1 }, contentDir)).rejects.toThrow();
+      expect(await readdir(fuera)).toEqual([]);
+    } finally {
+      await rm(fuera, { recursive: true, force: true });
+    }
+  });
+
   it("escribe texto tal cual", async () => {
     await writeContent("notas.txt", "hola", contentDir);
     expect(await readFile(path.join(contentDir, "notas.txt"), "utf8")).toBe("hola");

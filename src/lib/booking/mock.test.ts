@@ -65,6 +65,13 @@ describe("disponibilidad", () => {
     expect(await libre("villa-4", "2027-08-01", "2027-08-05")).toBe(true);
   });
 
+  it.each([
+    ["invertido", "2027-08-05", "2027-08-01"],
+    ["vacío", "2027-08-05", "2027-08-05"],
+  ])("rango %s → no libre (fechas no válidas)", async (_, entrada, salida) => {
+    expect(await libre("villa-4", entrada, salida)).toBe(false);
+  });
+
   it("rango idéntico a uno ocupado → ocupado, y devuelve el conflicto", async () => {
     const d = await proveedor().disponibilidad("villa-4", { entrada: "2027-08-10", salida: "2027-08-17" });
     expect(d).toEqual({ libre: false, ocupados: [{ entrada: "2027-08-10", salida: "2027-08-17" }] });

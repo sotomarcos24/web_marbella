@@ -102,7 +102,7 @@ export async function entradasZonas({ publicDir = PUBLIC_DIR, villas = villasCon
     ),
   ];
 
-  const presentes = await Promise.all(candidatas.map((e) => existe(path.join(publicDir, e.imagen))));
+  const presentes = await Promise.all(candidatas.map((e) => existe(path.join(/*turbopackIgnore: true*/ publicDir, e.imagen))));
   return candidatas.filter((_, i) => presentes[i]);
 }
 

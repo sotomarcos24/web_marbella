@@ -11,7 +11,7 @@ Etiquetas: `setup`, `i18n`, `design`, `data`, `content`, `pricing`, `booking`, `
 | M1 Cimientos ✅ | Proyecto arrancable, i18n, marca, diseño | #1–#4 |
 | M2 Datos y negocio ✅ | Modelo, tarifas, servicios, calculadora, reservas mock | #5–#10 |
 | M3 Contenido y fotos ✅ | Textos ES/EN y pipeline de fotos | #11–#15 |
-| M4 Herramientas /dev | /dev/cotizador, /dev/zonas, /dev/fotos | #16–#19 |
+| M4 Herramientas /dev ✅ | /dev/cotizador, /dev/zonas, /dev/fotos | #16–#19 |
 
 Orden recomendado: M1 → M2 → (M3 ‖ resto de M2) → M4. Paralelizables: #3 ‖ #5; #6 ‖ #7 ‖ #11 tras #5; #8 ‖ #9 tras #7; #17 ‖ #18 tras #16.
 
@@ -171,8 +171,8 @@ Archivos: `src/content/fotos.ts`, `docs/fotos-resumen.md`, `scripts/photos.confi
 - [x] Muestra confianza baja y estanciaSugerida del catálogo
 - [x] Lógica de asignación pura con tests
 
-### #19 Revisión final de Fase 1 — `setup` · S · dep todo lo anterior
-- [ ] `typecheck`, `lint`, `test` y `build` en verde
-- [ ] `/dev/*` da 404 con build de producción
-- [ ] Tabla de pendientes (inscripción turística, coordenadas, dormitorios villa-1, aérea limpia del conjunto, vídeos, tarifas estimadas, limpieza diaria provisional, y los de `docs/vision.md` §7)
-- [ ] README actualizado con cómo usar las herramientas /dev
+### #19 Revisión final de Fase 1 — `setup` · S · dep todo lo anterior · ✅ PR #38
+- [x] `typecheck`, `lint`, `test` y `build` en verde
+- [x] `/dev/*` da 404 con build de producción
+- [x] Tabla de pendientes (inscripción turística, coordenadas, dormitorios villa-1, aérea limpia del conjunto, vídeos, tarifas estimadas, limpieza diaria provisional, y los de `docs/vision.md` §7)
+- [x] README actualizado con cómo usar las herramientas /dev
