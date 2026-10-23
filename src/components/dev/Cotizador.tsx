@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
-import { type FormEvent, type ReactNode, useId, useState } from "react";
+import { type ReactNode, type SubmitEvent, useId, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Heading } from "@/components/ui/Heading";
@@ -197,7 +197,7 @@ export function Cotizador() {
     return null;
   };
 
-  async function calcular(e: FormEvent) {
+  async function calcular(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
     const extrasSolicitados: ExtraSolicitado[] = servicios.flatMap((s) =>
       s.opciones.flatMap((o) => {
@@ -373,7 +373,9 @@ export function Cotizador() {
               {salidaCalculo.precio.tipo === "oferta-invierno" ? (
                 <div className="mt-4">
                   <p>{t("result.oferta")}</p>
-                  <p>{salidaCalculo.precio.noches}</p>
+                  <dl>
+                    <Fila label={t("result.noches")}>{salidaCalculo.precio.noches}</Fila>
+                  </dl>
                   <ul>
                     {salidaCalculo.precio.avisos.map((c) => (
                       <li key={c}>

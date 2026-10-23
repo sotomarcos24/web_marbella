@@ -34,6 +34,8 @@ export class MockBookingProvider implements BookingProvider {
   }
 
   async disponibilidad(villa: VillaId, rango: RangoFechas): Promise<Disponibilidad> {
+    // Rango vacío o invertido: no se puede reservar, aunque no choque con nada.
+    if (rango.entrada >= rango.salida) return { libre: false, ocupados: [] };
     const ocupados = this.ocupados[villa].filter((o) => seSolapan(o, rango));
     return { libre: ocupados.length === 0, ocupados };
   }

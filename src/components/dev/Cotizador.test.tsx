@@ -108,6 +108,18 @@ describe.each(locales)("Cotizador (%s)", (locale, messages) => {
   it("muestra la oferta de invierno en estancias largas de invierno", async () => {
     await cotizar({ villa: "villa-4", entrada: "2027-12-01", salida: "2028-01-15", huespedes: "10" });
     expect(resultado().getByText(m.result.oferta)).toBeTruthy();
+    // 1 dic–15 ene: 45 noches, con su etiqueta.
+    expect(resultado().getByText(m.result.noches)).toBeTruthy();
+    expect(resultado().getByText("45")).toBeTruthy();
+  });
+
+  it("muestra los avisos del desglose traducidos (tarifa estimada de villa-3 en julio)", async () => {
+    await cotizar({ villa: "villa-3", entrada: "2027-07-10", salida: "2027-07-13", huespedes: "10" });
+    const r = resultado();
+    expect(r.getByText(m.result.avisos)).toBeTruthy();
+    expect(r.getByText(messages.pricing.avisos["limpieza-cada-2-dias-incluida"])).toBeTruthy();
+    expect(r.getByText(messages.pricing.avisos["tarifa-estimada"])).toBeTruthy();
+    expect(r.queryByText(messages.pricing.avisos["cancelacion-gratuita-vencida"].split("{")[0] ?? "", { exact: false })).toBeNull();
   });
 
   it("muestra disponibilidad libre", async () => {

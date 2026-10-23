@@ -1,12 +1,8 @@
 import { useTranslations } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
-import { use } from "react";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { siteConfig } from "@/config/site";
 
-export default function Home({ params }: PageProps<"/[locale]">) {
-  const { locale } = use(params);
-  setRequestLocale(locale);
+export default function Home() {
   const t = useTranslations("Home");
 
   return (
