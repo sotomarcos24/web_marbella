@@ -4,7 +4,9 @@ const ESCALA_MAXIMA = 1.15;
 const ESCALA_LLEGADA = 1.08;
 const MARGEN_LLEGADA = 1e-3;
 
-const acotar = (valor: number) => Math.min(1, Math.max(0, valor));
+export const acotar = (valor: number) => Math.min(1, Math.max(0, valor));
+/** Curva de suavizado (smoothstep) para un t en 0–1. */
+export const suave = (t: number) => t * t * (3 - 2 * t);
 
 /** La imagen de inicio se acerca con el progreso; sin zoom si el usuario reduce el movimiento. */
 export function escalaInicio(progreso: number, reducido: boolean) {
@@ -19,8 +21,7 @@ export function escalaLlegada(progreso: number, reducido: boolean) {
 /** Fundido de inicio a llegada: suavizado y completo antes del último tramo; lineal con reduced-motion. */
 export function opacidadLlegada(progreso: number, reducido: boolean) {
   if (reducido) return acotar(progreso);
-  const t = acotar(progreso / (1 - TRAMO_FINAL));
-  return t * t * (3 - 2 * t);
+  return suave(acotar(progreso / (1 - TRAMO_FINAL)));
 }
 
 /** Opacidad de la foto final real: solo en el último 5 %. Con reduced-motion no hace falta. */

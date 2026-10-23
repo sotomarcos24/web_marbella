@@ -2,8 +2,11 @@
   "Metadata": {
     "description": "Four luxury villas in Puerto Banús, Marbella."
   },
-  "Home": {
-    "tagline": "Four luxury villas in Puerto Banús"
+  "Intro": {
+    "entrar": "Enter: go through the arch",
+    "aerea": "Provisional aerial view of the four villas",
+    "pista": "Click the arch or scroll",
+    "lema": "Four luxury villas in Puerto Banús"
   },
   "LocaleSwitcher": {
     "label": "Language",

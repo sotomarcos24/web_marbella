@@ -10,7 +10,7 @@ import {
   opacidadLlegada,
 } from "@/lib/scenes/progreso";
 import type { ManifiestoSecuencia } from "@/lib/scenes/tipos";
-import { useLenisScroll } from "@/lib/scenes/useLenisScroll";
+import { useAvanzarAlFinal } from "@/lib/scenes/useLenisScroll";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 
 interface ScrollSequenceProps {
@@ -51,7 +51,7 @@ export function ScrollSequence({
   const contenedor = useRef<HTMLDivElement>(null);
   const emitida = useRef(false);
   const reducido = usePrefersReducedMotion();
-  const lenisScrollTo = useLenisScroll();
+  const avanzarAlFinal = useAvanzarAlFinal(contenedor, duracion);
 
   const { scrollYProgress } = useScroll({ target: contenedor, offset: ["start start", "end end"] });
   const manual = useMotionValue(0);
@@ -73,14 +73,8 @@ export function ScrollSequence({
   const opacidadF = useTransform(progreso, (p) => opacidadFinal(p, reducido));
 
   function avanzar() {
-    const el = contenedor.current;
-    if (!enFlujo || !el) {
-      animate(manual, 1, { duration: duracion, ease: "easeInOut" });
-      return;
-    }
-    const fin = window.scrollY + el.getBoundingClientRect().bottom - window.innerHeight;
-    // Sin Lenis (reduced-motion) el progreso sigue siendo el scroll: se salta sin animar.
-    if (!lenisScrollTo(fin, { duration: duracion })) window.scrollTo({ top: fin, behavior: "auto" });
+    if (enFlujo) avanzarAlFinal();
+    else animate(manual, 1, { duration: duracion, ease: "easeInOut" });
   }
 
   return (
