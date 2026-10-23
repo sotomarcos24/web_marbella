@@ -32,6 +32,8 @@ beforeEach(() => {
 });
 afterEach(cleanup);
 
+const mover = (valor: number) => act(() => scroll.progreso.set(valor));
+
 const textos = { entrar: "Entrar", aerea: "Vista aérea", pista: "Desliza", lema: "Cuatro villas" };
 
 function aerea(container: HTMLElement) {
@@ -89,6 +91,22 @@ describe("Intro", () => {
     const trazo = container.querySelector("svg[data-arco]") as SVGElement;
     expect(trazo.dataset.estatico).toBe("true");
     expect(container.querySelectorAll("[data-nube]")).toHaveLength(0);
+  });
+
+  it("el contenido de llegada solo aparece e interactúa al terminar la intro", async () => {
+    const { container } = render(
+      <Intro textos={textos}>
+        <button type="button">Parcela</button>
+      </Intro>,
+    );
+    const capa = container.querySelector("[data-llegada]") as HTMLElement;
+    expect(capa.dataset.llegada).toBe("false");
+    expect(capa.hasAttribute("inert")).toBe(true);
+    mover(1);
+    await waitFor(() => expect(capa.dataset.llegada).toBe("true"));
+    expect(capa.hasAttribute("inert")).toBe(false);
+    mover(0.5);
+    await waitFor(() => expect(capa.dataset.llegada).toBe("false"));
   });
 
   it("los textos de la intro existen en es y en", () => {
