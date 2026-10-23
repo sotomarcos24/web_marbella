@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { Cabecera } from "@/components/villa/Cabecera";
 import { Plano } from "@/components/villa/Plano";
 import { distribucionCamas } from "@/content/dormitorios";
+import { fotos as catalogo } from "@/content/fotos";
 import { villas } from "@/content/villas";
 import { routing } from "@/i18n/routing";
 
@@ -21,9 +22,15 @@ export default async function VillaPage({ params }: PageProps<"/[locale]/villas/
   setRequestLocale(locale);
 
   const { VillaPage, zonas, Plano: textosPlano } = await getMessages();
+  const alts = new Map(catalogo.filter((f) => f.villa === villa.id).map((f) => [f.archivo, f.alt[locale]]));
+  const enGrupo = new Set<string>();
+  // Una foto aparece solo en el primer grupo que la usa.
   const fotos = [...villa.exteriores, ...villa.plantas.flatMap((planta) => planta.estancias)].map((e) => ({
     id: e.id,
-    fotos: e.fotos,
+    nombre: "nombre" in e ? e.nombre : e.id,
+    fotos: e.fotos
+      .filter((src) => !enGrupo.has(src) && enGrupo.add(src))
+      .map((src) => ({ src, alt: alts.get(src.split("/").pop() ?? "") ?? "" })),
   }));
 
   return (
