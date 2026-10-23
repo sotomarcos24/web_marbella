@@ -157,12 +157,12 @@ Archivos: `src/content/fotos.ts`, `docs/fotos-resumen.md`, `scripts/photos.confi
 - [x] Usa `BookingProvider` (no el mock directo); muestra disponibilidad
 - [x] Resultado coincide con los tests de #9 para los casos de ejemplo
 
-### #17 /dev/zonas — `dev-tools` · L · dep #5,#4 (mejor con #14)
-- [ ] Selector de imagen (portadas y planos de `public/images/villas`; **[visión]** también la aérea del conjunto y las imágenes finales de transiciones, para parcelas y zonas)
-- [ ] Clic añade vértices; cerrar polígono; coordenadas normalizadas 0–1 (lógica pura testeada)
-- [ ] Id y nombre; editar (mover vértices) y borrar
-- [ ] Exportar JSON y guardar en `src/content` vía `/api/dev` (solo en desarrollo)
-- [ ] Salida valida contra `validarVilla()`
+### #17 /dev/zonas — `dev-tools` · L · dep #5,#4 (mejor con #14) ✅ PR #36
+- [x] Selector de imagen (portadas y planos de `public/images/villas`; **[visión]** también la aérea del conjunto y las imágenes finales de transiciones, para parcelas y zonas)
+- [x] Clic añade vértices; cerrar polígono; coordenadas normalizadas 0–1 (lógica pura testeada)
+- [x] Id y nombre; editar (mover vértices) y borrar
+- [x] Exportar JSON y guardar en `src/content` vía `/api/dev` (solo en desarrollo)
+- [x] Salida valida contra `validarVilla()`
 
 ### #18 /dev/fotos — `dev-tools` · L · dep #15,#17
 - [ ] Por villa: izquierda estancias y exteriores, derecha miniaturas
