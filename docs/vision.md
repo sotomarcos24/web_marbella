@@ -156,7 +156,7 @@ Los vídeos se generan a partir de **dos fotos reales** (inicio y llegada); la I
    - **M6 Prototipo Villa 4**: intro con arco + T1 sustituto · mapa del conjunto con parcelas y mini ficha + T2 sustituto · cabecera de villa con zonas, día/noche condicional y galería · plano de planta con estancias y panel · "Entrar en la casa" (T3 sustituto) · tarjetas en arco con apertura a pantalla completa.
 3. **Fase 3 — Vídeos T1–T3 con Pletor** (con OK en cada generación): verificación de modelo y coste · aérea limpia · imagen de cielo · T1 · T2 · T3 · (T4) · registro en `transiciones.json`.
 4. **Fase 4 — Integración**: fotogramas en `ScrollSequence`, ajuste de tiempos y zonas sobre las imágenes finales, versión móvil con MP4.
-5. **Fase 5 — Resto de la web**: servicios con previsualización, secciones editoriales, ficha clásica con reserva, y réplica para las villas 1, 3 y 5.
+5. **Fase 5 — Resto de la web**: servicios con previsualización, secciones editoriales, ficha clásica con reserva simulada, páginas y formularios, réplica para las villas 1, 3 y 5 y revisión final. Detalle y milestones M9–M13 en la §8 (M7 y M8 quedan para las fases 3 y 4). M9–M11 no dependen de los vídeos: si Pletor sigue bloqueado, pueden adelantarse a las fases 3 y 4.
 
 Commits pequeños; un PR por issue (flujo de CLAUDE.md).
 
@@ -179,3 +179,69 @@ Commits pequeños; un PR por issue (flujo de CLAUDE.md).
 - Reseñas reales, coordenadas, inscripción turística (ya pendientes en la Fase 1).
 - Acceso a Pletor (el inicio de sesión en el MCP falla) y modelo con primer/último fotograma.
 - Fotos del fotógrafo profesional (se repetirán las transiciones con el registro de `transiciones.json`).
+- Textos de condiciones de reserva y normas de la casa (se adaptan de la web antigua, SPEC §7, y quedan marcados para revisión).
+- Destino real de los formularios (email): hasta tenerlo, solo el proveedor simulado (§8.3).
+
+---
+
+## 8. Fase 5 — Resto de la web
+
+Planificación sin implementar. Todo sale de los datos existentes (`villas.ts`, `tarifas.ts`, `servicios.ts`, `pricing.ts`, `BookingProvider`); los textos van en `messages/{es,en}.json` y lo pendiente se marca, nunca se inventa. Estética: cal y serif en páginas de contenido; noche solo en escenas.
+
+### 8.1 Reserva simulada (sección "Reservar" de la ficha clásica, en la página de villa)
+Asistente por pasos con el paso en la URL (`?paso=fechas|huespedes|resumen|datos|pago`) para que "atrás" funcione. Cada paso valida antes de avanzar; el resumen de precio queda visible a un lado (abajo en móvil) desde que hay fechas.
+1. **Fechas**: calendario de dos meses (uno en móvil) con los días ocupados en gris y no seleccionables, leídos de `BookingProvider`. Marca entrada (16:00) y salida (10:00), respeta 3–59 noches y avisa al cruzar un rango ocupado. Accesible con teclado (rejilla con flechas, `aria-disabled` en ocupados).
+2. **Huéspedes, mascotas y extras**: huéspedes 1–15 (aviso del suplemento del 13.º al 15.º), mascotas (200 € c/u) y extras de `servicios.ts` que tienen precio (chef con nº de comensales ≥ 10, limpieza diaria, cambio de ropa, compra, desayuno, decoración, calefacción por días). El catamarán aparece como "Bajo presupuesto" con enlace a contacto, sin precio.
+3. **Desglose**: salida de `pricing.ts` tal cual: precio de cada noche (agrupado por mes), alojamiento, limpieza final, suplementos, mascotas, extras, total con IVA, fianza aparte, calendario de pagos y fecha límite de cancelación. Marcas de "estimado"/"provisional" visibles. Si `pricing.ts` devuelve `requiere-oferta` (> 28 noches dic–mar), el asistente para y enlaza a `/invierno` con villa y fechas ya rellenas.
+4. **Datos del cliente**: nombre, apellidos, email, teléfono (con prefijo), país, hora estimada de llegada, comentarios y aceptación de condiciones y normas (enlaces a sus páginas). Validación en cliente con la misma librería que los formularios (§8.3).
+5. **Pago simulado**: sin pasarela y **sin campos de tarjeta** (no se piden datos de pago reales en una demo). Muestra el importe de hoy (25 % o 100 %) y la fianza que se preautorizaría, con aviso claro de "Demo: no se realiza ningún cargo", y un botón "Confirmar reserva" que llama a `crearReserva`. Estados de carga y error (p. ej. fechas ocupadas entre medias → vuelve al paso 1).
+6. **Confirmación** (`/reserva/[id]`): número de reserva, villa y fechas con horas, huéspedes y extras, total, calendario de pagos con fechas e importes, fianza (preautorización y devolución a los 2 días), fecha límite de cancelación gratuita (y cargo del 2 %), datos del titular y enlaces a normas y contacto. Si el id no existe (otra pestaña, recarga tras cerrar), mensaje "Reserva no encontrada".
+
+**Cambios en el modelo de datos (requieren OK al crear el milestone):**
+- `SolicitudReserva = SolicitudPrecio & { titular: Titular }`; `Reserva` añade `titular`, `creadaEn` y `estado: "confirmada"`.
+- `BookingProvider` añade `ocupados(villa, desde, hasta): Promise<RangoFechas[]>` (para pintar el calendario sin consultar día a día) y `obtenerReserva(id)`.
+- `MockBookingProvider` guarda las reservas creadas en `sessionStorage` (sin cookies ni backend) para que la página de confirmación las lea; las nuevas reservas también ocupan sus fechas en la sesión.
+- Número de reserva legible (p. ej. `SVM-<año>-<5 cifras>`), generado por el mock.
+
+### 8.2 Páginas, cabecera y pie
+- **Cabecera** (todas las páginas salvo `/dev`): marca, Villas, Servicios, Grupos, Invierno, Contacto, selector de idioma; menú desplegable en móvil (foco atrapado, Escape cierra). Transparente sobre las escenas oscuras, cal en el resto.
+- **Pie**: marca, contacto de `site.ts`, enlaces a todas las páginas, condiciones y normas, e inscripción turística por villa (marcada como pendiente mientras falte).
+- **404** (`not-found` por idioma): titular serif, enlace al inicio y al listado de villas.
+- **Saltar la intro** (inicio): botón "Saltar intro" visible desde el primer fotograma y tecla Escape; lleva directamente al mapa del conjunto. Se recuerda en `sessionStorage` durante la sesión. Con `prefers-reduced-motion` la intro ya empieza saltada.
+- **Listado de villas** (`/villas`): tarjeta por villa (portada en arco, plazas 15, dormitorios con su marca de pendiente, baños, m², "desde" de `tarifas.ts`, rasgo destacado) → página de villa. Es también la lista alternativa accesible del mapa (§3.5).
+- **Servicios** (`/servicios`): la lista con previsualización de la §2.7 a tamaño de página, con precios de `servicios.ts`, menús del chef, lista del pack desayuno (marcada como pendiente) y "Solicitar" en el catamarán (→ contacto con el asunto rellenado).
+- **Grupos** (`/grupos`): villas 4 + 5 contiguas, hasta 30 huéspedes (15 + 15), fotos de ambas y formulario de solicitud: fechas, nº de huéspedes (16–30), motivo (familia, celebración, empresa…), contacto y comentarios. Sin precio cerrado; como mucho, "desde" de cada villa.
+- **Invierno** (`/invierno`): estancias largas de diciembre a marzo (> 28 noches), ventajas (limpieza cada 2 días, clima) y formulario: villa (o "cualquiera"), fechas aproximadas, nº de huéspedes, contacto y comentarios. Acepta villa y fechas por query desde la reserva.
+- **Condiciones de reserva** (`/condiciones`) y **normas de la casa** (`/normas`): textos adaptados de la web antigua (SPEC §7), marcados para revisión. Las cifras (pagos, fianza, cancelación, horarios, mascotas, mínimo de noches) se leen de `tarifas.ts` y constantes de `pricing.ts`, nunca se escriben a mano en los mensajes.
+- **Contacto** (`/contacto`): email y teléfono de `site.ts` y formulario general (nombre, email, teléfono opcional, villa opcional, asunto, mensaje).
+
+### 8.3 Formularios sin backend
+- Interfaz `SolicitudesProvider` en `src/lib/solicitudes/` (como `BookingProvider`): `enviar(solicitud: SolicitudGrupo | SolicitudInvierno | SolicitudContacto): Promise<ResultadoSolicitud>`. Implementación `MockSolicitudesProvider`: espera corta, devuelve referencia y no guarda nada. El frontend solo usa la interfaz; en el futuro, una implementación que envíe por email (route handler + proveedor de correo).
+- Validación pura y testeada en `src/lib/validation/formularios.ts`, compartida por los formularios y el paso 4 de la reserva; errores como códigos con texto en mensajes. Errores junto a cada campo, foco al primero erróneo y resumen con `aria-live`.
+- Tras enviar: mensaje de "Solicitud recibida" con la referencia y un aviso de demo; el formulario se vacía. Protección contra doble envío.
+
+### 8.4 Ficha clásica y secciones editoriales (página de villa)
+Lo que falta de la §2.8: editoriales ("Un día en Puerto Banús", "Para grupos" → `/grupos`, "Invierno" → `/invierno`) con textos marcados para revisión, y la ficha clásica: descripción, comodidades, distribución de camas (`dormitorios.ts`, con sus discrepancias marcadas), resumen de normas (→ `/normas`), ubicación (pendiente de coordenadas: solo texto de zona) y la sección "Reservar" (§8.1). Reseñas ocultas hasta tenerlas.
+
+### 8.5 Réplica de las villas 1, 3 y 5 — lo que haces tú
+**Cuándo**: después de cerrar M6 (prototipo de la Villa 4 validado: ids de zonas, convención de estancias y aspecto ya fijados) y **antes de empezar M12**. Al abrir M12 paro y te pido que lo hagas; mientras tanto puedo seguir con M9–M11. El orden por villa es el de la lista (las fotos se asignan a estancias que ya existen).
+
+Para cada villa (villa-1, villa-3, villa-5):
+1. **`/dev/zonas` → portada** (villa-1 `villa1_012`, villa-3 `villa3_019`, villa-5 `villa5_002`): dibujar `jardin` (acción galería, destino `jardin`), `planta-baja` y `planta-alta` (acción planta). Ids exactos como en la Villa 4. Si una zona no se ve en la portada (p. ej. el jardín en la foto de dron de villa-3), dímelo y valoramos cambiar de portada.
+2. **`/dev/zonas` → plano de planta baja** y **plano de planta alta**: un polígono por estancia (dormitorios, baños, salón, cocina, comedor, porche…). Los dormitorios con el **mismo id que en `dormitorios.ts`** (`pb-suite-doble`, `pa-twin`…), para que el panel muestre sus camas; el editor avisa si no cuadra.
+3. **`/dev/zonas` → aérea del conjunto**: solo si la parcela de esa villa no quedó dibujada en la Fase 2.
+4. **`/dev/fotos`**: arrastrar las fotos a cada estancia y a cada exterior (jardín, piscina, porche, barbacoa, terraza) y marcar la principal de cada una. Revisar antes las de baja confianza de `docs/fotos-resumen.md`.
+5. **Decidir y decírmelo en el chat** (no hay herramienta): las 5 estancias de las tarjetas en arco (`destacadas`) y, si hay fotos con encuadre útil, puerta y recibidor para "Entrar en la casa" (si no, esa sección se omite en esa villa).
+6. **Resolver** lo de `docs/pendientes.md` que afecte a la villa: dormitorios de villa-1 (6 o 7) y discrepancias de camas (villa-3 `pb-sala`, suites dudosas).
+
+Lo que hago yo en M12: integrar esos JSON, validar con `validarVilla()`, revisar cada villa en el navegador y anotar lo que falte, sin rellenar huecos con datos inventados.
+
+### 8.6 Revisión final rápida (móvil e inglés)
+Con Chrome DevTools, a 375 px y 768 px y en escritorio, en `es` y `en`: todas las rutas (incluida la 404), cabecera y pie, saltar intro, mapa y explorador por toque, reserva completa hasta la confirmación, los 4 formularios (errores y envío) y `prefers-reduced-motion`. En inglés: textos desbordados o cortados, claves sin traducir, formato de fechas e importes (`en-GB`). Resultado: lista de fallos → issues S de corrección.
+
+### 8.7 Milestones propuestos (se crean con `/milestone` al llegar)
+- **M9 Estructura común**: cabecera y menú móvil · pie · 404 por idioma · saltar intro · `SolicitudesProvider` + mock + validación de formularios · página de contacto.
+- **M10 Páginas de contenido**: listado de villas · servicios · grupos (formulario) · invierno (formulario, con query de la reserva) · condiciones · normas · ficha clásica y editoriales en la página de villa (§8.4, sin la reserva).
+- **M11 Reserva simulada** (*cambia el modelo de datos: OK previo*): ampliación de `BookingProvider` y del mock (§8.1) · calendario con ocupados · pasos huéspedes/extras y desglose · datos del cliente · pago simulado · página de confirmación.
+- **M12 Réplica villas 1, 3 y 5** (*bloqueado hasta que completes la §8.5*): un issue por villa (integración de zonas, estancias, fotos, destacadas y recorrido; validación; revisión visual).
+- **M13 Revisión final**: pasada de la §8.6 y correcciones resultantes.
