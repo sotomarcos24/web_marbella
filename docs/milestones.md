@@ -151,11 +151,11 @@ Archivos: `src/content/fotos.ts`, `docs/fotos-resumen.md`, `scripts/photos.confi
 
 # M4 — Herramientas /dev
 
-### #16 /dev/cotizador — `dev-tools`, `pricing` · S · dep #9,#10,#4
-- [ ] Formulario: villa, fechas, huéspedes, mascotas, extras
-- [ ] Muestra desglose completo: noches, alojamiento, limpieza, suplementos, extras, total, fianza aparte, pagos con fechas, límite de cancelación, avisos y errores
-- [ ] Usa `BookingProvider` (no el mock directo); muestra disponibilidad
-- [ ] Resultado coincide con los tests de #9 para los casos de ejemplo
+### #16 /dev/cotizador — `dev-tools`, `pricing` · S · dep #9,#10,#4 ✅ PR #35
+- [x] Formulario: villa, fechas, huéspedes, mascotas, extras
+- [x] Muestra desglose completo: noches, alojamiento, limpieza, suplementos, extras, total, fianza aparte, pagos con fechas, límite de cancelación, avisos y errores
+- [x] Usa `BookingProvider` (no el mock directo); muestra disponibilidad
+- [x] Resultado coincide con los tests de #9 para los casos de ejemplo
 
 ### #17 /dev/zonas — `dev-tools` · L · dep #5,#4 (mejor con #14)
 - [ ] Selector de imagen (portadas y planos de `public/images/villas`; **[visión]** también la aérea del conjunto y las imágenes finales de transiciones, para parcelas y zonas)
