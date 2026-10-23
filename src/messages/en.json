@@ -419,5 +419,21 @@
       "jardinero": "The gardener comes in between 8:00 and 10:00 and does not ring the bell or knock on the door.",
       "capacidad": "The maximum occupancy is 15 people, children included. No more guests may stay overnight."
     }
+  },
+  "DevEscenas": {
+    "title": "Scenes",
+    "intro": "Internal tool to try ScrollSequence with the video-less substitute (fade and zoom). With prefers-reduced-motion there is only a fade.",
+    "scroll": {
+      "title": "Scroll mode",
+      "descripcion": "Progress is the scroll: scroll down slowly and the image zooms in and fades into the arrival image.",
+      "etiqueta": "Villa image that zooms in as you scroll"
+    },
+    "clic": {
+      "title": "Click mode",
+      "descripcion": "Click the image: it advances on its own until arrival.",
+      "etiqueta": "Enter the villa",
+      "alt": "Villa façade"
+    },
+    "llegadas": "Arrivals recorded: {count}"
   }
 }
