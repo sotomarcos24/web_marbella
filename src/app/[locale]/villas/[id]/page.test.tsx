@@ -2,7 +2,7 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import type { ReactElement } from "react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import es from "@/messages/es.json";
 import VillaPage, { generateStaticParams } from "./page";
 
@@ -17,7 +17,11 @@ vi.mock("next/navigation", async (importOriginal) => ({
   },
   usePathname: () => "/es/villas/villa-4",
   useRouter: () => ({ push: vi.fn(), replace: vi.fn(), prefetch: vi.fn() }),
+  useSearchParams: () => new URLSearchParams(),
 }));
+beforeEach(() => {
+  window.matchMedia = (() => ({ matches: false, addEventListener: () => {}, removeEventListener: () => {} })) as unknown as typeof window.matchMedia;
+});
 afterEach(cleanup);
 
 type Provider = ReactElement<{ messages: Record<string, unknown>; children: ReactElement }>;
@@ -58,6 +62,17 @@ describe("página /villas/[id]", () => {
     expect(screen.getByRole("button", { name: "Jardín" })).toBeTruthy();
   });
 
+  it("villa-4 incluye el plano con selector de planta", async () => {
+    const pagina = (await VillaPage(params("villa-4"))) as Provider;
+    render(
+      <NextIntlClientProvider locale="es" messages={pagina.props.messages}>
+        {pagina.props.children}
+      </NextIntlClientProvider>,
+    );
+    expect(screen.getByRole("tab", { name: "Planta baja" })).toBeTruthy();
+    expect(screen.getByRole("tab", { name: "Planta alta" })).toBeTruthy();
+  });
+
   it("villa-4 muestra una tarjeta en arco por cada destacada", async () => {
     const pagina = (await VillaPage(params("villa-4"))) as Provider;
     const { container } = render(
@@ -67,6 +82,6 @@ describe("página /villas/[id]", () => {
     );
     const nombres = Object.values(es.VillaPage.destacadas.estancias).map((e) => e.nombre);
     expect(container.querySelectorAll("[data-arco]")).toHaveLength(5);
-    for (const nombre of nombres) expect(screen.getByRole("button", { name: nombre })).toBeTruthy();
+    for (const nombre of nombres) expect(screen.getAllByRole("button", { name: nombre }).length).toBeGreaterThan(0);
   });
 });

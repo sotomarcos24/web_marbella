@@ -112,4 +112,11 @@ describe("ScrollSequence", () => {
     const inicio = container.querySelector('img[src="/a.webp"]') as HTMLElement;
     await waitFor(() => expect(inicio.style.transform).toMatch(/scale\(1\.\d+\)/));
   });
+
+  it("autoplay: avanza solo al montar, sin botón, y emite onLlegada", async () => {
+    const onLlegada = vi.fn();
+    render(<ScrollSequence {...base} modo="clic" autoplay duracion={0.05} onLlegada={onLlegada} />);
+    expect(screen.queryByRole("button")).toBeNull();
+    await waitFor(() => expect(onLlegada).toHaveBeenCalledTimes(1));
+  });
 });

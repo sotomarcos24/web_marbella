@@ -28,8 +28,15 @@ const villa = {
   imagenDia: "/images/villas/villa-4/dia.webp",
   zonas,
   fotos: [
-    { id: "jardin", fotos: ["/images/villas/villa-4/jardin-1.webp", "/images/villas/villa-4/jardin-2.webp"] },
-    { id: "salon", fotos: ["/images/villas/villa-4/salon-1.webp"] },
+    { id: "salon", nombre: "Salón", fotos: [{ src: "/images/villas/villa-4/salon-1.webp", alt: "Salón 1" }] },
+    {
+      id: "jardin",
+      nombre: "Jardín",
+      fotos: [
+        { src: "/images/villas/villa-4/jardin-1.webp", alt: "Jardín 1" },
+        { src: "/images/villas/villa-4/jardin-2.webp", alt: "Jardín 2" },
+      ],
+    },
   ],
 };
 
@@ -56,7 +63,7 @@ describe("Cabecera", () => {
     fireEvent.click(screen.getByRole("button", { name: "Jardín" }));
     const dialogo = screen.getByRole("dialog");
     expect(within(dialogo).getByRole("img").getAttribute("src")).toContain("jardin-1.webp");
-    expect(within(dialogo).getByText("1 / 2")).toBeTruthy();
+    expect(within(dialogo).getByText("2 / 3")).toBeTruthy();
     fireEvent.click(within(dialogo).getByRole("button", { name: es.VillaPage.galeria.siguiente }));
     expect(within(dialogo).getByRole("img").getAttribute("src")).toContain("jardin-2.webp");
   });
