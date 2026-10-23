@@ -57,4 +57,16 @@ describe("página /villas/[id]", () => {
     expect(screen.queryByRole("button", { name: es.VillaPage.noche })).toBeNull();
     expect(screen.getByRole("button", { name: "Jardín" })).toBeTruthy();
   });
+
+  it("villa-4 muestra una tarjeta en arco por cada destacada", async () => {
+    const pagina = (await VillaPage(params("villa-4"))) as Provider;
+    const { container } = render(
+      <NextIntlClientProvider locale="es" messages={pagina.props.messages}>
+        {pagina.props.children}
+      </NextIntlClientProvider>,
+    );
+    const nombres = Object.values(es.VillaPage.destacadas.estancias).map((e) => e.nombre);
+    expect(container.querySelectorAll("[data-arco]")).toHaveLength(5);
+    for (const nombre of nombres) expect(screen.getByRole("button", { name: nombre })).toBeTruthy();
+  });
 });
