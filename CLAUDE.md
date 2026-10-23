@@ -4,7 +4,7 @@
 Frontend de la web de alquiler vacacional **Soto Village Marbella**: 4 villas de lujo (villa-1, 3, 4, 5) en Calle Los Lirios, Puerto Banús. Solo frontend: sin backend, base de datos, pagos reales, cookies ni SEO. Demo en local, pero código limpio y modular, apto para producción.
 - Especificación: `docs/SPEC.md` · Plan: `docs/plan.md` · Milestones e issues: `docs/milestones.md` · Experiencia interactiva (fases 2–5): `docs/vision.md`.
 - Repo: https://github.com/sotomarcos24/web_marbella
-- Estado: Fase 1 completa (issues #1–#19 cerrados; M1–M4 completos; pendientes en `docs/pendientes.md`). Siguiente paso: planificar la Fase 2 con `/milestone` (`docs/vision.md` §5). Pletor (MCP) aún sin acceso: solo hace falta en la Fase 3.
+- Estado: siguiente → merge del PR #40 (issue #39); después, planificar la Fase 2 con `/milestone` (`docs/vision.md` §5).
 
 ## Flujo de trabajo
 - Eres el agente principal: coordinas, mantienes el contexto y lanzas subagentes; no delegues decisiones de diseño.
@@ -12,8 +12,12 @@ Frontend de la web de alquiler vacacional **Soto Village Marbella**: 4 villas de
 - Tests primero: los criterios de aceptación se convierten en tests antes de escribir código.
 - Quien escribe el código no lo revisa: la revisión la hace el subagente `qa-reviewer` en contexto limpio.
 - Máximo 3 rondas de corrección por issue; si no pasa, para y explica el bloqueo.
-- Necesitas aprobación del usuario en dos momentos: el desglose en issues y antes de hacer merge.
-- El visto bueno de merge llega con `/ok`: anota el progreso (`docs/milestones.md`, línea Estado de este archivo…), hace merge del PR a main, cierra el issue y borra la rama.
+- Plan mode con aprobación solo en issues L o si te apartas de los criterios aprobados. Orden: tests → código → `/simplify` (solo M y L) → lint/typecheck/test una vez → `qa-reviewer` (recibe esos resultados; se salta en S de solo contenido o docs) → PR.
+- Aprobación del usuario: el desglose en issues (`/milestone`). Con QA en PASS y checks en verde, merge directo. Para y pregunta solo si QA falla 3 veces, si cambias el modelo de datos o si vas a gastar créditos de Pletor. `/ok` fuerza un merge.
+- Progreso: GitHub es la única fuente de verdad. La línea Estado solo indica el siguiente issue; `docs/milestones.md` se actualiza al cerrar cada milestone. Sin commits solo de progreso.
+- Al cerrar un milestone, para y da un resumen de 5 líneas con qué revisar en el navegador.
+- Los documentos no se testean.
+- `AGENTS.md` lo regenera Next: consulta `node_modules/next/dist/docs/` solo cuando uses una API de Next que no conozcas, no en cada issue.
 
 ## Stack y comandos
 Next.js (App Router) + TypeScript estricto + Tailwind · next-intl (es por defecto, en) · Motion + Lenis (scroll con `useScroll` + `position: sticky`; sin GSAP) · Vitest · sharp y ffmpeg para imágenes y fotogramas. Última versión estable de cada librería, salvo TypeScript 6.0 y ESLint 9 (`eslint-config-next` aún no admite TS 7 ni ESLint 10).

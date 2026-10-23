@@ -38,11 +38,4 @@ describe("scaffold", () => {
       expect(() => execFileSync("git", ["check-ignore", "-q", path], { cwd: root }), path).not.toThrow();
     }
   });
-
-  it("README documenta los comandos", () => {
-    const readme = read("README.md");
-    for (const cmd of ["dev", "build", "lint", "typecheck", "test"]) {
-      expect(readme).toContain(`npm run ${cmd}`);
-    }
-  });
 });
