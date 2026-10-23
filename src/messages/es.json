@@ -2,8 +2,11 @@
   "Metadata": {
     "description": "Cuatro villas de lujo en Puerto Banús, Marbella."
   },
-  "Home": {
-    "tagline": "Cuatro villas de lujo en Puerto Banús"
+  "Intro": {
+    "entrar": "Entrar: cruzar el arco",
+    "aerea": "Vista aérea provisional de las cuatro villas",
+    "pista": "Haz clic en el arco o desliza",
+    "lema": "Cuatro villas de lujo en Puerto Banús"
   },
   "LocaleSwitcher": {
     "label": "Idioma",
