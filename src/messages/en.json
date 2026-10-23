@@ -438,5 +438,20 @@
       "alt": "Villa façade"
     },
     "llegadas": "Arrivals recorded: {count}"
+  },
+  "VillaPage": {
+    "nombre": "Villa {numero}",
+    "dia": "View by day",
+    "noche": "View by night",
+    "verTodas": "See all photos",
+    "zonasEtiqueta": "Villa areas",
+    "galeria": {
+      "titulo": "Photo gallery",
+      "cerrar": "Close",
+      "anterior": "Previous photo",
+      "siguiente": "Next photo",
+      "contador": "{actual} / {total}",
+      "alt": "Photo {actual} of {total}"
+    }
   }
 }

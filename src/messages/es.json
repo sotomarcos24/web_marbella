@@ -438,5 +438,20 @@
       "alt": "Fachada de la villa"
     },
     "llegadas": "Llegadas registradas: {count}"
+  },
+  "VillaPage": {
+    "nombre": "Villa {numero}",
+    "dia": "Ver de día",
+    "noche": "Ver de noche",
+    "verTodas": "Ver todas las fotos",
+    "zonasEtiqueta": "Zonas de la villa",
+    "galeria": {
+      "titulo": "Galería de fotos",
+      "cerrar": "Cerrar",
+      "anterior": "Foto anterior",
+      "siguiente": "Foto siguiente",
+      "contador": "{actual} / {total}",
+      "alt": "Foto {actual} de {total}"
+    }
   }
 }
