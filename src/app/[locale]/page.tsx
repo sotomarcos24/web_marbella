@@ -1,15 +1,16 @@
 import { useTranslations } from "next-intl";
+import { Intro } from "@/components/intro/Intro";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
-import { siteConfig } from "@/config/site";
 
 export default function Home() {
-  const t = useTranslations("Home");
+  const t = useTranslations("Intro");
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-6">
-      <h1 className="text-4xl">{siteConfig.name}</h1>
-      <p>{t("tagline")}</p>
-      <LocaleSwitcher />
+    <main>
+      <div className="fixed top-4 right-4 z-10 text-cal mix-blend-difference">
+        <LocaleSwitcher />
+      </div>
+      <Intro textos={{ entrar: t("entrar"), aerea: t("aerea"), pista: t("pista"), lema: t("lema") }} />
     </main>
   );
 }
