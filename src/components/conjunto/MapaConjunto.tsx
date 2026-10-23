@@ -65,7 +65,9 @@ export function MapaConjunto({ imagen, villas, duracion = 2.5 }: MapaConjuntoPro
   }
 
   function alPulsar(villa: FichaVilla) {
-    if (tactil.current && activaAlPulsar.current !== villa.id) {
+    const toque = tactil.current;
+    tactil.current = false; // un Enter posterior no hereda el toque
+    if (toque && activaAlPulsar.current !== villa.id) {
       setActiva(villa.id);
       return;
     }
