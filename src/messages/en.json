@@ -137,6 +137,46 @@
       "ocupados": "Booked ranges"
     }
   },
+  "DevZonas": {
+    "title": "Zones",
+    "intro": "Internal tool to draw polygons over cover images, floor plans, the estate aerial view and the final images of transitions. Click the image to add vertices, close the polygon and drag a vertex to move it (Delete removes it).",
+    "imagen": "Image",
+    "archivo": "Saved to src/content/{archivo}",
+    "tipos": {
+      "portada": "Cover",
+      "plano": "Floor plan",
+      "conjunto": "Estate aerial view",
+      "transicion": "Transition"
+    },
+    "sinImagenes": "No images available.",
+    "lienzo": "Drawing canvas",
+    "vertice": "Vertex {n} of {id}",
+    "cerrar": "Close polygon",
+    "poligonos": "Polygons",
+    "abierto": "open",
+    "borrar": "Delete",
+    "campos": {
+      "id": "Id",
+      "nombre": "Name (translation key)",
+      "accion": "Action",
+      "destino": "Target",
+      "tipo": "Room type",
+      "villa": "Villa"
+    },
+    "acciones": {
+      "galeria": "Gallery",
+      "planta": "Floor"
+    },
+    "sinDestino": "No target",
+    "errores": "Validation errors",
+    "sinErrores": "No errors: the output is valid.",
+    "exportar": "Export JSON",
+    "json": "JSON",
+    "descargar": "Download",
+    "guardar": "Save",
+    "guardado": "Saved to src/content/{archivo}",
+    "errorGuardar": "Could not save."
+  },
   "zonas": {
     "jardin": "Garden",
     "planta-baja": "Ground floor",
