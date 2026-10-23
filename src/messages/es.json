@@ -94,6 +94,49 @@
       "cta": "Entrar"
     }
   },
+  "DevCotizador": {
+    "title": "Cotizador",
+    "intro": "Herramienta interna para probar la calculadora de precios y la disponibilidad.",
+    "form": {
+      "title": "Solicitud",
+      "villa": "Villa",
+      "entrada": "Entrada",
+      "salida": "Salida",
+      "huespedes": "Huéspedes",
+      "mascotas": "Mascotas",
+      "hoy": "Hoy (simulado)",
+      "extras": "Servicios extra",
+      "cantidad": "Cantidad",
+      "adultos": "Adultos",
+      "ninos": "Niños",
+      "compra": "Importe de la compra (€)",
+      "calcular": "Calcular"
+    },
+    "result": {
+      "title": "Resultado",
+      "noches": "Noches",
+      "alojamiento": "Alojamiento",
+      "limpiezaFinal": "Limpieza final",
+      "suplemento": "Suplemento por huésped",
+      "mascotas": "Mascotas",
+      "extras": "Extras",
+      "total": "Total (IVA incluido)",
+      "fianza": "Fianza (preautorización aparte)",
+      "pagos": "Pagos",
+      "cancelacion": "Cancelación gratuita hasta",
+      "avisos": "Avisos",
+      "errores": "Errores",
+      "estimado": "estimado",
+      "aConsultar": "a consultar",
+      "oferta": "Oferta de invierno"
+    },
+    "disponibilidad": {
+      "title": "Disponibilidad",
+      "libre": "Libre en esas fechas",
+      "ocupada": "Ocupada",
+      "ocupados": "Rangos ocupados"
+    }
+  },
   "zonas": {
     "jardin": "Jardín",
     "planta-baja": "Planta baja",

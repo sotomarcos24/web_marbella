@@ -94,6 +94,49 @@
       "cta": "Enter"
     }
   },
+  "DevCotizador": {
+    "title": "Quote tool",
+    "intro": "Internal tool to test the price calculator and availability.",
+    "form": {
+      "title": "Request",
+      "villa": "Villa",
+      "entrada": "Check-in",
+      "salida": "Check-out",
+      "huespedes": "Guests",
+      "mascotas": "Pets",
+      "hoy": "Today (simulated)",
+      "extras": "Extra services",
+      "cantidad": "Quantity",
+      "adultos": "Adults",
+      "ninos": "Children",
+      "compra": "Shopping amount (€)",
+      "calcular": "Calculate"
+    },
+    "result": {
+      "title": "Result",
+      "noches": "Nights",
+      "alojamiento": "Accommodation",
+      "limpiezaFinal": "Final cleaning",
+      "suplemento": "Per-guest supplement",
+      "mascotas": "Pets",
+      "extras": "Extras",
+      "total": "Total (VAT included)",
+      "fianza": "Deposit (separate pre-authorisation)",
+      "pagos": "Payments",
+      "cancelacion": "Free cancellation until",
+      "avisos": "Notices",
+      "errores": "Errors",
+      "estimado": "estimated",
+      "aConsultar": "on request",
+      "oferta": "Winter offer"
+    },
+    "disponibilidad": {
+      "title": "Availability",
+      "libre": "Free on those dates",
+      "ocupada": "Not available",
+      "ocupados": "Booked ranges"
+    }
+  },
   "zonas": {
     "jardin": "Garden",
     "planta-baja": "Ground floor",
