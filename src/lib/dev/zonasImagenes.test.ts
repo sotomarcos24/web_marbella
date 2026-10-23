@@ -2,7 +2,7 @@ import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import { villas } from "@/content/villas";
+import { villasVacias as villas } from "../../../tests/villasVacias";
 import { catalogoZonas } from "@/lib/dev/zonasImagenes";
 import { aEditables } from "@/lib/dev/zonasSalida";
 

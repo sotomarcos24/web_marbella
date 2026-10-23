@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "photos": "node scripts/process-photos.ts",
-    "plans": "node scripts/process-plans.ts"
+    "plans": "node scripts/process-plans.ts",
+    "aerea": "node scripts/aerea-provisional.ts"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
