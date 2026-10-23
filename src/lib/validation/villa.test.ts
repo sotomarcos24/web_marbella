@@ -46,7 +46,7 @@ function villaValida(): Villa {
       { id: "planta-alta", nombre: "plantas.alta", imagenPlano: "/alta.webp", estancias: [estancia("dormitorio-1")] },
     ],
     exteriores: [{ id: "jardin", fotos: [] }],
-    recorrido: [{ id: "t3", transicion: "villa-4-t3", imagenFinal: "/recibidor.webp", titularKey: "recorrido.bienvenida" }],
+    recorrido: [{ id: "t3", transicion: "villa-4-t3", inicio: "/puerta.webp", imagenFinal: "/recibidor.webp", titularKey: "recorrido.bienvenida" }],
     destacadas: ["salon", "dormitorio-1"],
   };
 }
@@ -174,13 +174,14 @@ describe("validarVilla", () => {
     });
 
     it("recorrido con ids únicos", () => {
-      const tramo = { id: "t3", transicion: "villa-4-t3", imagenFinal: "/recibidor.webp" };
+      const tramo = { id: "t3", transicion: "villa-4-t3", inicio: "/puerta.webp", imagenFinal: "/recibidor.webp" };
       expectError(validarVilla({ ...villaValida(), recorrido: [tramo, { ...tramo, transicion: "villa-4-t4" }] }), "t3", "repetido");
     });
 
-    it("recorrido con transición e imagen final no vacías", () => {
-      const errores = validarVilla({ ...villaValida(), recorrido: [{ id: "t3", transicion: "", imagenFinal: " " }] });
+    it("recorrido con transición, inicio e imagen final no vacías", () => {
+      const errores = validarVilla({ ...villaValida(), recorrido: [{ id: "t3", transicion: "", inicio: "", imagenFinal: " " }] });
       expectError(errores, "recorrido[0]", "transicion");
+      expectError(errores, "recorrido[0]", "inicio");
       expectError(errores, "recorrido[0]", "imagenFinal");
     });
 

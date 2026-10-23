@@ -1,7 +1,7 @@
 "use client";
 
 import { animate, motion, useMotionValue, useMotionValueEvent, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { type ReactNode, useRef } from "react";
 import {
   escalaInicio,
   escalaLlegada,
@@ -29,6 +29,10 @@ interface ScrollSequenceProps {
   /** Duración del avance automático, en segundos. */
   duracion?: number;
   onLlegada?: () => void;
+  /** `object-position` de las tres imágenes (fotos verticales: qué banda se ve). */
+  encuadre?: string;
+  /** Capa sobre la escena (titulares), dentro del hijo sticky. */
+  children?: ReactNode;
   /** Reservado para los fotogramas de la Fase 4; sin uso aún. */
   manifiesto?: ManifiestoSecuencia;
 }
@@ -47,6 +51,8 @@ export function ScrollSequence({
   pantallas = 3,
   duracion = 3,
   onLlegada,
+  encuadre,
+  children,
 }: ScrollSequenceProps) {
   const contenedor = useRef<HTMLDivElement>(null);
   const emitida = useRef(false);
@@ -85,9 +91,16 @@ export function ScrollSequence({
       style={{ height: alto ? `${pantallas * 100}dvh` : "100dvh" }}
     >
       <div className="sticky top-0 h-dvh overflow-hidden bg-black">
-        <motion.img src={inicio} alt={alt} className={imagen} style={{ scale: escalaI }} />
-        <motion.img src={llegada} alt="" aria-hidden className={imagen} style={{ scale: escalaL, opacity: opacidadL }} />
-        <motion.img src={llegada} alt="" aria-hidden className={imagen} style={{ opacity: opacidadF }} />
+        <motion.img src={inicio} alt={alt} className={imagen} style={{ objectPosition: encuadre, scale: escalaI }} />
+        <motion.img
+          src={llegada}
+          alt=""
+          aria-hidden
+          className={imagen}
+          style={{ objectPosition: encuadre, scale: escalaL, opacity: opacidadL }}
+        />
+        <motion.img src={llegada} alt="" aria-hidden className={imagen} style={{ objectPosition: encuadre, opacity: opacidadF }} />
+        {children}
         {modo === "clic" && (
           <button
             type="button"

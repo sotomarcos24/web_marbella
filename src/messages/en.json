@@ -453,5 +453,9 @@
       "contador": "{actual} / {total}",
       "alt": "Photo {actual} of {total}"
     }
+  },
+  "recorrido": {
+    "seccion": "Step inside",
+    "bienvenida": "Welcome home"
   }
 }

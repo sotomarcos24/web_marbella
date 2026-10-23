@@ -112,4 +112,19 @@ describe("ScrollSequence", () => {
     const inicio = container.querySelector('img[src="/a.webp"]') as HTMLElement;
     await waitFor(() => expect(inicio.style.transform).toMatch(/scale\(1\.\d+\)/));
   });
+  it("encuadre: aplica object-position a todas las imágenes", () => {
+    const { container } = render(<ScrollSequence {...base} encuadre="50% 55%" />);
+    const imgs = [...container.querySelectorAll("img")];
+    expect(imgs.length).toBeGreaterThan(0);
+    for (const img of imgs) expect(img.style.objectPosition).toBe("50% 55%");
+  });
+
+  it("muestra los hijos sobre la escena (capa sticky)", () => {
+    const { container } = render(
+      <ScrollSequence {...base}>
+        <p>Titular</p>
+      </ScrollSequence>,
+    );
+    expect(container.querySelector(".sticky")!.textContent).toContain("Titular");
+  });
 });

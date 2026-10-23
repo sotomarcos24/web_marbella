@@ -73,9 +73,13 @@ export interface Recorrido {
   id: string;
   /** Id de la transición en `src/content/transiciones.json`. */
   transicion: string;
+  /** Foto real fija de partida (la de llegada del tramo anterior, si lo hay). */
+  inicio: string;
   /** Foto real fija en la que termina la transición. */
   imagenFinal: string;
   titularKey?: string;
+  /** `object-position` de las fotos verticales: la banda que se ve, igual al recorte del vídeo 16:9 de la Fase 3. */
+  encuadre?: string;
 }
 
 /** Fase 2: aérea del conjunto con la parcela de cada villa. */

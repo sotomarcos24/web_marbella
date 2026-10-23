@@ -354,6 +354,8 @@ export const fotos: readonly Foto[] = [
     alt: { es: "Camas individuales unidas con mesillas y láminas botánicas", en: "Twin beds pushed together with bedside tables and botanical prints" } },
   { villa: "villa-4", archivo: "villa4_077.webp", zona: "interior", tipo: "detalle", estanciaSugerida: "pb-triple", confianza: "baja",
     alt: { es: "Lámpara de mesa y planta sobre un escritorio oscuro", en: "Table lamp and plant on a dark desk" } },
+  { villa: "villa-4", archivo: "villa4_078.webp", zona: "exterior", tipo: "fachada", confianza: "alta",
+    alt: { es: "Puerta de entrada de madera con tachuelas bajo el porche", en: "Studded wooden front door under the porch" } },
   { villa: "villa-4", archivo: "villa4_079.webp", zona: "interior", tipo: "detalle", estanciaSugerida: "pa-suite-2", confianza: "baja",
     alt: { es: "Cama con cojines rojos y blancos y colcha gris", en: "Bed with red and white cushions and grey throw" } },
   { villa: "villa-4", archivo: "villa4_080.webp", zona: "interior", tipo: "detalle", confianza: "alta",
