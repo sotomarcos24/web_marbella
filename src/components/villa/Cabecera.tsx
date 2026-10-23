@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Heading } from "@/components/ui/Heading";
 import { useRouter } from "@/i18n/navigation";
 import type { VillaId, Zona } from "@/types/villa";
-import { Galeria } from "./Galeria";
+import { Galeria, type GrupoGaleria } from "./Galeria";
 
 interface CabeceraProps {
   id: VillaId;
@@ -15,8 +15,8 @@ interface CabeceraProps {
   /** Solo si existe con el mismo encuadre que `imagenDia`. */
   imagenNoche?: string;
   zonas: readonly Zona[];
-  /** Fotos por exterior o estancia (clave = `Zona.destino` de las zonas de galería). */
-  fotos: readonly { id: string; fotos: readonly string[] }[];
+  /** Fotos por exterior o estancia (id = `Zona.destino` de las zonas de galería), con su alt ya traducido. */
+  fotos: readonly GrupoGaleria[];
 }
 
 // Cabecera de la página de villa (docs/vision.md §2.3). La página arranca ya en la imagen fija,
@@ -26,18 +26,21 @@ export function Cabecera({ id, imagenDia, imagenNoche, zonas, fotos }: CabeceraP
   const tZonas = useTranslations("zonas");
   const router = useRouter();
   const [noche, setNoche] = useState(false);
-  const [galeria, setGaleria] = useState<readonly string[] | null>(null);
+  const [galeria, setGaleria] = useState<{ grupo?: string } | null>(null);
   const cerrar = useCallback(() => setGaleria(null), []);
 
   const nombreZona = (zona: Zona) => (tZonas.has(zona.id) ? tZonas(zona.id) : zona.nombre);
-  const todas = useMemo(() => [...new Set(fotos.flatMap((grupo) => grupo.fotos))], [fotos]);
+  const grupos = useMemo(
+    () => fotos.map((grupo) => ({ ...grupo, nombre: tZonas.has(grupo.id) ? tZonas(grupo.id) : grupo.nombre })),
+    [fotos, tZonas],
+  );
+  const hayFotos = fotos.some((grupo) => grupo.fotos.length > 0);
 
   function alSeleccionar(zonaId: string) {
     const zona = zonas.find((z) => z.id === zonaId);
     if (!zona) return;
     if (zona.accion === "galeria") {
-      const grupo = fotos.find((g) => g.id === zona.destino)?.fotos ?? [];
-      if (grupo.length > 0) setGaleria(grupo);
+      if (fotos.some((g) => g.id === zona.destino && g.fotos.length > 0)) setGaleria({ grupo: zona.destino });
     } else {
       router.push(`/villas/${id}?planta=${zona.destino}#plano`);
     }
@@ -59,7 +62,7 @@ export function Cabecera({ id, imagenDia, imagenNoche, zonas, fotos }: CabeceraP
         </Heading>
       </div>
       <div className="absolute inset-x-0 bottom-0 flex flex-wrap gap-3 p-6">
-        <Button tone="dark" onClick={() => setGaleria(todas)} disabled={todas.length === 0}>
+        <Button tone="dark" onClick={() => setGaleria({})} disabled={!hayFotos}>
           {t("verTodas")}
         </Button>
         {imagenNoche && (
@@ -68,7 +71,7 @@ export function Cabecera({ id, imagenDia, imagenNoche, zonas, fotos }: CabeceraP
           </Button>
         )}
       </div>
-      {galeria && <Galeria fotos={galeria} onCerrar={cerrar} />}
+      {galeria && <Galeria grupos={grupos} grupoInicial={galeria.grupo} onCerrar={cerrar} />}
     </header>
   );
 }
